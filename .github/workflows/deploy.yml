@@ -4,15 +4,18 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'npm'
@@ -24,7 +27,7 @@ jobs:
         run: npx turbo run build --filter=web --filter=admin
 
       - name: Prepare Deployment Folder
-      - run: |
+        run: |
           mkdir -p final-deploy
           cp -r apps/web/dist/* final-deploy/
 
