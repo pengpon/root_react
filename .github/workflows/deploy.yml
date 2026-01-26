@@ -1,0 +1,38 @@
+name: Deploy Web and Admin to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Web & Admin
+        run: npx turbo run build --filter=web --filter=admin
+
+      - name: Prepare Deployment Folder
+      - run: |
+          mkdir -p final-deploy
+          cp -r apps/web/dist/* final-deploy/
+
+          mkdir -p final-deploy/admin
+          cp -r apps/admin/dist/* final-deploy/admin
+
+      - name: Upload to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: final-deploy
+          branch: gh-pages # 部署到的分支
