@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "prettier": "^3.7.4",
-    "turbo": "^2.7.6",
-    "typescript": "5.9.2"
+    "tailwindcss": "^4.1.18",
+    "turbo": "^2.7.6"
   },
   "engines": {
     "node": ">=18"
@@ -20,5 +20,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18"
+  }
 }
