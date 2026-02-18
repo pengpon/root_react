@@ -16,11 +16,7 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "npm@11.6.2",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "packageManager": "pnpm@8.7.0",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18"
   }
