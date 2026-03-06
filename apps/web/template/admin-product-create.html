@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex h-screen overflow-hidden">
+      <aside class="z-20 flex w-64 shrink-0 flex-col bg-slate-800 text-white shadow-xl">
+        <div class="flex items-center gap-2 border-b border-slate-700 p-6 text-2xl font-bold">
+          <div class="size-12">
+            <img src="../src/assets/logo_white.png" alt="logo" />
+          </div>
+          <span>Admin</span>
+        </div>
+        <nav class="flex-1 space-y-2 overflow-y-auto p-4">
+          <p class="px-4 pb-2 text-xs font-semibold text-slate-500 uppercase">Main Menu</p>
+          <a
+            href="#"
+            class="flex items-center rounded-lg px-4 py-3 text-slate-300 shadow-md transition duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-3 size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+              />
+            </svg>
+            Dashboard
+          </a>
+          <a
+            href="#"
+            class="flex items-center rounded-lg bg-blue-600 px-4 py-3 text-white transition duration-200 hover:bg-slate-700 hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-3 size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+              />
+            </svg>
+            Products
+          </a>
+          <a
+            href="#"
+            class="flex items-center rounded-lg px-4 py-3 text-slate-300 transition duration-200 hover:bg-slate-700 hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-3 size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"
+              />
+            </svg>
+            Coupons
+          </a>
+          <a
+            href="#"
+            class="flex items-center rounded-lg px-4 py-3 text-slate-300 transition duration-200 hover:bg-slate-700 hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-3 size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+              />
+            </svg>
+            Articles
+          </a>
+        </nav>
+      </aside>
+
+      <main class="flex min-w-0 flex-1 flex-col">
+        <header class="z-10 flex h-16 items-center justify-between bg-white px-8 shadow-sm">
+          <div class="flex items-center">
+            <h2 class="text-xl font-semibold text-gray-800">Products</h2>
+          </div>
+
+          <div class="flex items-center space-x-6">
+            <div class="relative">
+              <span class="text-gray-600">Hello, Admin</span>
+            </div>
+            <button
+              class="rounded-lg bg-slate-100 px-2 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-red-50 hover:text-red-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.5 3.75A1.5 1.5 0 0 0 6 5.25v13.5a1.5 1.5 0 0 0 1.5 1.5h6a1.5 1.5 0 0 0 1.5-1.5V15a.75.75 0 0 1 1.5 0v3.75a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3V5.25a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3V9A.75.75 0 0 1 15 9V5.25a1.5 1.5 0 0 0-1.5-1.5h-6Zm10.72 4.72a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 1 1-1.06-1.06l1.72-1.72H9a.75.75 0 0 1 0-1.5h10.94l-1.72-1.72a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="flex-1 overflow-y-auto bg-gray-50 p-8">
+          <div class="mb-8 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <button
+                onclick="history.back()"
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-600 shadow-sm transition hover:bg-gray-100"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="size-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                  />
+                </svg>
+              </button>
+              <div>
+                <nav class="mb-1 flex text-sm text-gray-500">
+                  <a href="#" class="hover:text-blue-600">Products</a>
+                  <span class="mx-2">/</span>
+                  <span class="font-medium text-gray-800">New Product</span>
+                </nav>
+                <h2 class="text-2xl font-bold text-gray-800">Create New Product</h2>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button
+                class="rounded-lg border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                class="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700"
+              >
+                Publish Product
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div class="space-y-8 lg:col-span-2">
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <div class="mb-6 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800">General Information</h3>
+                </div>
+                <div class="space-y-6">
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700">Product Name</label>
+                    <input
+                      type="text"
+                      placeholder="Enter product name"
+                      class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700">Description</label>
+                    <textarea
+                      rows="6"
+                      placeholder="Write something about this product..."
+                      class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <div class="mb-6 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800">Pricing & Inventory</h3>
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700">Origin Price</label>
+                    <div class="relative">
+                      <span class="absolute top-1/2 left-4 -translate-y-1/2 text-gray-400">$</span>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        class="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-8 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700">Sale Price</label>
+                    <div class="relative">
+                      <span class="absolute top-1/2 left-4 -translate-y-1/2 text-gray-400">$</span>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        class="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-8 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700"
+                      >Stock Quantity</label
+                    >
+                    <input
+                      type="number"
+                      placeholder="0"
+                      class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <div class="mb-6 flex items-center justify-between">
+                  <div class="mb-6 flex items-center gap-3">
+                    <div
+                      class="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800">Product Media</h3>
+                  </div>
+                  <span class="text-xs text-gray-400">Main image and gallery photos</span>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
+                  <div class="md:col-span-2 md:row-span-2">
+                    <label
+                      class="mb-2 block text-xs font-semibold tracking-wider text-gray-500 uppercase"
+                      >Cover Image</label
+                    >
+                    <div
+                      class="group relative aspect-square overflow-hidden rounded-2xl border-2 border-dashed border-gray-200 transition hover:border-blue-400 hover:bg-blue-50/30"
+                    >
+                      <div
+                        class="absolute inset-0 flex flex-col items-center justify-center text-gray-400"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="mb-2 size-10 text-blue-500"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 4.5v15m7.5-7.5h-15"
+                          />
+                        </svg>
+                        <span class="text-sm font-semibold">Upload Cover</span>
+                      </div>
+                      <input type="file" class="absolute inset-0 cursor-pointer opacity-0" />
+                    </div>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label
+                      class="mb-2 block text-xs font-semibold tracking-wider text-gray-500 uppercase"
+                      >Gallery Images</label
+                    >
+                    <div class="grid grid-cols-2 gap-4">
+                      <div
+                        class="relative aspect-square overflow-hidden rounded-xl border-2 border-dashed border-gray-200 transition hover:border-blue-400 hover:bg-blue-50/30"
+                      >
+                        <div
+                          class="absolute inset-0 flex flex-col items-center justify-center text-gray-400"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="mb-1 size-6"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 4.5v15m7.5-7.5h-15"
+                            />
+                          </svg>
+                          <span class="text-[10px] font-bold">Add Photo</span>
+                        </div>
+                        <input
+                          type="file"
+                          multiple
+                          class="absolute inset-0 cursor-pointer opacity-0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <div class="mb-6 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800">Status</h3>
+                </div>
+                <div class="space-y-4">
+                  <label
+                    class="group relative flex cursor-pointer items-start rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50 has-checked:border-emerald-500 has-checked:bg-emerald-50/30"
+                  >
+                    <input
+                      type="radio"
+                      name="coupon_status"
+                      value="1"
+                      class="peer sr-only"
+                      checked
+                    />
+                    <div
+                      class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-4 border-gray-300 bg-white transition peer-checked:border-emerald-500 peer-checked:ring-4 peer-checked:ring-emerald-500/20"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-emerald-500 opacity-0 peer-checked:opacity-100"
+                      ></div>
+                    </div>
+                    <div class="ml-3">
+                      <span class="block text-sm font-bold text-gray-900">Active</span>
+                      <span class="mt-1 block text-xs text-gray-500">Visible & Purchasable</span>
+                    </div>
+                  </label>
+
+                  <label
+                    class="group relative flex cursor-pointer items-start rounded-xl border border-gray-200 p-4 transition hover:bg-gray-50 has-checked:border-slate-400 has-checked:bg-slate-50"
+                  >
+                    <input type="radio" name="coupon_status" value="0" class="peer sr-only" />
+                    <div
+                      class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-4 border-gray-300 bg-white transition peer-checked:border-slate-500 peer-checked:ring-4 peer-checked:ring-slate-500/20"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-slate-500 opacity-0 peer-checked:opacity-100"
+                      ></div>
+                    </div>
+                    <div class="ml-3">
+                      <span class="block text-sm font-bold text-gray-900">Inactive</span>
+                      <span class="mt-1 block text-xs text-gray-500">Hidden from store</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <div class="mb-6 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m-15 0a2.25 2.25 0 0 0-1.5 2.122v5.25a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25v-5.25a2.25 2.25 0 0 0-1.5-2.122m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800">Organization</h3>
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700">Category</label>
+                    <select
+                      class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                    >
+                      <option disabled selected>Select category</option>
+                      <option>Fruit</option>
+                      <option>Vegetables</option>
+                      <option>Dairy</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-gray-700">Unit</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. box, kg, piece"
+                      class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-blue-100 bg-blue-50/50 p-8 shadow-sm">
+                <div class="mb-6 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75-2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-gray-800">Quick Tip</h3>
+                </div>
+                <p class="text-sm leading-relaxed text-blue-800">
+                  Make sure to add high-quality images and a detailed description to increase
+                  conversion rates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
