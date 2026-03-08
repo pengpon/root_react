@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Origin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-[#F9F7F2] font-sans text-[#2C3E2D]">
+      <header class="sticky top-0 z-50 w-full bg-white shadow-md">
+        <div
+          class="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10"
+        >
+          <div class="flex flex-1 items-center">
+            <div class="lg:hidden">
+              <button class="group ml-2 p-1 lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2.5"
+                  stroke="currentColor"
+                  class="size-7 text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <ul
+              class="hidden text-sm font-bold tracking-widest text-[#2C3E2D] uppercase lg:flex lg:items-center lg:gap-8"
+            >
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">SHOP</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">BOXES</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex h-full py-4">
+            <a href="/" class="flex h-full items-center">
+              <span class="sr-only">ROOT Concept Store</span>
+              <img
+                class="h-8 w-auto object-contain lg:h-12"
+                src="../src/assets/logo.png"
+                alt="ROOT logo"
+              />
+            </a>
+          </div>
+
+          <div class="flex flex-1 items-center justify-end gap-4 text-[#2C3E2D]">
+            <a href="#" class="group relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6 transform transition-all duration-300 group-hover:scale-110 group-hover:text-[#8C5E3C]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+              <span
+                class="absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110"
+              >
+                3
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="fixed inset-0 z-60 hidden bg-[#2C3E2D]/40 backdrop-blur-sm"></div>
+
+        <div
+          class="fixed top-0 left-0 z-70 h-screen w-75 -translate-x-full bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out"
+        >
+          <div class="flex h-full flex-col">
+            <div class="mb-12 flex items-center justify-between text-[#2C3E2D]">
+              <button class="transition-transform duration-300 hover:rotate-90 focus:outline-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <nav class="flex-1">
+              <ul class="flex flex-col gap-6 text-2xl font-bold text-[#2C3E2D]">
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">SHOP</a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">BOXES</a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <section class="bg-[#FDFCF8] py-24">
+        <div class="container mx-auto px-4">
+          <div class="mb-10 lg:mb-32 text-center">
+            <h3 class="mb-4 text-[10px] font-bold tracking-[0.5em] text-[#8C5E3C] uppercase">
+              Our Heritage
+            </h3>
+            <h1 class="text-5xl font-bold tracking-tighter text-[#2C3E2D] italic md:text-7xl">
+              Growing since 1988.
+            </h1>
+            <div class="mx-auto mt-8 h-px w-24 bg-[#2C3E2D]/20"></div>
+          </div>
+
+          <div class="relative mx-auto max-w-5xl">
+            <div
+              class="absolute top-0 left-1/2 hidden h-full w-px -translate-x-1/2 bg-linear-to-b from-[#2C3E2D]/20 via-[#2C3E2D]/10 to-transparent md:block"
+            ></div>
+
+            <div class="relative mb-10 lg:mb-32 flex flex-col items-center md:flex-row">
+              <div class="flex w-full justify-center md:w-1/2 md:justify-end md:pr-16">
+                <div class="text-center md:text-right">
+                  <span class="text-4xl font-black tracking-tighter text-[#8C5E3C]/10 md:text-6xl"
+                    >1988</span
+                  >
+                  <h3 class="mt-2 text-xl font-bold tracking-tight text-[#2C3E2D]">
+                    The Origin of a Thought
+                  </h3>
+                  <p
+                    class="mt-4 text-sm leading-relaxed font-medium tracking-wider text-gray-500 uppercase md:ml-auto md:max-w-xs"
+                  >
+                    A Quiet Awakening
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-gray-400 md:ml-auto md:max-w-xs">
+                    From family meals and local markets, a curiosity about food origins and everyday
+                    living begins. A simple idea quietly takes root in the rhythm of daily life.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="z-10 my-8 flex h-4 w-4 items-center justify-center rounded-full bg-[#8C5E3C] ring-8 ring-[#FDFCF8] md:my-0"
+              ></div>
+              <div class="hidden w-1/2 md:block"></div>
+            </div>
+
+            <div class="relative mb-10 lg:mb-32 flex flex-col items-center md:flex-row-reverse">
+              <div class="flex w-full justify-center md:w-1/2 md:justify-start md:pl-16">
+                <div class="text-center md:text-left">
+                  <span class="text-4xl font-black tracking-tighter text-[#8C5E3C]/10 md:text-6xl"
+                    >2000</span
+                  >
+                  <h3 class="mt-2 text-xl font-bold tracking-tight text-[#2C3E2D]">
+                    Connecting with the Local
+                  </h3>
+                  <p
+                    class="mt-4 text-sm leading-relaxed font-medium tracking-wider text-gray-500 uppercase md:max-w-xs"
+                  >
+                    Health as a Choice
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-gray-400 md:max-w-xs">
+                    A growing awareness of how food shapes everyday life, turning health into a
+                    daily choice. Building connections with local farmers and market vendors to
+                    understand the true value of freshness.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="z-10 my-8 flex h-4 w-4 items-center justify-center rounded-full bg-[#2C3E2D] ring-8 ring-[#FDFCF8] md:my-0"
+              ></div>
+              <div class="hidden w-1/2 md:block"></div>
+            </div>
+
+            <div class="relative mb-10 lg:mb-32 flex flex-col items-center md:flex-row">
+              <div class="flex w-full justify-center md:w-1/2 md:justify-end md:pr-16">
+                <div class="text-center md:text-right">
+                  <span class="text-4xl font-black tracking-tighter text-[#8C5E3C]/10 md:text-6xl"
+                    >2010</span
+                  >
+                  <h3 class="mt-2 text-xl font-bold tracking-tight text-[#2C3E2D]">
+                    A Return to Whole Foods
+                  </h3>
+                  <p
+                    class="mt-4 text-sm leading-relaxed font-medium tracking-wider text-gray-500 uppercase md:ml-auto md:max-w-xs"
+                  >
+                    Simplicity Redefined
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-gray-400 md:ml-auto md:max-w-xs">
+                    Committing to whole foods and simple eating. Collaborating with local cafés and
+                    light-meal spots to promote natural, less processed choices that are closer to
+                    the earth.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="z-10 my-8 flex h-4 w-4 items-center justify-center rounded-full bg-[#8C5E3C] ring-8 ring-[#FDFCF8] md:my-0"
+              ></div>
+              <div class="hidden w-1/2 md:block"></div>
+            </div>
+
+            <div class="relative mb-10 lg:mb-32 flex flex-col items-center">
+              <div class="z-20 rounded-[2.5rem] bg-[#2C3E2D] px-16 py-12 text-center shadow-2xl">
+                <span class="text-[10px] font-bold tracking-[0.5em] text-[#F3EFDF]/50 uppercase"
+                  >The Milestone</span
+                >
+                <h2 class="mt-2 text-5xl font-black tracking-tighter text-[#F3EFDF]">2017</h2>
+                <h3 class="mt-4 text-xl font-bold tracking-[0.2em] text-white uppercase">
+                  root takes shape
+                </h3>
+                <div class="mx-auto my-6 h-px w-12 bg-[#F3EFDF]/20"></div>
+                <p class="mt-4 max-w-xs text-sm leading-relaxed text-[#F3EFDF]/80">
+                  Root officially emerges as a lifestyle brand focused on balanced eating and
+                  thoughtfully curated essentials for modern living.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative mb-10 lg:mb-32 flex flex-col items-center md:flex-row-reverse">
+              <div class="flex w-full justify-center md:w-1/2 md:justify-start md:pl-16">
+                <div class="text-center md:text-left">
+                  <div
+                    class="mb-4 inline-block rounded-full border border-[#8C5E3C] px-4 py-1 text-[10px] font-bold tracking-[0.2em] text-[#8C5E3C] uppercase"
+                  >
+                    Current Chapter
+                  </div>
+                  <span
+                    class="block text-5xl font-black tracking-tighter text-[#2C3E2D] md:text-7xl"
+                    >2026</span
+                  >
+                  <h3 class="mt-2 text-2xl font-bold text-[#2C3E2D]">The Digital Harvest</h3>
+                  <p class="mt-4 text-sm leading-relaxed text-gray-500 md:max-w-xs">
+                    The official root website launches, offering curated fruits, vegetables, and
+                    lifestyle items—bringing the balance of nature into your everyday routine.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="z-10 my-8 flex h-6 w-6 items-center justify-center rounded-full bg-[#8C5E3C] ring-8 ring-[#FDFCF8] md:my-0"
+              >
+                <div class="h-2 w-2 animate-ping rounded-full bg-white"></div>
+              </div>
+              <div class="hidden w-1/2 md:block"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="bg-[#2C3E2D] py-12 text-white/90 md:py-16">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-12">
+            <div class="col-span-2 md:col-span-1">
+              <h2 class="mb-4 text-2xl font-bold tracking-tighter text-white">ROOT</h2>
+              <p class="mb-6 hidden text-sm leading-relaxed text-white/60 italic md:block">
+                Eat Real, Live Rooted.<br />
+                Honoring the Earth’s generosity through whole, real food.
+              </p>
+              <p class="mb-4 text-xs text-white/50 italic md:hidden">Eat Real, Live Rooted.</p>
+
+              <div class="flex gap-4 text-sm">
+                <a href="#" class="transition-colors hover:text-[#8C5E3C]">Instagram</a>
+                <a href="#" class="transition-colors hover:text-[#8C5E3C]">Facebook</a>
+              </div>
+            </div>
+
+            <div class="col-span-1">
+              <h4
+                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
+              >
+                Collections
+              </h4>
+              <ul class="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
+                    <span class="hidden md:inline">Curated </span>Bundles
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
+                    <span class="hidden text-white/40 md:inline">Earth's </span>Greens
+                  </a>
+                </li>
+                <li class="hidden md:block">
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Seasonal Fruits</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
+                    <span class="md:hidden">Pins</span>
+                    <span class="hidden md:inline">Little Harvests</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-1">
+              <h4
+                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
+              >
+                About
+              </h4>
+              <ul class="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Story</a
+                  >
+                </li>
+                <li class="hidden md:block">
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Traceability</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Journal</a
+                  >
+                </li>
+                <li class="hidden md:block">
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Sustainability</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-2 mt-4 md:col-span-1 md:mt-0">
+              <h4
+                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
+              >
+                Stay Rooted
+              </h4>
+              <p class="mb-4 hidden text-sm text-white/60 md:block">
+                Join our newsletter for seasonal harvest updates.
+              </p>
+              <div class="flex max-w-sm md:max-w-none">
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  class="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-[#8C5E3C] focus:outline-none"
+                />
+                <button
+                  class="rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
+                >
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-[10px] text-white/40 md:flex-row md:text-xs"
+          >
+            <p>
+              © 2026 ROOT Concept Store.
+              <span class="hidden md:inline">All rights reserved.</span>
+            </p>
+            <div class="flex gap-6 md:gap-8">
+              <a href="#" class="transition-colors hover:text-white">Privacy Policy</a>
+              <a href="#" class="transition-colors hover:text-white">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
