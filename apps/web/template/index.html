@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Index</title>
+    <style>
+      @keyframes scrolldown {
+        0% {
+          transform: translateY(-100%);
+        }
+        70% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+
+      .animate-scrolldown {
+        animation: scrolldown 2.5s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+      }
+
+      @keyframes scroll-dot {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -4px);
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, 16px);
+        }
+      }
+      .animate-scroll-dot {
+        animation: scroll-dot 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+    </style>
   </head>
   <body>
     <div class="bg-[#F9F7F2] font-sans text-[#2C3E2D]">
@@ -142,30 +176,60 @@
         <div class="absolute inset-0 z-0">
           <img
             src="../src/assets/bright-oranges-cling-to-healthy-green-branches-of-orchard.jpg"
-            alt="Hero"
             class="h-full w-full object-cover opacity-80"
           />
           <div class="absolute inset-0 bg-black/10"></div>
         </div>
+
         <div class="relative z-10 px-4 text-center">
           <div class="mb-8 flex items-center justify-center gap-4">
             <div class="h-px w-8 bg-[#F3EFDF]/40"></div>
-            <span class="text-xs font-bold tracking-[0.3em] text-[#F3EFDF] uppercase md:text-sm">
-              Eat Real, Live Rooted
-            </span>
+            <span class="text-xs font-bold tracking-[0.3em] text-[#F3EFDF] uppercase"
+              >Eat Real, Live Rooted</span
+            >
             <div class="h-px w-8 bg-[#F3EFDF]/40"></div>
           </div>
 
-          <p
-            class="mb-8 text-6xl leading-[0.9] font-extrabold tracking-tighter text-white md:text-8xl"
+          <h1
+            class="mb-10 text-6xl leading-[0.9] font-extrabold tracking-tighter text-white md:text-8xl"
           >
             Nature's Purest Gift.
-          </p>
+          </h1>
+
           <button
-            class="rounded-full bg-[#2C3E2D] px-10 py-3 font-bold text-[#F3EFDF] transition-all duration-300 hover:bg-[#1a261b]"
+            class="group mx-auto flex items-center gap-3 rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] transition-all hover:bg-[#1a261b] hover:shadow-2xl active:scale-95"
           >
-            RECEIVE THE GIFT
+            <span>RECEIVE THE GIFT</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="size-5 transition-transform group-hover:rotate-12"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+              />
+            </svg>
           </button>
+        </div>
+        <div
+          class="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3"
+        >
+          <span
+            class="text-[9px] font-extrabold tracking-[0.5em] text-white/70 uppercase drop-shadow-md"
+          >
+            Scroll
+          </span>
+
+          <div class="relative h-9 w-5 rounded-full border-2 border-white/30 backdrop-blur-[2px]">
+            <div
+              class="animate-scroll-dot absolute top-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white"
+            ></div>
+          </div>
         </div>
       </section>
 
@@ -247,94 +311,305 @@
           </div>
         </div>
       </section>
-
-      <section class="bg-[#2C3E2D] py-16 text-white">
-        <div class="container mx-auto flex flex-col items-center justify-between px-4 md:flex-row">
-          <div class="mb-8 md:mb-0">
-            <span class="text-sm font-bold tracking-widest text-[#8C5E3C] uppercase">
-              Limited Harvest
-            </span>
-            <h2 class="mt-2 text-3xl font-bold">Organic Heirloom Roots</h2>
-            <p class="mt-2 text-white/70">
-              Seasonal Offer: 20% OFF. Pure flavor, captured at its peak.
+      <section class="relative overflow-hidden bg-[#2C3E2D] py-16 text-white">
+        <div class="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/5 blur-3xl"></div>
+        <div
+          class="relative z-10 container mx-auto flex flex-col items-center justify-between px-6 md:flex-row"
+        >
+          <div class="mb-10 text-center md:mb-0 md:text-left">
+            <div class="flex items-center gap-2">
+              <span class="h-px w-6 bg-[#8C5E3C]"></span>
+              <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase"
+                >Limited Harvest</span
+              >
+            </div>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+              Organic Heirloom Roots
+            </h2>
+            <p class="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
+              Seasonal Offer: <span class="text-lg font-bold text-white">20% OFF</span>. <br />
+              Experience pure flavor, captured exactly at its peak.
             </p>
           </div>
-          <div class="flex gap-4">
-            <div class="min-w-20 rounded-lg bg-white/10 p-4 text-center">
-              <span class="block font-mono text-3xl">12</span>
-              <span class="text-xs uppercase opacity-60">Hours</span>
+
+          <div class="flex flex-col items-center gap-8 md:items-end">
+            <div class="flex gap-4">
+              <div
+                class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md"
+              >
+                <span class="block font-mono text-2xl font-bold">12</span>
+                <span class="text-[9px] tracking-widest uppercase opacity-50">Hours</span>
+              </div>
+              <div
+                class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md"
+              >
+                <span class="block font-mono text-2xl font-bold">45</span>
+                <span class="text-[9px] tracking-widest uppercase opacity-50">Mins</span>
+              </div>
+              <div
+                class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md"
+              >
+                <span class="block font-mono text-2xl font-bold">22</span>
+                <span class="text-[9px] tracking-widest uppercase opacity-50">Secs</span>
+              </div>
             </div>
-            <div class="min-w-20 rounded-lg bg-white/10 p-4 text-center">
-              <span class="block font-mono text-3xl">45</span>
-              <span class="text-xs uppercase opacity-60">Mins</span>
+
+            <button
+              class="group flex items-center gap-3 rounded-full bg-[#8C5E3C] px-10 py-4 text-sm font-bold text-[#F3EFDF] transition-all hover:bg-[#a6724d] hover:shadow-xl active:scale-95"
+            >
+              SHOP THE HARVEST
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="size-4 transition-transform group-hover:translate-x-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="bg-white py-20">
+        <div class="container mx-auto px-4">
+          <div class="mb-10 flex items-end justify-between">
+            <h2 class="text-secondary text-3xl font-bold tracking-tight md:text-4xl">
+              Shop the Collection
+            </h2>
+            <p class="hidden text-(--color-content-muted) italic md:block">
+              Handpicked from the earth, just for you.
+            </p>
+          </div>
+
+          <div class="grid h-auto grid-cols-1 gap-6 md:h-162.5 md:grid-cols-3 md:grid-rows-2">
+            <div
+              class="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
+            >
+              <img
+                src="../src/assets/fruit bundle-1.jpg"
+                alt="Curated Bundles"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="from-secondary/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10"
+              >
+                <div>
+                  <span
+                    class="mb-2 block text-xs font-bold tracking-widest text-(--color-brand-accent) uppercase"
+                    >Value Pack</span
+                  >
+                  <h3 class="text-3xl font-bold text-white md:text-4xl">Curated Bundles</h3>
+                </div>
+              </div>
             </div>
-            <div class="min-w-20 rounded-lg bg-white/10 p-4 text-center">
-              <span class="block font-mono text-3xl">22</span>
-              <span class="text-xs uppercase opacity-60">Secs</span>
+
+            <div
+              class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
+            >
+              <img
+                src="../src/assets/broccoli-pieces-on-green-surface.jpg"
+                alt="Vegetables"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40"
+              >
+                <h3 class="text-xl font-bold tracking-wide text-white uppercase">Greens</h3>
+              </div>
+            </div>
+
+            <div
+              class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
+            >
+              <img
+                src="../src/assets/photo-1624821588855-a3ffb0b050ff.jpg"
+                alt="Fruits"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40"
+              >
+                <h3 class="text-xl font-bold tracking-wide text-white uppercase">Fruits</h3>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="container mx-auto px-4 py-20">
-        <div class="mb-10 flex items-end justify-between">
-          <h2 class="text-secondary text-3xl font-bold tracking-tight md:text-4xl">
-            Shop the Collection
-          </h2>
-          <p class="hidden text-(--color-content-muted) italic md:block">
-            Handpicked from the earth, just for you.
-          </p>
-        </div>
-
-        <div class="grid h-auto grid-cols-1 gap-6 md:h-162.5 md:grid-cols-3 md:grid-rows-2">
-          <div
-            class="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
-          >
-            <img
-              src="../src/assets/fruit bundle-1.jpg"
-              alt="Curated Bundles"
-              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div
-              class="from-secondary/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10"
-            >
-              <div>
-                <span
-                  class="mb-2 block text-xs font-bold tracking-widest text-(--color-brand-accent) uppercase"
-                  >Value Pack</span
+      <section class="bg-[#F9F7F2] py-20">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 flex items-end justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="h-px w-6 bg-[#8C5E3C]"></span>
+                <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase"
+                  >Fresh from the Soil</span
                 >
-                <h3 class="text-3xl font-bold text-white md:text-4xl">Curated Bundles</h3>
+              </div>
+
+              <h2 class="mt-2 text-3xl font-bold tracking-tight text-[#2C3E2D] md:text-4xl">
+                Seasonal Favorites
+              </h2>
+            </div>
+            <a
+              href="#"
+              class="group flex items-center gap-2 text-sm font-bold text-[#2C3E2D] transition-colors hover:text-[#8C5E3C]"
+            >
+              SHOP ALL PRODUCTS
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="size-4 transition-transform group-hover:translate-x-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-10">
+            <div class="group cursor-pointer">
+              <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
+                <span
+                  class="absolute top-3 left-3 z-10 rounded-full bg-[#8C5E3C] px-3 py-1 text-[10px] font-bold text-white uppercase"
+                  >New</span
+                >
+                <div class="aspect-square overflow-hidden">
+                  <img
+                    src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909664377.jpg"
+                    alt="Product Name"
+                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div
+                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
+                >
+                  <button
+                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
+                  >
+                    ADD TO CART
+                  </button>
+                </div>
+              </div>
+              <div class="px-1">
+                <h3
+                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                >
+                  Seasonal Fresh Broccoli
+                </h3>
+                <div class="mt-1 flex items-center justify-between">
+                  <p class="text-sm font-medium text-gray-400 italic">500g</p>
+                  <p class="font-bold text-[#2C3E2D]">$80</p>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="group cursor-pointer">
+              <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
+                <span
+                  class="absolute top-4 left-4 z-10 rounded-full bg-amber-600 px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase"
+                  >Top</span
+                >
 
-          <div
-            class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
-          >
-            <img
-              src="../src/assets/broccoli-pieces-on-green-surface.jpg"
-              alt="Vegetables"
-              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40"
-            >
-              <h3 class="text-xl font-bold tracking-wide text-white uppercase">Greens</h3>
+                <img
+                  src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1767868606069.jpg"
+                  alt="Product Name"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
+                >
+                  <button
+                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
+                  >
+                    ADD TO CART
+                  </button>
+                </div>
+              </div>
+              <div class="px-1">
+                <h3
+                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                >
+                  Seasonal Fresh Broccoli
+                </h3>
+                <div class="mt-1 flex items-center justify-between">
+                  <p class="text-sm font-medium text-gray-400 italic">500g</p>
+                  <p class="font-bold text-[#2C3E2D]">$80</p>
+                </div>
+              </div>
             </div>
-          </div>
+            <div class="group cursor-pointer">
+              <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
+                <span
+                  class="absolute top-4 left-4 z-10 rounded-full bg-[#2C3E2D] px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase"
+                  >Limited</span
+                >
 
-          <div
-            class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
-          >
-            <img
-              src="../src/assets/photo-1624821588855-a3ffb0b050ff.jpg"
-              alt="Fruits"
-              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40"
-            >
-              <h3 class="text-xl font-bold tracking-wide text-white uppercase">Fruits</h3>
+                <img
+                  src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909464300.jpg"
+                  alt="Product Name"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
+                >
+                  <button
+                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
+                  >
+                    ADD TO CART
+                  </button>
+                </div>
+              </div>
+              <div class="px-1">
+                <h3
+                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                >
+                  Seasonal Fresh Broccoli
+                </h3>
+                <div class="mt-1 flex items-center justify-between">
+                  <p class="text-sm font-medium text-gray-400 italic">500g</p>
+                  <p class="font-bold text-[#2C3E2D]">$80</p>
+                </div>
+              </div>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
+                <img
+                  src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1767869186804.jpg"
+                  alt="Product Name"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
+                >
+                  <button
+                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
+                  >
+                    ADD TO CART
+                  </button>
+                </div>
+              </div>
+              <div class="px-1">
+                <h3
+                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                >
+                  Seasonal Fresh Broccoli
+                </h3>
+                <div class="mt-1 flex items-center justify-between">
+                  <p class="text-sm font-medium text-gray-400 italic">500g</p>
+                  <p class="font-bold text-[#2C3E2D]">$80</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -342,12 +617,38 @@
       <section class="bg-white py-20">
         <div class="container mx-auto px-4">
           <div class="mb-10 flex items-end justify-between">
-            <h2 class="text-secondary text-3xl font-bold">Root Journal</h2>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="h-px w-6 bg-[#8C5E3C]"></span>
+                <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase"
+                  >Thoughts & Perspectives</span
+                >
+              </div>
+              <h2 class="mt-2 text-3xl font-bold tracking-tight text-[#2C3E2D] md:text-4xl">
+                Root Journal
+              </h2>
+            </div>
+
             <a
               href="#"
-              class="border-b-2 border-[#8C5E3C] font-bold text-[#8C5E3C] transition-colors hover:border-(--color-brand-primary) hover:text-(--color-brand-primary)"
-              >View All</a
+              class="group flex items-center gap-2 text-sm font-bold text-[#2C3E2D] uppercase transition-colors hover:text-[#8C5E3C]"
             >
+              view all articles
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="size-4 transition-transform group-hover:translate-x-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
           </div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div class="group cursor-pointer">
@@ -406,49 +707,77 @@
           </div>
         </div>
       </section>
-
-      <section class="container mx-auto px-4 py-20">
+      <section id="coupon-section" class="container mx-auto scroll-mt-20 px-4 py-32">
         <div
-          class="relative flex flex-col items-center justify-between overflow-hidden rounded-2xl border-2 border-[#2C3E2D]/5 bg-[#F3EFDF] p-8 shadow-lg md:flex-row md:p-12"
+          class="relative flex flex-col items-center justify-around overflow-hidden rounded-4xl border-2 border-[#2C3E2D]/5 bg-[#F3EFDF] p-10 shadow-2xl md:flex-row md:p-16"
         >
           <div
-            class="absolute top-1/2 left-0 -ml-1 hidden h-12 w-6 -translate-y-1/2 rounded-r-full border-y-2 border-r-2 border-[#2C3E2D]/5 bg-white md:block"
+            class="absolute top-1/2 left-0 -ml-4 hidden h-16 w-8 -translate-y-1/2 rounded-r-full border-y-2 border-r-2 border-[#2C3E2D]/10 bg-white md:block"
           ></div>
-
           <div
-            class="absolute top-1/2 right-0 -mr-1 hidden h-12 w-6 -translate-y-1/2 rounded-l-full border-y-2 border-l-2 border-[#2C3E2D]/5 bg-white md:block"
+            class="absolute top-1/2 right-0 -mr-4 hidden h-16 w-8 -translate-y-1/2 rounded-l-full border-y-2 border-l-2 border-[#2C3E2D]/10 bg-white md:block"
           ></div>
 
-          <div class="mb-8 text-center md:mb-0 md:pr-10 md:text-left">
+          <div class="relative z-10 mb-10 text-center md:mb-0 md:max-w-md md:text-left">
             <div
-              class="mb-3 inline-block rounded bg-[#2C3E2D] px-3 py-1 text-[10px] font-bold tracking-widest text-[#F3EFDF] uppercase"
+              class="mb-4 inline-flex items-center gap-2 rounded-full bg-[#8C5E3C]/10 px-4 py-1 text-[10px] font-bold tracking-[0.2em] text-[#8C5E3C] uppercase"
             >
-              Special Offer
-            </div>
-            <h2 class="text-3xl font-bold tracking-tight text-[#2C3E2D]">Welcome Gift</h2>
-            <p class="mt-2 text-sm text-gray-600 md:text-base">
-              First time here? Use code
-              <span
-                class="mx-1 rounded border border-[#8C5E3C]/20 bg-white px-3 py-1 font-mono font-bold text-[#8C5E3C] shadow-sm"
-              >
-                ROOT10
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8C5E3C] opacity-75"
+                ></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-[#8C5E3C]"></span>
               </span>
-              for your discount.
+              Exclusive Welcome Gift
+            </div>
+
+            <h2 class="text-4xl font-bold tracking-tight text-[#2C3E2D] md:text-5xl">
+              A small taste of <span class="text-[#8C5E3C] italic">home.</span>
+            </h2>
+
+            <p class="mt-6 text-sm leading-relaxed text-gray-600 md:text-base">
+              We believe the purest flavors are meant to be shared. As a part of our community,
+              enjoy <span class="font-bold text-[#2C3E2D]">10% off</span> your first harvest.
             </p>
+
+            <div class="mt-8 hidden items-center gap-3 opacity-40 md:flex">
+              <div
+                class="flex h-14 w-14 rotate-12 items-center justify-center rounded-full border-2 border-dashed border-[#2C3E2D] text-[8px] font-bold"
+              >
+                ROOTED<br />EST. 2024
+              </div>
+              <p class="text-[10px] tracking-widest uppercase">Verified Origin</p>
+            </div>
           </div>
 
           <div
-            class="mx-10 hidden h-24 border-l-2 border-dashed border-[#2C3E2D]/20 md:block"
+            class="mx-12 hidden h-40 border-l-2 border-dashed border-[#2C3E2D]/10 md:block"
           ></div>
-          <div class="my-6 w-full border-t-2 border-dashed border-[#2C3E2D]/20 md:hidden"></div>
+          <div class="my-8 w-full border-t-2 border-dashed border-[#2C3E2D]/10 md:hidden"></div>
 
           <div class="flex flex-col items-center">
+            <div class="mb-6 text-center">
+              <span class="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase"
+                >Your Personal Code</span
+              >
+              <div class="mt-2 font-mono text-3xl font-black tracking-tighter text-[#2C3E2D]">
+                ROOT10
+              </div>
+            </div>
+
             <button
               onclick="
+                const btn = this;
                 navigator.clipboard.writeText('ROOT10');
-                alert('Code Copied!');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span>COPIED!</span>';
+                btn.classList.replace('bg-[#2C3E2D]', 'bg-[#8C5E3C]');
+                setTimeout(() => {
+                  btn.innerHTML = originalText;
+                  btn.classList.replace('bg-[#8C5E3C]', 'bg-[#2C3E2D]');
+                }, 2000);
               "
-              class="flex items-center gap-3 rounded-xl bg-[#2C3E2D] px-10 py-4 font-bold whitespace-nowrap text-white transition-all hover:-translate-y-1 hover:shadow-2xl active:scale-95"
+              class="group relative flex items-center gap-3 rounded-full bg-[#2C3E2D] px-12 py-5 font-bold text-white transition-all hover:shadow-2xl active:scale-95"
             >
               <span>COPY CODE</span>
               <svg
@@ -466,8 +795,9 @@
                 />
               </svg>
             </button>
-            <p class="mt-3 text-[10px] font-medium tracking-wider text-gray-400 uppercase">
-              Limited time only
+
+            <p class="mt-4 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
+              * Valid for first order only
             </p>
           </div>
         </div>
