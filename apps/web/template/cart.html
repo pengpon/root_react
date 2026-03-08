@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+  <body class="bg-[#F9F7F2] font-sans text-[#2C3E2D]">
+    <header class="sticky top-0 z-40 w-full bg-white shadow-sm">
+      <div
+        class="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10"
+      >
+        <div class="flex flex-1 items-center">
+          <button class="group mr-4 p-1 lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="size-7 text-[#2C3E2D]"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
+              />
+            </svg>
+          </button>
+
+          <ul
+            class="hidden text-sm font-bold tracking-widest text-[#2C3E2D] uppercase lg:flex lg:items-center lg:gap-8"
+          >
+            <li class="group relative">
+              <a href="#" class="transition-colors hover:text-[#8C5E3C]">SHOP</a>
+            </li>
+            <li class="group relative">
+              <a href="#" class="transition-colors hover:text-[#8C5E3C]">BOXES</a>
+            </li>
+            <li class="group relative">
+              <a href="#" class="transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
+            </li>
+            <li class="group relative">
+              <a href="#" class="transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex h-full py-4">
+          <a href="/" class="flex h-full items-center">
+            <img
+              class="h-8 w-auto object-contain lg:h-12"
+              src="../src/assets/logo.png"
+              alt="ROOT logo"
+            />
+          </a>
+        </div>
+
+        <div class="flex flex-1 items-center justify-end gap-4">
+          <button id="openCart" class="group relative outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="size-6 transition-transform group-hover:scale-110 group-hover:text-[#8C5E3C]"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+              />
+            </svg>
+            <span
+              class="absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF]"
+              >3</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-20 text-center">
+      <h2 class="text-2xl text-gray-400 italic">Explore our harvest above.</h2>
+    </main>
+
+    <div id="cartModal" class="invisible fixed inset-0 z-60 transition-all duration-300">
+      <div
+        id="cartOverlay"
+        class="absolute inset-0 bg-[#2C3E2D]/40 opacity-0 backdrop-blur-sm transition-opacity duration-300"
+      ></div>
+
+      <div
+        id="cartDrawer"
+        class="absolute inset-y-0 right-0 w-full max-w-md translate-x-full bg-[#FDFCF8] shadow-2xl transition-transform duration-500 ease-in-out md:w-112.5"
+      >
+        <div class="flex h-full flex-col">
+          <div class="flex items-center justify-between border-b border-[#2C3E2D]/5 p-8">
+            <h2 class="text-2xl font-bold tracking-tighter text-[#2C3E2D]">Your Bag.</h2>
+            <button id="closeCart" class="group p-2 transition-transform hover:rotate-90">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6 text-gray-400 group-hover:text-[#2C3E2D]"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="no-scrollbar flex-1 overflow-y-auto p-8">
+            <div class="space-y-10">
+              <div class="flex gap-5">
+                <div class="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
+                  <img
+                    src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909664377.jpg"
+                    class="h-full w-full object-cover"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col justify-between py-1">
+                  <div class="flex justify-between">
+                    <div>
+                      <h4 class="text-sm font-bold text-[#2C3E2D]">Seasonal Fresh Broccoli</h4>
+                      <p class="mt-1 text-[10px] tracking-wider text-gray-400 uppercase italic">
+                        500g
+                      </p>
+                    </div>
+                    <button class="text-gray-300 transition-colors hover:text-red-400">
+                      <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div
+                      class="flex items-center rounded-lg border border-[#2C3E2D]/10 bg-white px-2 py-1"
+                    >
+                      <button class="px-2 text-xs font-bold text-[#2C3E2D]">-</button>
+                      <span class="px-2 text-xs font-bold">1</span>
+                      <button class="px-2 text-xs font-bold text-[#2C3E2D]">+</button>
+                    </div>
+                    <span class="text-sm font-bold text-[#2C3E2D]">$80</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex gap-5">
+                <div class="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
+                  <img
+                    src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1767868606069.jpg"
+                    class="h-full w-full object-cover"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col justify-between py-1">
+                  <div class="flex justify-between">
+                    <div>
+                      <h4 class="text-sm font-bold text-[#2C3E2D]">Organic Tomatoes</h4>
+                      <p class="mt-1 text-[10px] tracking-wider text-gray-400 uppercase italic">
+                        300g
+                      </p>
+                    </div>
+                    <button class="text-gray-300 transition-colors hover:text-red-400">
+                      <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div
+                      class="flex items-center rounded-lg border border-[#2C3E2D]/10 bg-white px-2 py-1"
+                    >
+                      <button class="px-2 text-xs font-bold text-[#2C3E2D]">-</button>
+                      <span class="px-2 text-xs font-bold">2</span>
+                      <button class="px-2 text-xs font-bold text-[#2C3E2D]">+</button>
+                    </div>
+                    <span class="text-sm font-bold text-[#2C3E2D]">$120</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-[#2C3E2D]/5 bg-white p-8">
+            <div class="mb-2 flex justify-between text-sm">
+              <span class="font-medium text-gray-400">Subtotal</span>
+              <span class="font-bold text-[#2C3E2D]">$200.00</span>
+            </div>
+            <p class="mb-8 text-[10px] tracking-[0.2em] text-gray-400 uppercase">
+              Shipping and taxes calculated at checkout
+            </p>
+
+            <button
+              class="w-full rounded-2xl bg-[#2C3E2D] py-5 text-xs font-bold tracking-[0.3em] text-white uppercase shadow-xl transition-all hover:bg-[#1a261b] active:scale-95"
+            >
+              Check out
+            </button>
+
+            <button
+              class="mt-6 w-full text-center text-[10px] font-bold tracking-widest text-gray-400 uppercase underline underline-offset-8 transition-colors hover:text-[#2C3E2D]"
+            >
+              Or continue shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cartModal = document.getElementById('cartModal');
+      const cartOverlay = document.getElementById('cartOverlay');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const openCart = document.getElementById('openCart');
+      const closeCart = document.getElementById('closeCart');
+
+      function toggleCart(isOpen) {
+        if (isOpen) {
+          cartModal.classList.remove('invisible');
+          cartOverlay.classList.replace('opacity-0', 'opacity-100');
+          cartDrawer.classList.replace('translate-x-full', 'translate-x-0');
+          document.body.style.overflow = 'hidden'; // 防止背景捲動
+        } else {
+          cartOverlay.classList.replace('opacity-100', 'opacity-0');
+          cartDrawer.classList.replace('translate-x-0', 'translate-x-full');
+          setTimeout(() => {
+            cartModal.classList.add('invisible');
+            document.body.style.overflow = '';
+          }, 500); // 等待動畫結束
+        }
+      }
+
+      openCart.addEventListener('click', () => toggleCart(true));
+      closeCart.addEventListener('click', () => toggleCart(false));
+      cartOverlay.addEventListener('click', () => toggleCart(false));
+    </script>
+  </body>
+</html>

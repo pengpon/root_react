@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-[#F9F7F2] font-sans text-[#2C3E2D]">
+      <header class="sticky top-0 z-50 w-full bg-white shadow-md">
+        <div
+          class="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10"
+        >
+          <div class="flex flex-1 items-center">
+            <div class="lg:hidden">
+              <button class="group ml-2 p-1 lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2.5"
+                  stroke="currentColor"
+                  class="size-7 text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <ul
+              class="hidden text-sm font-bold tracking-widest text-[#2C3E2D] uppercase lg:flex lg:items-center lg:gap-8"
+            >
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">SHOP</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">BOXES</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
+                <span
+                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex h-full py-4">
+            <a href="/" class="flex h-full items-center">
+              <span class="sr-only">ROOT Concept Store</span>
+              <img
+                class="h-8 w-auto object-contain lg:h-12"
+                src="../src/assets/logo.png"
+                alt="ROOT logo"
+              />
+            </a>
+          </div>
+
+          <div class="flex flex-1 items-center justify-end gap-4 text-[#2C3E2D]">
+            <a href="#" class="group relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6 transform transition-all duration-300 group-hover:scale-110 group-hover:text-[#8C5E3C]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+              <span
+                class="absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110"
+              >
+                3
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="fixed inset-0 z-60 hidden bg-[#2C3E2D]/40 backdrop-blur-sm"></div>
+
+        <div
+          class="fixed top-0 left-0 z-70 h-screen w-75 -translate-x-full bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out"
+        >
+          <div class="flex h-full flex-col">
+            <div class="mb-12 flex items-center justify-between text-[#2C3E2D]">
+              <button class="transition-transform duration-300 hover:rotate-90 focus:outline-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <nav class="flex-1">
+              <ul class="flex flex-col gap-6 text-2xl font-bold text-[#2C3E2D]">
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">SHOP</a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">BOXES</a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
+                </li>
+                <li>
+                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <section class="min-h-screen bg-[#FDFCF8]">
+        <div class="container mx-auto px-4 py-12">
+          <div class="flex flex-col gap-16 lg:flex-row">
+            <div class="flex-1">
+              <div class="mb-12">
+                <h2 class="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
+                  <span
+                    class="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white"
+                    >1</span
+                  >
+                  Contact Information
+                </h2>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full rounded-xl border border-[#2C3E2D]/10 bg-white p-4 text-sm outline-none focus:border-[#8C5E3C]"
+                />
+              </div>
+
+              <div class="mb-12">
+                <h2 class="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
+                  <span
+                    class="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white"
+                    >2</span
+                  >
+                  Shipping Address
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    class="rounded-xl border border-[#2C3E2D]/10 bg-white p-4 text-sm outline-none focus:border-[#8C5E3C]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    class="rounded-xl border border-[#2C3E2D]/10 bg-white p-4 text-sm outline-none focus:border-[#8C5E3C]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    class="col-span-2 rounded-xl border border-[#2C3E2D]/10 bg-white p-4 text-sm outline-none focus:border-[#8C5E3C]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="City"
+                    class="rounded-xl border border-[#2C3E2D]/10 bg-white p-4 text-sm outline-none focus:border-[#8C5E3C]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Postcode"
+                    class="rounded-xl border border-[#2C3E2D]/10 bg-white p-4 text-sm outline-none focus:border-[#8C5E3C]"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-12">
+                <h2 class="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
+                  <span
+                    class="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white"
+                    >3</span
+                  >
+                  Payment Method
+                </h2>
+                <div class="rounded-2xl border border-[#2C3E2D]/10 bg-white p-6">
+                  <div class="mb-4 flex items-center gap-4 border-b border-[#2C3E2D]/5 pb-4">
+                    <input type="radio" checked name="payment" class="accent-[#2C3E2D]" />
+                    <span class="text-sm font-bold text-[#2C3E2D]">Credit Card</span>
+                  </div>
+                  <div class="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Card Number"
+                      class="w-full rounded-lg bg-[#FDFCF8] p-3 text-sm outline-none"
+                    />
+                    <div class="grid grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        placeholder="MM / YY"
+                        class="rounded-lg bg-[#FDFCF8] p-3 text-sm outline-none"
+                      />
+                      <input
+                        type="text"
+                        placeholder="CVC"
+                        class="rounded-lg bg-[#FDFCF8] p-3 text-sm outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="w-full rounded-2xl bg-[#2C3E2D] py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-[#1a261b]"
+              >
+                COMPLETE ORDER
+              </button>
+            </div>
+
+            <div class="w-full lg:w-100">
+              <div
+                class="sticky top-8 rounded-4xl border border-[#2C3E2D]/5 bg-white p-10 shadow-sm"
+              >
+                <h3 class="mb-8 text-xs font-bold tracking-widest text-gray-400 uppercase">
+                  In your harvest
+                </h3>
+                <div class="mb-8 space-y-6">
+                  <div class="flex items-center gap-4">
+                    <div class="h-16 w-12 shrink-0 overflow-hidden rounded-lg bg-[#FDFCF8]">
+                      <img
+                        src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909664377.jpg"
+                        class="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm font-bold text-[#2C3E2D]">Fresh Broccoli</p>
+                      <p class="text-[10px] text-gray-400">Qty: 1</p>
+                    </div>
+                    <span class="text-sm font-bold text-[#2C3E2D]">$80</span>
+                  </div>
+                </div>
+
+                <div class="mb-8 flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Gift code"
+                    class="flex-1 rounded-xl border border-transparent bg-[#FDFCF8] px-4 py-2 text-sm outline-none focus:border-[#8C5E3C]/20"
+                  />
+                  <button
+                    class="rounded-xl bg-[#F3EFDF] px-6 py-2 text-xs font-bold text-[#2C3E2D]"
+                  >
+                    APPLY
+                  </button>
+                </div>
+
+                <div class="space-y-3 border-t border-[#2C3E2D]/5 pt-6 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">Subtotal</span><span class="font-bold">$200</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">Shipping</span
+                    ><span class="font-bold text-[#8C5E3C]">Free</span>
+                  </div>
+                  <div class="flex justify-between border-t border-[#2C3E2D]/5 pt-4">
+                    <span class="text-lg font-bold text-[#2C3E2D]">Total</span>
+                    <span class="text-2xl font-black tracking-tighter text-[#2C3E2D]">$200</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="bg-[#2C3E2D] py-12 text-white/90 md:py-16">
+        <div class="container mx-auto px-4">
+          <div class="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-12">
+            <div class="col-span-2 md:col-span-1">
+              <h2 class="mb-4 text-2xl font-bold tracking-tighter text-white">ROOT</h2>
+              <p class="mb-6 hidden text-sm leading-relaxed text-white/60 italic md:block">
+                Eat Real, Live Rooted.<br />
+                Honoring the Earth’s generosity through whole, real food.
+              </p>
+              <p class="mb-4 text-xs text-white/50 italic md:hidden">Eat Real, Live Rooted.</p>
+
+              <div class="flex gap-4 text-sm">
+                <a href="#" class="transition-colors hover:text-[#8C5E3C]">Instagram</a>
+                <a href="#" class="transition-colors hover:text-[#8C5E3C]">Facebook</a>
+              </div>
+            </div>
+
+            <div class="col-span-1">
+              <h4
+                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
+              >
+                Collections
+              </h4>
+              <ul class="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
+                    <span class="hidden md:inline">Curated </span>Bundles
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
+                    <span class="hidden text-white/40 md:inline">Earth's </span>Greens
+                  </a>
+                </li>
+                <li class="hidden md:block">
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Seasonal Fruits</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
+                    <span class="md:hidden">Pins</span>
+                    <span class="hidden md:inline">Little Harvests</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-1">
+              <h4
+                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
+              >
+                About
+              </h4>
+              <ul class="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Story</a
+                  >
+                </li>
+                <li class="hidden md:block">
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Traceability</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Journal</a
+                  >
+                </li>
+                <li class="hidden md:block">
+                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
+                    >Sustainability</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-2 mt-4 md:col-span-1 md:mt-0">
+              <h4
+                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
+              >
+                Stay Rooted
+              </h4>
+              <p class="mb-4 hidden text-sm text-white/60 md:block">
+                Join our newsletter for seasonal harvest updates.
+              </p>
+              <div class="flex max-w-sm md:max-w-none">
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  class="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-[#8C5E3C] focus:outline-none"
+                />
+                <button
+                  class="rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
+                >
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-[10px] text-white/40 md:flex-row md:text-xs"
+          >
+            <p>
+              © 2026 ROOT Concept Store.
+              <span class="hidden md:inline">All rights reserved.</span>
+            </p>
+            <div class="flex gap-6 md:gap-8">
+              <a href="#" class="transition-colors hover:text-white">Privacy Policy</a>
+              <a href="#" class="transition-colors hover:text-white">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
