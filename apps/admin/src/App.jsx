@@ -1,14 +1,12 @@
-import './App.css'
-import { Button } from "@repo/ui"
+import './App.css';
+// import { Button } from "@repo/ui"
+import { createHashRouter, RouterProvider } from 'react-router';
+import routes from './routes';
 
+const router = createHashRouter(routes);
 
 function App() {
-  return (
-    <>
-      <h1>Admin</h1>
-      <Button className="text-primary">Admin button</Button>
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
