@@ -1,177 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Index</title>
-    <style>
-      @keyframes scrolldown {
-        0% {
-          transform: translateY(-100%);
-        }
-        70% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(100%);
-        }
-      }
-
-      .animate-scrolldown {
-        animation: scrolldown 2.5s cubic-bezier(0.76, 0, 0.24, 1) infinite;
-      }
-
-      @keyframes scroll-dot {
-        0% {
-          opacity: 0;
-          transform: translate(-50%, -4px);
-        }
-        30% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-          transform: translate(-50%, 16px);
-        }
-      }
-      .animate-scroll-dot {
-        animation: scroll-dot 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="bg-[#F9F7F2] font-sans text-[#2C3E2D]">
-      <header class="sticky top-0 z-50 w-full bg-white shadow-md">
-        <div
-          class="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10"
-        >
-          <div class="flex flex-1 items-center">
-            <div class="lg:hidden">
-              <button class="group ml-2 p-1 lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2.5"
-                  stroke="currentColor"
-                  class="size-7 text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <ul
-              class="hidden text-sm font-bold tracking-widest text-[#2C3E2D] uppercase lg:flex lg:items-center lg:gap-8"
-            >
-              <li class="group relative">
-                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">SHOP</a>
-                <span
-                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
-                ></span>
-              </li>
-              <li class="group relative">
-                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">BOXES</a>
-                <span
-                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
-                ></span>
-              </li>
-              <li class="group relative">
-                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
-                <span
-                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
-                ></span>
-              </li>
-              <li class="group relative">
-                <a href="#" class="uppercase transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
-                <span
-                  class="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"
-                ></span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="flex h-full py-4">
-            <a href="/" class="flex h-full items-center">
-              <span class="sr-only">ROOT Concept Store</span>
-              <img
-                class="h-8 w-auto object-contain lg:h-12"
-                src="../src/assets/logo.png"
-                alt="ROOT logo"
-              />
-            </a>
-          </div>
-
-          <div class="flex flex-1 items-center justify-end gap-4 text-[#2C3E2D]">
-            <a href="#" class="group relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                class="size-6 transform transition-all duration-300 group-hover:scale-110 group-hover:text-[#8C5E3C]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                />
-              </svg>
-              <span
-                class="absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110"
-              >
-                3
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <div class="fixed inset-0 z-60 hidden bg-[#2C3E2D]/40 backdrop-blur-sm"></div>
-
-        <div
-          class="fixed top-0 left-0 z-70 h-screen w-75 -translate-x-full bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out"
-        >
-          <div class="flex h-full flex-col">
-            <div class="mb-12 flex items-center justify-between text-[#2C3E2D]">
-              <button class="transition-transform duration-300 hover:rotate-90 focus:outline-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <nav class="flex-1">
-              <ul class="flex flex-col gap-6 text-2xl font-bold text-[#2C3E2D]">
-                <li>
-                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">SHOP</a>
-                </li>
-                <li>
-                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">BOXES</a>
-                </li>
-                <li>
-                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">JOURNAL</a>
-                </li>
-                <li>
-                  <a href="#" class="transition-colors hover:text-[#8C5E3C]">ORIGIN</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+function Index() {
+  return (
+    <>
       <section class="relative flex h-[80vh] items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
           <img
@@ -184,21 +13,17 @@
         <div class="relative z-10 px-4 text-center">
           <div class="mb-8 flex items-center justify-center gap-4">
             <div class="h-px w-8 bg-[#F3EFDF]/40"></div>
-            <span class="text-xs font-bold tracking-[0.3em] text-[#F3EFDF] uppercase"
-              >Eat Real, Live Rooted</span
-            >
+            <span class="text-xs font-bold tracking-[0.3em] text-[#F3EFDF] uppercase">
+              Eat Real, Live Rooted
+            </span>
             <div class="h-px w-8 bg-[#F3EFDF]/40"></div>
           </div>
 
-          <h1
-            class="mb-10 text-6xl leading-[0.9] font-extrabold tracking-tighter text-white md:text-8xl"
-          >
+          <h1 class="mb-10 text-6xl leading-[0.9] font-extrabold tracking-tighter text-white md:text-8xl">
             Nature's Purest Gift.
           </h1>
 
-          <button
-            class="group mx-auto flex items-center gap-3 rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] transition-all hover:bg-[#1a261b] hover:shadow-2xl active:scale-95"
-          >
+          <button class="group mx-auto flex items-center gap-3 rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] transition-all hover:bg-[#1a261b] hover:shadow-2xl active:scale-95">
             <span>RECEIVE THE GIFT</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -216,19 +41,13 @@
             </svg>
           </button>
         </div>
-        <div
-          class="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3"
-        >
-          <span
-            class="text-[9px] font-extrabold tracking-[0.5em] text-white/70 uppercase drop-shadow-md"
-          >
+        <div class="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3">
+          <span class="text-[9px] font-extrabold tracking-[0.5em] text-white/70 uppercase drop-shadow-md">
             Scroll
           </span>
 
           <div class="relative h-9 w-5 rounded-full border-2 border-white/30 backdrop-blur-[2px]">
-            <div
-              class="animate-scroll-dot absolute top-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white"
-            ></div>
+            <div class="animate-scroll-dot absolute top-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white"></div>
           </div>
         </div>
       </section>
@@ -312,15 +131,13 @@
       </section>
       <section class="relative overflow-hidden bg-[#2C3E2D] py-16 text-white">
         <div class="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/5 blur-3xl"></div>
-        <div
-          class="relative z-10 container mx-auto flex flex-col items-center justify-between px-6 md:flex-row"
-        >
+        <div class="relative z-10 container mx-auto flex flex-col items-center justify-between px-6 md:flex-row">
           <div class="mb-10 text-center md:mb-0 md:text-left">
             <div class="flex items-center gap-2">
               <span class="h-px w-6 bg-[#8C5E3C]"></span>
-              <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase"
-                >Limited Harvest</span
-              >
+              <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase">
+                Limited Harvest
+              </span>
             </div>
             <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
               Organic Heirloom Roots
@@ -333,29 +150,21 @@
 
           <div class="flex flex-col items-center gap-8 md:items-end">
             <div class="flex gap-4">
-              <div
-                class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md"
-              >
+              <div class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md">
                 <span class="block font-mono text-2xl font-bold">12</span>
                 <span class="text-[9px] tracking-widest uppercase opacity-50">Hours</span>
               </div>
-              <div
-                class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md"
-              >
+              <div class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md">
                 <span class="block font-mono text-2xl font-bold">45</span>
                 <span class="text-[9px] tracking-widest uppercase opacity-50">Mins</span>
               </div>
-              <div
-                class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md"
-              >
+              <div class="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md">
                 <span class="block font-mono text-2xl font-bold">22</span>
                 <span class="text-[9px] tracking-widest uppercase opacity-50">Secs</span>
               </div>
             </div>
 
-            <button
-              class="group flex items-center gap-3 rounded-full bg-[#8C5E3C] px-10 py-4 text-sm font-bold text-[#F3EFDF] transition-all hover:bg-[#a6724d] hover:shadow-xl active:scale-95"
-            >
+            <button class="group flex items-center gap-3 rounded-full bg-[#8C5E3C] px-10 py-4 text-sm font-bold text-[#F3EFDF] transition-all hover:bg-[#a6724d] hover:shadow-xl active:scale-95">
               SHOP THE HARVEST
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -387,53 +196,40 @@
           </div>
 
           <div class="grid h-auto grid-cols-1 gap-6 md:h-162.5 md:grid-cols-3 md:grid-rows-2">
-            <div
-              class="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
-            >
+            <div class="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2">
               <img
                 src="../src/assets/fruit bundle-1.jpg"
                 alt="Curated Bundles"
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div
-                class="from-secondary/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10"
-              >
+              <div class="from-secondary/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10">
                 <div>
-                  <span
-                    class="mb-2 block text-xs font-bold tracking-widest text-(--color-brand-accent) uppercase"
-                    >Value Pack</span
-                  >
+                  <span class="mb-2 block text-xs font-bold tracking-widest text-(--color-brand-accent) uppercase">
+                    Value Pack
+                  </span>
                   <h3 class="text-3xl font-bold text-white md:text-4xl">Curated Bundles</h3>
                 </div>
               </div>
             </div>
 
-            <div
-              class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
-            >
+            <div class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)">
               <img
                 src="../src/assets/broccoli-pieces-on-green-surface.jpg"
                 alt="Vegetables"
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div
-                class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40"
-              >
+              <div class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40">
                 <h3 class="text-xl font-bold tracking-wide text-white uppercase">Greens</h3>
               </div>
             </div>
 
-            <div
-              class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
-            >
+            <div class="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)">
               <img
                 src="../src/assets/photo-1624821588855-a3ffb0b050ff.jpg"
                 alt="Fruits"
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div
-                class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40"
-              >
+              <div class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40">
                 <h3 class="text-xl font-bold tracking-wide text-white uppercase">Fruits</h3>
               </div>
             </div>
@@ -446,9 +242,9 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="h-px w-6 bg-[#8C5E3C]"></span>
-                <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase"
-                  >Fresh from the Soil</span
-                >
+                <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase">
+                  Fresh from the Soil
+                </span>
               </div>
 
               <h2 class="mt-2 text-3xl font-bold tracking-tight text-[#2C3E2D] md:text-4xl">
@@ -480,10 +276,9 @@
           <div class="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-10">
             <div class="group cursor-pointer">
               <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <span
-                  class="absolute top-3 left-3 z-10 rounded-full bg-[#8C5E3C] px-3 py-1 text-[10px] font-bold text-white uppercase"
-                  >New</span
-                >
+                <span class="absolute top-3 left-3 z-10 rounded-full bg-[#8C5E3C] px-3 py-1 text-[10px] font-bold text-white uppercase">
+                  New
+                </span>
                 <div class="aspect-square overflow-hidden">
                   <img
                     src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909664377.jpg"
@@ -491,20 +286,14 @@
                     class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div
-                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
-                >
-                  <button
-                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
-                  >
+                <div class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
+                  <button class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
                     ADD TO CART
                   </button>
                 </div>
               </div>
               <div class="px-1">
-                <h3
-                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
-                >
+                <h3 class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
                   Seasonal Fresh Broccoli
                 </h3>
                 <div class="mt-1 flex items-center justify-between">
@@ -515,30 +304,23 @@
             </div>
             <div class="group cursor-pointer">
               <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <span
-                  class="absolute top-4 left-4 z-10 rounded-full bg-amber-600 px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase"
-                  >Top</span
-                >
+                <span class="absolute top-4 left-4 z-10 rounded-full bg-amber-600 px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase">
+                  Top
+                </span>
 
                 <img
                   src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1767868606069.jpg"
                   alt="Product Name"
                   class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div
-                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
-                >
-                  <button
-                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
-                  >
+                <div class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
+                  <button class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
                     ADD TO CART
                   </button>
                 </div>
               </div>
               <div class="px-1">
-                <h3
-                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
-                >
+                <h3 class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
                   Seasonal Fresh Broccoli
                 </h3>
                 <div class="mt-1 flex items-center justify-between">
@@ -549,30 +331,23 @@
             </div>
             <div class="group cursor-pointer">
               <div class="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <span
-                  class="absolute top-4 left-4 z-10 rounded-full bg-[#2C3E2D] px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase"
-                  >Limited</span
-                >
+                <span class="absolute top-4 left-4 z-10 rounded-full bg-[#2C3E2D] px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase">
+                  Limited
+                </span>
 
                 <img
                   src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909464300.jpg"
                   alt="Product Name"
                   class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div
-                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
-                >
-                  <button
-                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
-                  >
+                <div class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
+                  <button class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
                     ADD TO CART
                   </button>
                 </div>
               </div>
               <div class="px-1">
-                <h3
-                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
-                >
+                <h3 class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
                   Seasonal Fresh Broccoli
                 </h3>
                 <div class="mt-1 flex items-center justify-between">
@@ -588,20 +363,14 @@
                   alt="Product Name"
                   class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div
-                  class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0"
-                >
-                  <button
-                    class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
-                  >
+                <div class="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
+                  <button class="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
                     ADD TO CART
                   </button>
                 </div>
               </div>
               <div class="px-1">
-                <h3
-                  class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
-                >
+                <h3 class="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
                   Seasonal Fresh Broccoli
                 </h3>
                 <div class="mt-1 flex items-center justify-between">
@@ -619,9 +388,9 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="h-px w-6 bg-[#8C5E3C]"></span>
-                <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase"
-                  >Thoughts & Perspectives</span
-                >
+                <span class="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase">
+                  Thoughts & Perspectives
+                </span>
               </div>
               <h2 class="mt-2 text-3xl font-bold tracking-tight text-[#2C3E2D] md:text-4xl">
                 Root Journal
@@ -657,12 +426,10 @@
                   class="h-full w-full object-cover contrast-[1.05] saturate-[0.8] sepia-[0.1] filter transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <span class="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase"
-                >Recipes / Life</span
-              >
-              <h3
-                class="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)"
-              >
+              <span class="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase">
+                Recipes / Life
+              </span>
+              <h3 class="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)">
                 Finding the Pause: Fruits as a Buffer in Busy Life
               </h3>
               <p class="mt-2 text-sm text-gray-500 italic">4 min read</p>
@@ -675,12 +442,10 @@
                   class="h-full w-full object-cover contrast-[1.05] saturate-[0.8] sepia-[0.1] filter transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <span class="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase"
-                >Perspective</span
-              >
-              <h3
-                class="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)"
-              >
+              <span class="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase">
+                Perspective
+              </span>
+              <h3 class="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)">
                 From Soil to Soul: Why We Care About Food Justice
               </h3>
               <p class="mt-2 text-sm text-gray-500 italic">5 min read</p>
@@ -693,12 +458,10 @@
                   class="h-full w-full object-cover contrast-[1.05] saturate-[0.8] sepia-[0.1] filter transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <span class="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase"
-                >Reflection</span
-              >
-              <h3
-                class="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)"
-              >
+              <span class="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase">
+                Reflection
+              </span>
+              <h3 class="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)">
                 The Age of Overindulgence: Are We Really Eating Better?
               </h3>
               <p class="mt-2 text-sm text-gray-500 italic">5 min read</p>
@@ -707,24 +470,14 @@
         </div>
       </section>
       <section id="coupon-section" class="container mx-auto scroll-mt-20 px-4 py-32">
-        <div
-          class="relative flex flex-col items-center justify-around overflow-hidden rounded-4xl border-2 border-[#2C3E2D]/5 bg-[#F3EFDF] p-10 shadow-2xl md:flex-row md:p-16"
-        >
-          <div
-            class="absolute top-1/2 left-0 -ml-4 hidden h-16 w-8 -translate-y-1/2 rounded-r-full border-y-2 border-r-2 border-[#2C3E2D]/10 bg-white md:block"
-          ></div>
-          <div
-            class="absolute top-1/2 right-0 -mr-4 hidden h-16 w-8 -translate-y-1/2 rounded-l-full border-y-2 border-l-2 border-[#2C3E2D]/10 bg-white md:block"
-          ></div>
+        <div class="relative flex flex-col items-center justify-around overflow-hidden rounded-4xl border-2 border-[#2C3E2D]/5 bg-[#F3EFDF] p-10 shadow-2xl md:flex-row md:p-16">
+          <div class="absolute top-1/2 left-0 -ml-4 hidden h-16 w-8 -translate-y-1/2 rounded-r-full border-y-2 border-r-2 border-[#2C3E2D]/10 bg-white md:block"></div>
+          <div class="absolute top-1/2 right-0 -mr-4 hidden h-16 w-8 -translate-y-1/2 rounded-l-full border-y-2 border-l-2 border-[#2C3E2D]/10 bg-white md:block"></div>
 
           <div class="relative z-10 mb-10 text-center md:mb-0 md:max-w-md md:text-left">
-            <div
-              class="mb-4 inline-flex items-center gap-2 rounded-full bg-[#8C5E3C]/10 px-4 py-1 text-[10px] font-bold tracking-[0.2em] text-[#8C5E3C] uppercase"
-            >
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-[#8C5E3C]/10 px-4 py-1 text-[10px] font-bold tracking-[0.2em] text-[#8C5E3C] uppercase">
               <span class="relative flex h-2 w-2">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8C5E3C] opacity-75"
-                ></span>
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8C5E3C] opacity-75"></span>
                 <span class="relative inline-flex h-2 w-2 rounded-full bg-[#8C5E3C]"></span>
               </span>
               Exclusive Welcome Gift
@@ -740,25 +493,23 @@
             </p>
 
             <div class="mt-8 hidden items-center gap-3 opacity-40 md:flex">
-              <div
-                class="flex h-14 w-14 rotate-12 items-center justify-center rounded-full border-2 border-dashed border-[#2C3E2D] text-[8px] font-bold"
-              >
-                ROOTED<br />EST. 2024
+              <div class="flex h-14 w-14 rotate-12 items-center justify-center rounded-full border-2 border-dashed border-[#2C3E2D] text-[8px] font-bold">
+                ROOTED
+                <br />
+                EST. 2024
               </div>
               <p class="text-[10px] tracking-widest uppercase">Verified Origin</p>
             </div>
           </div>
 
-          <div
-            class="mx-12 hidden h-40 border-l-2 border-dashed border-[#2C3E2D]/10 md:block"
-          ></div>
+          <div class="mx-12 hidden h-40 border-l-2 border-dashed border-[#2C3E2D]/10 md:block"></div>
           <div class="my-8 w-full border-t-2 border-dashed border-[#2C3E2D]/10 md:hidden"></div>
 
           <div class="flex flex-col items-center">
             <div class="mb-6 text-center">
-              <span class="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase"
-                >Your Personal Code</span
-              >
+              <span class="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase">
+                Your Personal Code
+              </span>
               <div class="mt-2 font-mono text-3xl font-black tracking-tighter text-[#2C3E2D]">
                 ROOT10
               </div>
@@ -803,31 +554,23 @@
       </section>
       <section class="bg-white py-24">
         <div class="container mx-auto px-4">
-          <div
-            class="flex flex-col items-stretch overflow-hidden rounded-[2.5rem] border border-[#2C3E2D]/5 bg-[#F3EFDF] shadow-xl md:flex-row"
-          >
+          <div class="flex flex-col items-stretch overflow-hidden rounded-[2.5rem] border border-[#2C3E2D]/5 bg-[#F3EFDF] shadow-xl md:flex-row">
             <div class="relative h-87.5 w-full overflow-hidden md:h-auto md:w-1/2">
               <img
                 src="../src/assets/photo-1500382017468-9049fed747ef.jpg"
                 alt="Morning Farm"
                 class="h-full w-full object-cover brightness-[0.95] contrast-[0.9] sepia-[0.2] filter"
               />
-              <div
-                class="pointer-events-none absolute inset-0 bg-[#8C5E3C]/5 mix-blend-multiply"
-              ></div>
+              <div class="pointer-events-none absolute inset-0 bg-[#8C5E3C]/5 mix-blend-multiply"></div>
               <div class="absolute inset-0 bg-linear-to-r from-black/10 to-transparent"></div>
             </div>
 
             <div class="flex w-full flex-col justify-center p-10 md:w-1/2 md:p-20">
               <div class="max-w-md">
-                <span
-                  class="mb-4 block text-[10px] font-bold tracking-[0.4em] text-[#8C5E3C] uppercase"
-                >
+                <span class="mb-4 block text-[10px] font-bold tracking-[0.4em] text-[#8C5E3C] uppercase">
                   The Rural Letter
                 </span>
-                <h2
-                  class="mb-6 font-serif text-3xl leading-[1.1] font-normal text-[#2C3E2D] italic md:text-5xl"
-                >
+                <h2 class="mb-6 font-serif text-3xl leading-[1.1] font-normal text-[#2C3E2D] italic md:text-5xl">
                   Live Rooted
                 </h2>
                 <p class="mb-10 text-sm leading-relaxed text-gray-600 md:text-base">
@@ -843,9 +586,7 @@
                       class="w-full border-b-2 border-[#2C3E2D]/20 bg-transparent px-0 py-4 text-[#2C3E2D] transition-all duration-300 placeholder:text-gray-400 focus:border-[#2C3E2D] focus:outline-0 focus:outline-none"
                     />
                   </div>
-                  <button
-                    class="mt-4 flex items-center gap-3 self-start rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] shadow-lg shadow-[#2C3E2D]/20 transition-all hover:bg-[#3d563e] active:scale-95"
-                  >
+                  <button class="mt-4 flex items-center gap-3 self-start rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] shadow-lg shadow-[#2C3E2D]/20 transition-all hover:bg-[#3d563e] active:scale-95">
                     SUBSCRIBE
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -886,123 +627,8 @@
           </div>
         </div>
       </section>
+    </>
+  );
+}
 
-      <footer class="bg-[#2C3E2D] py-12 text-white/90 md:py-16">
-        <div class="container mx-auto px-4">
-          <div class="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-12">
-            <div class="col-span-2 md:col-span-1">
-              <h2 class="mb-4 text-2xl font-bold tracking-tighter text-white">ROOT</h2>
-              <p class="mb-6 hidden text-sm leading-relaxed text-white/60 italic md:block">
-                Eat Real, Live Rooted.<br />
-                Honoring the Earth’s generosity through whole, real food.
-              </p>
-              <p class="mb-4 text-xs text-white/50 italic md:hidden">Eat Real, Live Rooted.</p>
-
-              <div class="flex gap-4 text-sm">
-                <a href="#" class="transition-colors hover:text-[#8C5E3C]">Instagram</a>
-                <a href="#" class="transition-colors hover:text-[#8C5E3C]">Facebook</a>
-              </div>
-            </div>
-
-            <div class="col-span-1">
-              <h4
-                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
-              >
-                Collections
-              </h4>
-              <ul class="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
-                <li>
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
-                    <span class="hidden md:inline">Curated </span>Bundles
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
-                    <span class="hidden text-white/40 md:inline">Earth's </span>Greens
-                  </a>
-                </li>
-                <li class="hidden md:block">
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
-                    >Seasonal Fruits</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1">
-                    <span class="md:hidden">Pins</span>
-                    <span class="hidden md:inline">Little Harvests</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-span-1">
-              <h4
-                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
-              >
-                About
-              </h4>
-              <ul class="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
-                <li>
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
-                    >Story</a
-                  >
-                </li>
-                <li class="hidden md:block">
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
-                    >Traceability</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
-                    >Journal</a
-                  >
-                </li>
-                <li class="hidden md:block">
-                  <a href="#" class="inline-block transition-transform hover:translate-x-1"
-                    >Sustainability</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-span-2 mt-4 md:col-span-1 md:mt-0">
-              <h4
-                class="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs"
-              >
-                Stay Rooted
-              </h4>
-              <p class="mb-4 hidden text-sm text-white/60 md:block">
-                Join our newsletter for seasonal harvest updates.
-              </p>
-              <div class="flex max-w-sm md:max-w-none">
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  class="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-[#8C5E3C] focus:outline-none"
-                />
-                <button
-                  class="rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
-                >
-                  Join
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-[10px] text-white/40 md:flex-row md:text-xs"
-          >
-            <p>
-              © 2026 ROOT Concept Store.
-              <span class="hidden md:inline">All rights reserved.</span>
-            </p>
-            <div class="flex gap-6 md:gap-8">
-              <a href="#" class="transition-colors hover:text-white">Privacy Policy</a>
-              <a href="#" class="transition-colors hover:text-white">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
+export default Index;
