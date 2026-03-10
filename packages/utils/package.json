@@ -1,0 +1,20 @@
+{
+  "name": "@repo/utils",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "eslint": "^9.39.1"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.26.22",
+    "sweetalert2-react-content": "^5.1.1"
+  }
+}

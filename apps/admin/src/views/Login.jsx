@@ -1,4 +1,31 @@
+import { useForm } from 'react-hook-form';
+import { Toast } from '@repo/utils';
+import { useNavigate } from 'react-router';
+
 function Login() {
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      // TODO: login
+      console.log(data);
+      navigate('/admin/products');
+    } catch (errorMessage) {
+      Toast.fire({
+        position: 'top',
+        icon: 'error',
+        title: errorMessage,
+        color: '#1f2937',
+        iconColor: '#ef4444',
+        background: '#ffffff',
+      });
+    }
+  };
   return (
     <>
       <div className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
@@ -8,13 +35,20 @@ function Login() {
               <img src="../src/assets/logo_white.png" alt="logo" className="h-10 w-10" />
             </div>
             <h1 className="text-2xl font-bold text-slate-900">Admin Console</h1>
-            <p className="mt-2 text-sm font-medium text-slate-500">Sign in to manage your platform</p>
+            <p className="mt-2 text-sm font-medium text-slate-500">
+              Sign in to manage your platform
+            </p>
           </div>
 
           <div className="rounded-3xl border border-gray-100 bg-white p-10 shadow-xl shadow-slate-200/50">
-            <form action="#" className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">Email Address</label>
+                <label
+                  htmlFor="username"
+                  className="mb-2 block text-sm font-semibold text-slate-700"
+                >
+                  Email Address
+                </label>
                 <div className="relative">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
                     <svg
@@ -34,15 +68,28 @@ function Login() {
                   </span>
                   <input
                     type="email"
+                    id="username"
                     placeholder="admin@example.com"
                     className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3.5 pr-4 pl-12 text-sm text-slate-900 transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:outline-none"
+                    {...register('username', {
+                      required: 'Please enter your email',
+                      pattern: {
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: 'Invalid email format',
+                      },
+                    })}
                   />
+                  <div className="text-status-error h-5">
+                    {errors.username ? errors.username.message : ''}
+                  </div>
                 </div>
               </div>
 
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="block text-sm font-semibold text-slate-700">Password</label>
+                  <label htmlFor="password" className="block text-sm font-semibold text-slate-700">
+                    Password
+                  </label>
                 </div>
                 <div className="relative">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
@@ -63,9 +110,17 @@ function Login() {
                   </span>
                   <input
                     type="password"
+                    id="password"
                     placeholder="••••••••"
                     className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3.5 pr-4 pl-12 text-sm text-slate-900 transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:outline-none"
+                    {...register('password', {
+                      required: 'Please enter your password',
+                      minLength: { value: 6, message: 'Password must be at least 6 characters' },
+                    })}
                   />
+                  <div className="text-status-error h-5">
+                    {errors.password ? errors.password.message : ''}
+                  </div>
                 </div>
               </div>
 
