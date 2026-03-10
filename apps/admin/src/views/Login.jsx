@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { Toast } from '@repo/utils';
 import { useNavigate } from 'react-router';
+import { loginAsync } from "../store/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     register,
@@ -12,9 +15,8 @@ function Login() {
 
   const onSubmit = async (data) => {
     try {
-      // TODO: login
-      console.log(data);
-      navigate('/admin/products');
+      await dispatch(loginAsync(data)).unwrap();
+      navigate('/');
     } catch (errorMessage) {
       Toast.fire({
         position: 'top',
