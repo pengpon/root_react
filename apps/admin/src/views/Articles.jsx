@@ -4,6 +4,8 @@ import { Toast, logger } from '@repo/utils';
 import { Alert, Spinner } from '@repo/ui';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
+import PageHeader from '../layouts/PageHeader';
+
 
 function Articles() {
   const pageRef = useRef(null);
@@ -116,6 +118,9 @@ function Articles() {
         </div>
       )}
       <section className="flex-1 overflow-y-auto bg-gray-50 p-8">
+       <div className="mb-8 flex items-center gap-4">
+          <PageHeader />
+        </div>
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between border-b border-gray-50 p-6">
             <button className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white">
