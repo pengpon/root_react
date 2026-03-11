@@ -5,6 +5,7 @@ import { Alert, Spinner } from '@repo/ui';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import PageHeader from '../layouts/PageHeader';
+import { useNavigate } from 'react-router';
 
 function Products() {
   const pageRef = useRef(null);
@@ -16,6 +17,8 @@ function Products() {
     current: null,
     total: null,
   });
+
+  const navigate = useNavigate();
 
   const columns = [
     { header: 'Product', key: 'summary' },
@@ -34,9 +37,22 @@ function Products() {
     switch (type) {
       case 'create':
         // setAction('create');
+        console.log(type);
+        navigate("create", {
+          state: {
+            type: "create"
+          }
+        })
         break;
       case 'edit':
         // setAction('edit');
+        navigate(`edit/${id}`, {
+          state: {
+            title: item.title,
+            type: "edit"
+          }
+        })
+
 
         break;
       case 'delete':
@@ -86,6 +102,7 @@ function Products() {
     },
     [getProductByQuery],
   );
+
   useEffect(() => {
     const init = async () => {
       await getProductByQuery(1);
@@ -123,7 +140,10 @@ function Products() {
         </div>
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between border-b border-gray-50 p-6">
-            <button className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white">
+            <button
+              className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white"
+              onClick={() => onActionClick('create', '')}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

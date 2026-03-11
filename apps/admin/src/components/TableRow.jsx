@@ -3,7 +3,8 @@ import { formatDateTime, formatDate } from '@repo/utils';
 const ActionButtons = ({ onActionClick }) => {
   return (
     <>
-      <button className="rounded-full p-2 text-gray-500 hover:bg-white hover:text-blue-600">
+      <button className="rounded-full p-2 text-gray-500 hover:bg-white hover:text-blue-600"  onClick={onActionClick}
+        data-type="edit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
