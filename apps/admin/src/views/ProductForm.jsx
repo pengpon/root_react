@@ -1,35 +1,31 @@
 import { useLocation, useNavigate, useParams } from 'react-router';
-// import Breadcrumbs from '../components/Breadcrumbs';
 import PageHeader from '../layouts/PageHeader';
-import { getProduct } from '../api/products';
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { getProduct, createProduct, editProduct } from '../api/products';
+import { uploadImage } from '../api/upload';
+import { useState, useEffect, useCallback } from 'react';
 import { Spinner } from '@repo/ui';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { formatDateTime, Toast } from '@repo/utils';
 import FormActions from '../layouts/FormActions';
-import ImageUpload from '../components/ImageUpload';
+import CoverUpload from '../components/CoverUpload';
+import GalleryUpload from '../components/GalleryUpload';
 
 function ProductForm() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: 'onChange',
+  });
   let params = useParams();
   const location = useLocation();
   const formType = location.state.type;
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
-  const [tempFiles, setTempFiles] = useState({
-    imageUrl: null,
-    imagesUrl: [],
-  });
-
-  const [previews, setPreviews] = useState({
-    imageUrl: '',
-    imagesUrl: [],
-  });
 
   const ACTIONS_TEXT_MAP = {
     create: {
@@ -50,55 +46,58 @@ function ProductForm() {
   const { submitText, discardText } = ACTIONS_TEXT_MAP[formType];
   const title = TITLE_TEXT_MAP[formType];
 
-  const handleFilePreview = (e) => {
-    const { files, multiple } = e.target;
-    const fileArray = Array.from(files);
-    if (fileArray.length === 0) return;
+  const uploadFiles = (files) => {
+    if (!files || files.length === 0) return [];
 
-    // 檢查檔案大小, 限制 3 MB
-    const MAX_MB = 3;
-    const MAX_FILE_SIZE = MAX_MB * 1024 * 1024;
-    const oversizedFiles = fileArray.filter((file) => file.size > MAX_FILE_SIZE);
-    const checkSizedFilesArr = fileArray.filter((file) => file.size <= MAX_FILE_SIZE);
+    const fileArray = Array.isArray(files) ? files : [files];
+    const uploadTasks = fileArray.map(async (fileObj) => {
+      if (fileObj instanceof File || fileObj?.file instanceof File) {
+        const targetFile = fileObj.file || fileObj;
+        const formData = new FormData();
+        formData.append('file', targetFile);
+        const res = await uploadImage(formData);
+        return res.data.imageUrl;
+      }
+      return fileObj;
+    });
 
-    if (oversizedFiles.length > 0) {
-      const fileNames = oversizedFiles.map((file) => file.name).join(', ');
-      Toast.fire({
-        position: 'top',
-        icon: 'warning',
-        title: 'File too large',
-        text: `${fileNames} exceeds ${MAX_MB} MB.`,
-        color: '#1f2937',
-        iconColor: '#f59e0b',
-        background: '#ffffff',
-      });
-    }
-
-    const previews = checkSizedFilesArr.map((file) => URL.createObjectURL(file));
-
-    if (multiple) {
-      setPreviews((prev) => ({
-        ...prev,
-        imagesUrl: [...prev.imagesUrl, ...previews],
-      }));
-      setTempFiles((prev) => ({
-        ...prev,
-        imagesUrl: [...prev.imagesUrl, ...checkSizedFilesArr],
-      }));
-    } else {
-      setPreviews((prev) => ({ ...prev, imageUrl: previews[0] }));
-      setTempFiles((prev) => ({ ...prev, imageUrl: checkSizedFilesArr[0] }));
-    }
-
-    e.target.value = '';
+    return Promise.all(uploadTasks);
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
-    // return;
     try {
-      // await dispatch(loginAsync(data)).unwrap();
-      // navigate('/');
+      setIsLoading(true);
+
+      const [mainImageUrl, galleryUrls] = await Promise.all([
+        uploadFiles(data.imageUrl),
+        uploadFiles(data.imagesUrl),
+      ]);
+
+      const finalPayload = {
+        ...data,
+        imageUrl: mainImageUrl[0] || data.imageUrl,
+        imagesUrl: galleryUrls,
+        modified_at: Date.now(),
+      };
+
+      let res;
+      if (formType === 'create') {
+        res = await createProduct(finalPayload);
+      } else {
+        res = await editProduct(params.id, finalPayload);
+      }
+
+      const title = formType === 'create' ? 'Product Created!' : 'Product Updated!';
+
+      Toast.fire({
+        position: 'top',
+        icon: 'success',
+        title: res.data.success ? title : 'Error',
+        color: '#1f2937',
+        iconColor: '#10b981',
+        background: '#ffffff',
+      });
+      navigate('/products');
     } catch (errorMessage) {
       Toast.fire({
         position: 'top',
@@ -108,6 +107,8 @@ function ProductForm() {
         iconColor: '#ef4444',
         background: '#ffffff',
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -133,12 +134,11 @@ function ProductForm() {
   return (
     <>
       {isLoading && (
-        <div className="fixed z-100 h-screen w-screen bg-gray-700/60">
+        <div className="fixed inset-0 z-100 h-screen w-screen bg-gray-700/60">
           <Spinner />
         </div>
       )}
       <section className="flex-1 overflow-y-auto bg-gray-50 p-8">
-        {/* <ImageUpload register={register} name="imageUrl" /> */}
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="mb-8 flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -146,7 +146,11 @@ function ProductForm() {
             </div>
 
             <div className="flex gap-3">
-              <FormActions submitText={submitText} discardText={discardText} />
+              <FormActions
+                submitText={submitText}
+                discardText={discardText}
+                onCancel={() => navigate(-1)}
+              />
             </div>
           </div>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -243,6 +247,7 @@ function ProductForm() {
                         className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-8 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                         {...register('origin_price', {
                           required: 'Please enter origin price',
+                          valueAsNumber: true,
                         })}
                       />
                     </div>
@@ -264,6 +269,7 @@ function ProductForm() {
                         className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-8 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                         {...register('price', {
                           required: 'Please enter price',
+                          valueAsNumber: true,
                         })}
                       />
                     </div>
@@ -314,100 +320,30 @@ function ProductForm() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-                  <div className="md:col-span-2 md:row-span-2">
-                    <label
-                      htmlFor="imageUrl"
-                      className="mb-2 block text-xs font-semibold tracking-wider text-gray-500 uppercase"
-                    >
+                  {/* Cover */}
+                  <div className="md:col-span-2">
+                    <label className="mb-2 block text-xs font-semibold tracking-wider text-gray-500 uppercase">
                       Cover Image
                     </label>
-                    <div className="group relative aspect-square overflow-hidden rounded-2xl border-2 border-dashed border-gray-200 transition hover:border-blue-400">
-                      <img
-                        src="https://dummyimage.com/600x600/f3f4f6/6b7280"
-                        className="h-full w-full object-cover"
-                      />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 opacity-0 transition group-hover:opacity-100">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          stroke="currentColor"
-                          className="mb-2 size-8 text-white"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 4.5v15m7.5-7.5h-15"
-                          />
-                        </svg>
-                        <span className="text-sm font-medium text-white">Change Cover</span>
-                      </div>
-                      <input
-                        id="imageUrl"
-                        type="file"
-                        className="absolute inset-0 cursor-pointer opacity-0"
-                      />
-                    </div>
+                    <Controller
+                      name="imageUrl"
+                      control={control}
+                      render={({ field }) => <CoverUpload {...field} maxMB={1} />}
+                    />
                   </div>
 
+                  {/* Gallery */}
                   <div className="md:col-span-2">
-                    <label
-                      htmlFor="imagesUrl"
-                      className="mb-2 block text-xs font-semibold tracking-wider text-gray-500 uppercase"
-                    >
+                    <label className="mb-2 block text-xs font-semibold tracking-wider text-gray-500 uppercase">
                       Gallery Images
                     </label>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="group relative aspect-square overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
-                        <img
-                          src="https://dummyimage.com/300x300/f3f4f6/6b7280"
-                          className="h-full w-full object-cover"
-                        />
-                        <button className="absolute top-2 right-2 rounded-full bg-red-500 p-1 text-white opacity-0 transition group-hover:opacity-100 hover:bg-red-600">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                            stroke="currentColor"
-                            className="size-4"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M6 18L18 6M6 6l12 12"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-
-                      <div className="relative aspect-square overflow-hidden rounded-xl border-2 border-dashed border-gray-200 transition hover:border-blue-400 hover:bg-blue-50/30">
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                            stroke="currentColor"
-                            className="mb-1 size-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 4.5v15m7.5-7.5h-15"
-                            />
-                          </svg>
-                          <span className="text-[10px] font-bold">Add Photo</span>
-                        </div>
-                        <input
-                          type="file"
-                          id="imagesUrl"
-                          multiple
-                          className="absolute inset-0 cursor-pointer opacity-0"
-                        />
-                      </div>
-                    </div>
+                    <Controller
+                      name="imagesUrl"
+                      control={control}
+                      render={({ field }) => (
+                        <GalleryUpload values={field.value} onChange={field.onChange} maxMB={1} />
+                      )}
+                    />
                   </div>
                 </div>
               </div>

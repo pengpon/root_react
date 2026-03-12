@@ -1,7 +1,11 @@
-function FormActions({ submitText = 'Save Changes', discardText = 'Discard' }) {
+function FormActions({ submitText = 'Save Changes', discardText = 'Discard', onCancel }) {
   return (
     <>
-      <button className="rounded-lg border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50">
+      <button
+        type="button"
+        className="rounded-lg border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+        onClick={onCancel}
+      >
         {discardText}
       </button>
       <button

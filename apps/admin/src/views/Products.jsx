@@ -26,7 +26,7 @@ function Products() {
     // { header: 'Original Price', key: 'origin_price' },
     { header: 'Price', key: 'price' },
     { header: 'Status', key: 'is_enabled' },
-    // { header: 'Stock', key: '' },
+    { header: 'Stock', key: 'stock' },
     { header: 'Actions', key: 'actions' },
   ];
 
@@ -36,23 +36,19 @@ function Products() {
 
     switch (type) {
       case 'create':
-        // setAction('create');
-        console.log(type);
-        navigate("create", {
+        navigate('create', {
           state: {
-            type: "create"
-          }
-        })
+            type: 'create',
+          },
+        });
         break;
       case 'edit':
-        // setAction('edit');
         navigate(`edit/${id}`, {
           state: {
             title: item.title,
-            type: "edit"
-          }
-        })
-
+            type: 'edit',
+          },
+        });
 
         break;
       case 'delete':
@@ -141,6 +137,7 @@ function Products() {
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between border-b border-gray-50 p-6">
             <button
+              type="button"
               className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white"
               onClick={() => onActionClick('create', '')}
             >
