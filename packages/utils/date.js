@@ -5,7 +5,6 @@ export const formatDateTime = (timestamp) => {
   const date = new Date(dateNum);
 
   const YYYY = date.getFullYear();
-  // getMonth() 回傳 0-11，所以要 +1
   const MM = String(date.getMonth() + 1).padStart(2, '0');
   const DD = String(date.getDate()).padStart(2, '0');
   const HH = String(date.getHours()).padStart(2, '0');
