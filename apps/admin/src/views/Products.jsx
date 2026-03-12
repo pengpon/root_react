@@ -126,7 +126,7 @@ function Products() {
   return (
     <>
       {isLoading && (
-        <div className="fixed z-100 h-screen w-screen bg-gray-700/60">
+        <div className="fixed inset-0 z-100 h-screen w-screen bg-gray-700/60">
           <Spinner />
         </div>
       )}
