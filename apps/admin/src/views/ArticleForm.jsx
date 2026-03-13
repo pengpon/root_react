@@ -32,7 +32,7 @@ function ArticleForm() {
 
   const ACTIONS_TEXT_MAP = {
     create: {
-      submitText: 'Create Coupon',
+      submitText: 'Create Article',
       discardText: 'Cancel',
     },
     edit: {
@@ -42,7 +42,7 @@ function ArticleForm() {
   };
 
   const TITLE_TEXT_MAP = {
-    create: 'Create New Coupon',
+    create: 'Create New Article',
     edit: `Edit: ${location?.state?.data?.title}`,
   };
 
