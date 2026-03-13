@@ -3,7 +3,7 @@ function Header() {
     <>
       <header className="z-10 flex h-16 items-center justify-between bg-white px-8 shadow-sm">
         <div className="flex items-center">
-          <button className="mr-4 text-gray-600 md:hidden">
+          <button type="button" className="mr-4 text-gray-600 md:hidden">
             <i className="fa-solid fa-bars"></i>
           </button>
           <h2 className="text-xl font-semibold text-gray-800">Dashboard Overview</h2>
@@ -13,7 +13,10 @@ function Header() {
           <div className="relative">
             <span className="text-gray-600">Hello, Admin</span>
           </div>
-          <button className="rounded-lg bg-slate-100 px-2 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-red-50 hover:text-red-600">
+          <button
+            type="button"
+            className="rounded-lg bg-slate-100 px-2 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-red-50 hover:text-red-600"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

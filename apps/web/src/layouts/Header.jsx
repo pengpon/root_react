@@ -7,7 +7,7 @@ function Header() {
         <div className="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10">
           <div className="flex flex-1 items-center">
             <div className="lg:hidden">
-              <button className="group ml-2 p-1 lg:hidden">
+              <button type="button" className="group ml-2 p-1 lg:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -92,7 +92,10 @@ function Header() {
         <div className="fixed top-0 left-0 z-70 h-screen w-75 -translate-x-full bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out">
           <div className="flex h-full flex-col">
             <div className="mb-12 flex items-center justify-between text-[#2C3E2D]">
-              <button className="transition-transform duration-300 hover:rotate-90 focus:outline-none">
+              <button
+                type="button"
+                className="transition-transform duration-300 hover:rotate-90 focus:outline-none"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

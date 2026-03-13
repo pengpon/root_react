@@ -6,10 +6,10 @@ const Layout = lazy(() => import('../layouts/Layout'));
 const Index = lazy(() => import('../views/Index'));
 const Products = lazy(() => import('../views/Products'));
 const ProductForm = lazy(() => import('../views/ProductForm'));
+const CouponForm = lazy(() => import('../views/CouponForm'));
+const ArticleForm = lazy(() => import('../views/ArticleForm'));
 const Coupons = lazy(() => import('../views/Coupons'));
-const CouponEdit = lazy(() => import('../views/CouponEdit'));
 const Articles = lazy(() => import('../views/Articles'));
-const ArticleEdit = lazy(() => import('../views/ArticleEdit'));
 const Login = lazy(() => import('../views/Login'));
 
 const routes = [
@@ -38,16 +38,24 @@ const routes = [
         element: <Coupons />,
       },
       {
-        path: '/coupon/edit/:id',
-        element: <CouponEdit />,
+        path: '/coupons/create',
+        element: <CouponForm />,
+      },
+      {
+        path: '/coupons/edit/:id',
+        element: <CouponForm />,
       },
       {
         path: '/articles',
         element: <Articles />,
       },
       {
-        path: '/article/edit/:id',
-        element: <ArticleEdit />,
+        path: '/articles/create',
+        element: <ArticleForm />,
+      },
+      {
+        path: '/articles/edit/:id',
+        element: <ArticleForm />,
       },
     ],
   },

@@ -5,7 +5,7 @@ import { Alert, Spinner } from '@repo/ui';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import PageHeader from '../layouts/PageHeader';
-
+import { useNavigate } from 'react-router';
 
 function Articles() {
   const pageRef = useRef(null);
@@ -18,11 +18,13 @@ function Articles() {
     total: null,
   });
 
+  const navigate = useNavigate();
+
   const columns = [
     { header: 'Article', key: 'summary' },
     { header: 'Author', key: 'author' },
-    { header: 'Date', key: 'create_at' },
-    { header: 'Visibility', key: 'is_public' },
+    { header: 'Create Date', key: 'create_at' },
+    { header: 'Visibility', key: 'isPublic' },
     { header: 'Actions', key: 'actions' },
   ];
 
@@ -32,10 +34,19 @@ function Articles() {
 
     switch (type) {
       case 'create':
-        // TODO: navigate to create
+        navigate('create', {
+          state: {
+            type: 'create',
+          },
+        });
         break;
       case 'edit':
-        // TODO: navigate to edit
+        navigate(`edit/${id}`, {
+          state: {
+            title: item.title,
+            type: 'edit',
+          },
+        });
         break;
       case 'delete':
         setIsAlertOpen(true);
@@ -45,7 +56,7 @@ function Articles() {
     }
   };
 
-  const getCouponByQuery = useCallback(async (page) => {
+  const getArticlesByQuery = useCallback(async (page) => {
     const res = await fetchArticles(page);
     const { current_page: current, total_pages: total } = res.data.pagination;
     setPagination({ current, total });
@@ -66,7 +77,7 @@ function Articles() {
         iconColor: '#10b981',
         background: '#ffffff',
       });
-      await getCouponByQuery(1);
+      await getArticlesByQuery(1);
       setIsLoading(false);
       setIsAlertOpen(false);
     } catch (error) {
@@ -79,19 +90,19 @@ function Articles() {
     async (page) => {
       setIsLoading(true);
       setPagination((prev) => ({ ...prev, current: page }));
-      await getCouponByQuery(page);
+      await getArticlesByQuery(page);
       setIsLoading(false);
     },
-    [getCouponByQuery],
+    [getArticlesByQuery],
   );
 
   useEffect(() => {
     const init = async () => {
-      await getCouponByQuery(1);
+      await getArticlesByQuery(1);
       setIsLoading(false);
     };
     init();
-  }, [getCouponByQuery]);
+  }, [getArticlesByQuery]);
 
   useEffect(() => {
     if (pageRef.current) {
@@ -118,12 +129,16 @@ function Articles() {
         </div>
       )}
       <section className="flex-1 overflow-y-auto bg-gray-50 p-8">
-       <div className="mb-8 flex items-center gap-4">
+        <div className="mb-8 flex items-center gap-4">
           <PageHeader />
         </div>
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between border-b border-gray-50 p-6">
-            <button className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white">
+            <button
+              type="button"
+              className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white"
+              onClick={() => onActionClick('create', '')}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

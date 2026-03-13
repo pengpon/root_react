@@ -1,13 +1,69 @@
+import { fetchProducts } from '@/api/products';
+import { fetchCoupons } from '@/api/coupons';
+import { fetchArticles } from '@/api/articles';
+import { useEffect, useState } from 'react';
+import { logger } from '@repo/utils';
+import { Spinner } from '@repo/ui';
+import { Link } from 'react-router';
+
 function Index() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [stats, setStats] = useState({
+    products: 0,
+    coupons: 0,
+    articles: 0,
+  });
+  const [lowStockProducts, setLowStockProducts] = useState([]);
+  const [activeCouponsCount, setActiveCouponsCount] = useState(0);
+
+  const getActiveCouponsCount = (coupons = []) => {
+    const now = Date.now();
+    return coupons.filter(
+      (coupon) => coupon.is_enabled === 1 && now >= coupon.start_date && now <= coupon.due_date,
+    ).length;
+  };
+
+  const init = async () => {
+    try {
+      setIsLoading(true);
+      const [productsRes, couponsRes, articlesRes] = await Promise.all([
+        fetchProducts(),
+        fetchCoupons(),
+        fetchArticles(),
+      ]);
+
+      setStats({
+        products: productsRes.data?.products?.length || 0,
+        coupons: couponsRes.data?.coupons?.length || 0,
+        articles: articlesRes.data?.articles?.length || 0,
+      });
+      const lowStock = productsRes.data.products.filter((p) => p.stock < 5);
+      setLowStockProducts(lowStock);
+
+      setActiveCouponsCount(getActiveCouponsCount(couponsRes.data.coupons));
+    } catch (error) {
+      logger.error(error.message, error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
+    init();
+  }, []);
   return (
     <>
+      {isLoading && (
+        <div className="fixed inset-0 z-100 h-screen w-screen bg-gray-700/60">
+          <Spinner />
+        </div>
+      )}
       <section className="flex-1 overflow-y-auto bg-gray-50 p-8">
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500 uppercase">Total Products</p>
-                <p className="mt-1 text-3xl font-bold text-gray-800">1,248</p>
+                <p className="mt-1 text-3xl font-bold text-gray-800">{stats.products}</p>
               </div>
               <div className="rounded-lg bg-blue-50 p-3 text-blue-600">
                 <svg
@@ -28,25 +84,26 @@ function Index() {
           </div>
 
           <div className="rounded-xl border border-red-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-sm font-medium tracking-wider text-red-500 uppercase">Low Stock</p>
-                <p className="mt-1 text-3xl font-bold text-gray-800">12</p>
-              </div>
-              <div className="animate-pulse rounded-lg bg-red-100 p-3 text-red-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
+            <div>
+              <p className="text-sm font-medium tracking-wider text-red-500 uppercase">Low Stock</p>
+              <p className="mt-1 text-3xl font-bold text-gray-800">{lowStockProducts.length}</p>
+            </div>
+            <div className="mt-2 flex items-center gap-1.5 text-xs text-gray-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                />
+              </svg>
+              <span>Threshold: Less than 5 units</span>
             </div>
           </div>
 
@@ -54,22 +111,47 @@ function Index() {
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500 uppercase">Active Coupons</p>
-                <p className="mt-1 text-3xl font-bold text-gray-800">8</p>
+                <p className="mt-1 text-3xl font-bold text-gray-800">{activeCouponsCount}</p>
               </div>
               <div className="rounded-lg bg-amber-100 p-3 text-amber-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-5"
                 >
                   <path
-                    fillRule="evenodd"
-                    d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 0 1-.375.65 2.249 2.249 0 0 0 0 3.898.75.75 0 0 1 .375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 17.625v-3.026a.75.75 0 0 1 .374-.65 2.249 2.249 0 0 0 0-3.898.75.75 0 0 1-.374-.65V6.375Zm15-1.125a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0v.75a.75.75 0 0 0 1.5 0v-.75Zm-.75 3a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-.75ZM6 12a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 12Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
-                    clipRule="evenodd"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
                   />
                 </svg>
               </div>
+            </div>
+            <div className="mt-2 flex gap-1.5 text-xs text-gray-400">
+              <div className="size-5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                  />
+                </svg>
+              </div>
+
+              <span>
+                Currently <span className="font-semibold">Enabled</span> and within the{' '}
+                <span className="font-semibold">Valid Date</span> range.
+              </span>
             </div>
           </div>
 
@@ -77,7 +159,7 @@ function Index() {
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500 uppercase">Articles</p>
-                <p className="mt-1 text-3xl font-bold text-gray-800">42</p>
+                <p className="mt-1 text-3xl font-bold text-gray-800">{stats.articles}</p>
               </div>
               <div className="rounded-lg bg-green-50 p-3 text-green-600">
                 <svg
@@ -102,9 +184,9 @@ function Index() {
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
             <div className="flex items-center justify-between border-b border-gray-50 p-6">
               <h3 className="text-lg font-bold text-gray-800">Inventory Alerts</h3>
-              <button className="text-sm font-medium text-blue-600 hover:text-blue-800">
+              {/* <button className="text-sm font-medium text-blue-600 hover:text-blue-800">
                 Export All <i className="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
-              </button>
+              </button> */}
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
@@ -115,32 +197,16 @@ function Index() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 text-sm">
-                  <tr className="transition hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium text-gray-800">
-                      Wireless Headphones Pro - Black
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-600">
-                        2 units
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="transition hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium text-gray-800">Minimalist Leather Wallet</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-orange-600">
-                        5 units
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="transition hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium text-gray-800">Gaming Monitor 27" 144Hz</td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-600">
-                        0 units
-                      </span>
-                    </td>
-                  </tr>
+                  {lowStockProducts.map((item) => (
+                    <tr key={item.id} className="transition hover:bg-gray-50">
+                      <td className="px-6 py-4 font-medium text-gray-800">{item.title}</td>
+                      <td className="px-6 py-4 text-center">
+                        <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-600">
+                          {item.stock} units
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -149,7 +215,11 @@ function Index() {
             <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
               <h3 className="mb-4 text-lg font-bold text-gray-800">Quick Actions</h3>
               <div className="space-y-3">
-                <button className="group flex w-full items-center rounded-xl border border-gray-100 p-4 text-left transition hover:border-blue-200 hover:bg-blue-50">
+                <Link
+                  to={{ pathname: '/products/create' }}
+                  state={{ type: 'create' }}
+                  className="group flex w-full items-center rounded-xl border border-gray-100 p-4 text-left transition hover:border-blue-200 hover:bg-blue-50"
+                >
                   <div className="mr-4 rounded-lg bg-blue-100 p-2 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -167,8 +237,12 @@ function Index() {
                     </svg>
                   </div>
                   <span className="font-medium text-gray-700">Add Product</span>
-                </button>
-                <button className="group flex w-full items-center rounded-xl border border-gray-100 p-4 text-left transition hover:border-amber-200 hover:bg-amber-50">
+                </Link>
+                <Link
+                  to={{ pathname: '/coupons/create' }}
+                  state={{ type: 'create' }}
+                  className="group flex w-full items-center rounded-xl border border-gray-100 p-4 text-left transition hover:border-amber-200 hover:bg-amber-50"
+                >
                   <div className="mr-4 rounded-lg bg-amber-100 p-2 text-amber-600 transition group-hover:bg-amber-600 group-hover:text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -186,8 +260,12 @@ function Index() {
                     </svg>
                   </div>
                   <span className="font-medium text-gray-700">Create Coupon</span>
-                </button>
-                <button className="group flex w-full items-center rounded-xl border border-gray-100 p-4 text-left transition hover:border-green-200 hover:bg-green-50">
+                </Link>
+                <Link
+                  to={{ pathname: '/articles/create' }}
+                  state={{ type: 'create' }}
+                  className="group flex w-full items-center rounded-xl border border-gray-100 p-4 text-left transition hover:border-green-200 hover:bg-green-50"
+                >
                   <div className="mr-4 rounded-lg bg-green-100 p-2 text-green-600 transition group-hover:bg-green-600 group-hover:text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +283,7 @@ function Index() {
                     </svg>
                   </div>
                   <span className="font-medium text-gray-700">Write Article</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

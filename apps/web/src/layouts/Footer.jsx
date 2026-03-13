@@ -93,7 +93,10 @@ function Footer() {
                   placeholder="Email address"
                   className="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-[#8C5E3C] focus:outline-none"
                 />
-                <button className="rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110">
+                <button
+                  type="button"
+                  className="rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
+                >
                   Join
                 </button>
               </div>

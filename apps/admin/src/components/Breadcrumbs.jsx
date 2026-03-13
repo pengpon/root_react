@@ -6,12 +6,10 @@ function Breadcrumbs() {
   const breadcrumbNameMap = {
     '/': 'Home',
     '/products': 'Product List',
-    '/products/create': 'Create New Product',
     '/coupons': 'Coupon List',
     '/coupons/create': 'Create New Coupon',
     '/articles': 'Article List',
     '/articles/create': 'Create New Article',
-
   };
 
   return (
@@ -31,7 +29,8 @@ function Breadcrumbs() {
           return (
             <li key={to} className="flex items-center">
               <span className="mx-2">/</span>
-              {last ? (
+
+              {last || name === 'edit' ? (
                 <span className="font-medium text-gray-600">{name}</span>
               ) : (
                 <Link to={to} className="transition-colors hover:text-blue-600">

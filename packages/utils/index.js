@@ -1,5 +1,6 @@
 export * from "./cookie.js"
 export * from "./date.js"
+export * from "./editor.js"
 export * from "./fileValidation.js"
 export * from "./format.js"
 export * from "./logger.js"

@@ -5,6 +5,7 @@ import { Alert, Spinner } from '@repo/ui';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import PageHeader from '../layouts/PageHeader';
+import { useNavigate } from 'react-router';
 
 
 function Coupons() {
@@ -18,11 +19,14 @@ function Coupons() {
     total: null,
   });
 
+  const navigate = useNavigate();
+
   const columns = [
     { header: 'Coupon Detail', key: 'detail' },
     { header: 'Discount', key: 'percent' },
     { header: 'Duration', key: 'duration' },
-    { header: 'Status', key: 'is_enabled' },
+    { header: 'Enable', key: 'is_enabled' },
+    { header: 'Status', key: 'status' },
     { header: 'Actions', key: 'actions' },
   ];
 
@@ -32,10 +36,19 @@ function Coupons() {
 
     switch (type) {
       case 'create':
-        // setAction('create');
+        navigate('create', {
+          state: {
+            type: 'create',
+          },
+        });
         break;
       case 'edit':
-        // setAction('edit');
+        navigate(`edit/${id}`, {
+          state: {
+            data: item,
+            type: 'edit',
+          },
+        });
         break;
       case 'delete':
         setIsAlertOpen(true);
@@ -47,7 +60,6 @@ function Coupons() {
 
   const getCouponByQuery = useCallback(async (page) => {
     const res = await fetchCoupons(page);
-    // console.log(res.data.products)
     const { current_page: current, total_pages: total } = res.data.pagination;
     setPagination({ current, total });
     setCouponsData(res.data.coupons);
@@ -114,7 +126,7 @@ function Coupons() {
   return (
     <>
       {isLoading && (
-        <div className="fixed z-100 h-screen w-screen bg-gray-700/60">
+        <div className="fixed inset-0 z-100 h-screen w-screen bg-gray-700/60">
           <Spinner />
         </div>
       )}
@@ -124,7 +136,11 @@ function Coupons() {
         </div>
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between border-b border-gray-50 p-6">
-            <button className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white">
+            <button
+              type="button"
+              className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white"
+              onClick={() => onActionClick('create', '')}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

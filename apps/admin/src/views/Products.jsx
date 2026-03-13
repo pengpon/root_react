@@ -25,7 +25,7 @@ function Products() {
     { header: 'Category', key: 'category' },
     // { header: 'Original Price', key: 'origin_price' },
     { header: 'Price', key: 'price' },
-    { header: 'Status', key: 'is_enabled' },
+    { header: 'Enable', key: 'is_enabled' },
     { header: 'Stock', key: 'stock' },
     { header: 'Actions', key: 'actions' },
   ];

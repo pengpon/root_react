@@ -1,6 +1,13 @@
-import { Link } from "react-router";
+import { NavLink } from 'react-router';
 
 function Aside() {
+  const navItemClass = ({ isActive }) =>
+    `flex items-center rounded-lg px-4 py-3 transition duration-200 ${
+      isActive
+        ? 'bg-blue-600 text-white shadow-md'
+        : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+    }`;
+
   return (
     <>
       <aside className="z-20 flex w-64 shrink-0 flex-col bg-slate-800 text-white shadow-xl">
@@ -13,10 +20,7 @@ function Aside() {
 
         <nav className="flex-1 space-y-2 overflow-y-auto p-4">
           <p className="px-4 pb-2 text-xs font-semibold text-slate-500 uppercase">Main Menu</p>
-          <a
-            href="#"
-            className="flex items-center rounded-lg px-4 py-3 text-slate-300 shadow-md transition duration-200"
-          >
+          <NavLink to="/" className={navItemClass}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,11 +36,8 @@ function Aside() {
               />
             </svg>
             Dashboard
-          </a>
-          <Link
-            to="/products"
-            className="flex items-center rounded-lg bg-blue-600 px-4 py-3 text-white transition duration-200 hover:bg-slate-700 hover:text-white"
-          >
+          </NavLink>
+          <NavLink to="/products" className={navItemClass}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -52,11 +53,8 @@ function Aside() {
               />
             </svg>
             Products
-          </Link>
-          <Link
-            to="/coupons"
-            className="flex items-center rounded-lg px-4 py-3 text-slate-300 transition duration-200 hover:bg-slate-700 hover:text-white"
-          >
+          </NavLink>
+          <NavLink to="/coupons" className={navItemClass}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -72,11 +70,8 @@ function Aside() {
               />
             </svg>
             Coupons
-          </Link>
-          <Link
-            to="/articles"
-            className="flex items-center rounded-lg px-4 py-3 text-slate-300 transition duration-200 hover:bg-slate-700 hover:text-white"
-          >
+          </NavLink>
+          <NavLink to="/articles" className={navItemClass}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -92,7 +87,7 @@ function Aside() {
               />
             </svg>
             Articles
-          </Link>
+          </NavLink>
         </nav>
       </aside>
     </>

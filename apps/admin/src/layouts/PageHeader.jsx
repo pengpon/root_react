@@ -7,6 +7,7 @@ function PageHeader({ title }) {
   return (
     <>
       <button
+        type="button"
         onClick={() => navigate(-1)}
         className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-600 shadow-sm transition hover:bg-gray-100"
       >

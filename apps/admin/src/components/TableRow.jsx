@@ -3,8 +3,12 @@ import { formatDateTime, formatDate } from '@repo/utils';
 const ActionButtons = ({ onActionClick }) => {
   return (
     <>
-      <button className="rounded-full p-2 text-gray-500 hover:bg-white hover:text-blue-600"  onClick={onActionClick}
-        data-type="edit">
+      <button
+        type="button"
+        className="rounded-full p-2 text-gray-500 hover:bg-white hover:text-blue-600"
+        onClick={onActionClick}
+        data-type="edit"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -21,6 +25,7 @@ const ActionButtons = ({ onActionClick }) => {
         </svg>
       </button>
       <button
+        type="button"
         className="rounded-full p-2 text-gray-500 hover:bg-white hover:text-red-600"
         onClick={onActionClick}
         data-type="delete"
@@ -94,7 +99,7 @@ function TableRow({ columns, data, onActionClick }) {
                       : 'bg-amber-50 text-amber-700 ring-amber-600/20'
                   }`}
                 >
-                  {data.is_enabled ? 'Active' : 'Inactive'}
+                  {data.is_enabled ? 'Enabled' : 'Disabled'}
                 </span>
               </td>
             );
@@ -113,7 +118,9 @@ function TableRow({ columns, data, onActionClick }) {
             return (
               <td key={col.key} className="px-6 py-4">
                 <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-600">
-                  2 units
+                  {data.stock !== undefined && data.stock !== null
+                    ? `${data.stock} units`
+                    : 'No stock info'}
                 </span>
               </td>
             );
@@ -152,7 +159,7 @@ function TableRow({ columns, data, onActionClick }) {
           if (col.key === 'percent') {
             return (
               <td key={col.key} className="px-6 py-4 font-medium text-gray-600">
-                15% OFF
+                {100 - data.percent}% OFF
               </td>
             );
           }
@@ -165,8 +172,30 @@ function TableRow({ columns, data, onActionClick }) {
               </td>
             );
           }
+          if (col.key === 'status') {
+            const now = Date.now();
+            const isActive =
+              data.is_enabled === 1 && now >= data.start_date && now <= data.due_date;
+
+            return (
+              <td key={col.key} className="px-6 py-4">
+                <span
+                  className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-bold ring-1 ring-inset ${
+                    isActive
+                      ? 'bg-emerald-50 text-emerald-700 ring-emerald-600/20'
+                      : 'bg-gray-50 text-gray-600 ring-gray-500/10'
+                  }`}
+                >
+                  <span
+                    className={`mr-1.5 h-1.5 w-1.5 rounded-full ${isActive ? 'animate-pulse bg-emerald-500' : 'bg-gray-400'}`}
+                  ></span>
+                  {isActive ? 'Active' : 'Inactive'}
+                </span>
+              </td>
+            );
+          }
           // article
-          if (col.key === 'is_public') {
+          if (col.key === 'isPublic') {
             return (
               <td key={col.key} className="px-6 py-4">
                 <span

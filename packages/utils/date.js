@@ -25,3 +25,16 @@ export const formatDate = (timestamp) => {
 
   return `${YYYY}-${MM}-${DD}`;
 };
+
+export const formatDateForInput = (timestamp) => {
+  if (!timestamp) return '';
+
+  const dateNum = Number(String(timestamp).padEnd(13, '0'));
+  const date = new Date(dateNum);
+
+  const YYYY = date.getFullYear();
+  const MM = String(date.getMonth() + 1).padStart(2, '0');
+  const DD = String(date.getDate()).padStart(2, '0');
+
+  return `${YYYY}-${MM}-${DD}`;
+};
