@@ -11,12 +11,14 @@ function Aside() {
   return (
     <>
       <aside className="z-20 flex w-64 shrink-0 flex-col bg-slate-800 text-white shadow-xl">
-        <div className="flex items-center gap-2 border-b border-slate-700 p-6 text-2xl font-bold">
-          <div className="size-12">
-            <img src="../src/assets/logo_white.png" alt="logo" />
+        <NavLink to="/">
+          <div className="flex items-center gap-2 border-b border-slate-700 p-6 text-2xl font-bold">
+            <div className="size-12">
+              <img src="../src/assets/logo_white.png" alt="logo" />
+            </div>
+            <span>Admin</span>
           </div>
-          <span>Admin</span>
-        </div>
+        </NavLink>
 
         <nav className="flex-1 space-y-2 overflow-y-auto p-4">
           <p className="px-4 pb-2 text-xs font-semibold text-slate-500 uppercase">Main Menu</p>
