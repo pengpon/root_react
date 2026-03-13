@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate, Outlet } from "react-router";
 import { checkAuthAsync } from "../../store/slices/authSlice"
-import Spinner from "../Spinner";
+import { Spinner } from "@repo/ui";
 
 function AdminGuard() {
   const dispatch = useDispatch();

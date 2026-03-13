@@ -32,9 +32,7 @@ adminApi.interceptors.response.use(
   },
   (error) => {
     const { response } = error;
-
-    const message = !response?.data.success ?  "Something went wrong." : "" ;
-
+    const message = !response?.data.success ?  response.data.message : "Something went wrong." ;
       Toast.fire({
         position: "top",
         icon: "error",
