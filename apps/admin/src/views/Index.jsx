@@ -23,33 +23,34 @@ function Index() {
     ).length;
   };
 
-  const init = async () => {
-    try {
-      setIsLoading(true);
-      const [productsRes, couponsRes, articlesRes] = await Promise.all([
-        fetchProducts(),
-        fetchCoupons(),
-        fetchArticles(),
-      ]);
-
-      setStats({
-        products: productsRes.data?.products?.length || 0,
-        coupons: couponsRes.data?.coupons?.length || 0,
-        articles: articlesRes.data?.articles?.length || 0,
-      });
-      const lowStock = productsRes.data.products.filter((p) => p.stock < 5);
-      setLowStockProducts(lowStock);
-
-      setActiveCouponsCount(getActiveCouponsCount(couponsRes.data.coupons));
-    } catch (error) {
-      logger.error(error.message, error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
   useEffect(() => {
+    const init = async () => {
+      try {
+        setIsLoading(true);
+        const [productsRes, couponsRes, articlesRes] = await Promise.all([
+          fetchProducts(),
+          fetchCoupons(),
+          fetchArticles(),
+        ]);
+
+        setStats({
+          products: productsRes.data?.products?.length || 0,
+          coupons: couponsRes.data?.coupons?.length || 0,
+          articles: articlesRes.data?.articles?.length || 0,
+        });
+        const lowStock = productsRes.data.products.filter((p) => p.stock < 5);
+        setLowStockProducts(lowStock);
+
+        setActiveCouponsCount(getActiveCouponsCount(couponsRes.data.coupons));
+      } catch (error) {
+        logger.error(error.message, error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
     init();
   }, []);
+
   return (
     <>
       {isLoading && (

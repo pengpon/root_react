@@ -19,6 +19,9 @@ function ProductForm() {
     control,
     formState: { errors },
   } = useForm({
+    defaultValues: {
+      category: '',
+    },
     mode: 'onChange',
   });
   let params = useParams();
@@ -229,7 +232,7 @@ function ProductForm() {
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Pricing & Inventory</h3>
                 </div>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                   <div>
                     <label
                       htmlFor="origin_price"
@@ -287,10 +290,32 @@ function ProductForm() {
                       className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                       {...register('stock', {
                         required: 'Please enter stock',
+                        valueAsNumber: true,
                       })}
                     />
                     <div className="text-status-error h-4 text-sm">
                       {errors['stock'] && errors['stock'].message}
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <label
+                        htmlFor="unit"
+                        className="mb-2 block text-sm font-medium text-gray-700"
+                      >
+                        Unit
+                      </label>
+                      <input
+                        type="text"
+                        id="unit"
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                        {...register('unit', {
+                          required: 'Please enter unit',
+                        })}
+                      />
+                    </div>
+                    <div className="text-status-error h-4 text-sm">
+                      {errors['unit'] && errors['unit'].message}
                     </div>
                   </div>
                 </div>
@@ -419,42 +444,72 @@ function ProductForm() {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <label
-                      htmlFor="category"
-                      className="mb-2 block text-sm font-medium text-gray-700"
-                    >
-                      Category
+                    <div>
+                      <label
+                        htmlFor="category"
+                        className="mb-2 block text-sm font-medium text-gray-700"
+                      >
+                        Category
+                      </label>
+                      <select
+                        id="category"
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                        {...register('category', {
+                          required: 'Please select category',
+                        })}
+                      >
+                        <option value="" disabled hidden>
+                          Select category
+                        </option>
+
+                        <option value="Fruit">Fruit</option>
+                        <option value="Vegetable">Vegetable</option>
+                        <option value="Accessory">Accessory</option>
+                      </select>
+                    </div>
+                    <div className="text-status-error h-4 text-sm">
+                      {errors['category'] && errors['category'].message}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="badge" className="mb-2 block text-sm font-medium text-gray-700">
+                      Promotion Badge
                     </label>
                     <select
-                      id="category"
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
-                      {...register('category', {
-                        required: 'Please select category',
-                      })}
+                      id="badge"
+                      {...register('badge')}
+                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 transition-all focus:border-blue-500 focus:bg-white focus:outline-none"
                     >
-                      <option value="Fruit">Fruit</option>
-                      <option value="Vegetable">Vegetable</option>
-                      <option value="Accessory">Accessory</option>
+                      <option value="">None (No Badge)</option>
+                      <option value="new">New Arrival (New)</option>
+                      <option value="top">Best Seller (Top)</option>
+                      <option value="limited">Limited Edition (Limited)</option>
                     </select>
+                    <p className="mt-2 text-xs text-gray-400">
+                      This badge will be displayed on the product image in the store.
+                    </p>
                   </div>
-                  <div className="text-status-error h-4 text-sm">
-                    {errors['category'] && errors['category'].message}
-                  </div>
-                  <div>
-                    <label htmlFor="unit" className="mb-2 block text-sm font-medium text-gray-700">
-                      Unit
+
+                  <div className="mt-4 border-t border-gray-50 pt-4">
+                    <label className="flex cursor-pointer items-center justify-between">
+                      <div>
+                        <span className="block text-sm font-medium text-gray-700">
+                          Seasonal Favorite
+                        </span>
+                        <span className="block text-xs text-gray-400">
+                          Feature this product in the "Seasonal Favorites" section on the homepage.
+                        </span>
+                      </div>
+                      <div className="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-gray-200 transition-colors peer-focus:ring-4 peer-focus:ring-blue-300">
+                        <input
+                          type="checkbox"
+                          {...register('is_featured')}
+                          className="peer sr-only"
+                        />
+                        <div className="peer h-6 w-11 shrink-0 rounded-full bg-gray-200 transition-colors peer-checked:bg-emerald-500 peer-focus:ring-2 peer-focus:ring-emerald-500/20 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+                      </div>
                     </label>
-                    <input
-                      type="text"
-                      id="unit"
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
-                      {...register('unit', {
-                        required: 'Please enter unit',
-                      })}
-                    />
-                  </div>
-                  <div className="text-status-error h-4 text-sm">
-                    {errors['unit'] && errors['unit'].message}
                   </div>
                 </div>
               </div>
