@@ -1,6 +1,43 @@
+import { fetchAllProducts } from '@/api/products';
+import { useEffect, useMemo, useState } from 'react';
+
+import { Spinner } from '@repo/ui';
+import { logger } from '@repo/utils';
+import ProductCard from '../components/ProductCard';
+
 function Index() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [allProducts, setAllProducts] = useState([]);
+
+  const seasonalProducts = useMemo(() => {
+    if (!Array.isArray(allProducts)) {
+      return [];
+    }
+    return allProducts.filter((item) => item.is_featured).slice(0, 4);
+  }, [allProducts]);
+
+  useEffect(() => {
+    const init = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetchAllProducts();
+        setAllProducts(res.data.products);
+      } catch (error) {
+        logger.error(error.message, error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    init();
+  }, []);
+
   return (
     <>
+      {isLoading && (
+        <div className="fixed inset-0 z-100 h-screen w-screen bg-gray-700/60">
+          <Spinner />
+        </div>
+      )}
       <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -274,111 +311,11 @@ function Index() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-10">
-            <div className="group cursor-pointer">
-              <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <span className="absolute top-3 left-3 z-10 rounded-full bg-[#8C5E3C] px-3 py-1 text-[10px] font-bold text-white uppercase">
-                  New
-                </span>
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909664377.jpg"
-                    alt="Product Name"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
-                  <button className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
-                    ADD TO CART
-                  </button>
-                </div>
+            {seasonalProducts.map((product) => (
+              <div key={product.id} className="group cursor-pointer">
+                <ProductCard data={product} />
               </div>
-              <div className="px-1">
-                <h3 className="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
-                  Seasonal Fresh Broccoli
-                </h3>
-                <div className="mt-1 flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-400 italic">500g</p>
-                  <p className="font-bold text-[#2C3E2D]">$80</p>
-                </div>
-              </div>
-            </div>
-            <div className="group cursor-pointer">
-              <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <span className="absolute top-4 left-4 z-10 rounded-full bg-amber-600 px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase">
-                  Top
-                </span>
-
-                <img
-                  src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1767868606069.jpg"
-                  alt="Product Name"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
-                  <button className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
-                    ADD TO CART
-                  </button>
-                </div>
-              </div>
-              <div className="px-1">
-                <h3 className="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
-                  Seasonal Fresh Broccoli
-                </h3>
-                <div className="mt-1 flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-400 italic">500g</p>
-                  <p className="font-bold text-[#2C3E2D]">$80</p>
-                </div>
-              </div>
-            </div>
-            <div className="group cursor-pointer">
-              <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <span className="absolute top-4 left-4 z-10 rounded-full bg-[#2C3E2D] px-3 py-1 text-[9px] font-extrabold tracking-wider text-[#F3EFDF] uppercase">
-                  Limited
-                </span>
-
-                <img
-                  src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1766909464300.jpg"
-                  alt="Product Name"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
-                  <button className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
-                    ADD TO CART
-                  </button>
-                </div>
-              </div>
-              <div className="px-1">
-                <h3 className="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
-                  Seasonal Fresh Broccoli
-                </h3>
-                <div className="mt-1 flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-400 italic">500g</p>
-                  <p className="font-bold text-[#2C3E2D]">$80</p>
-                </div>
-              </div>
-            </div>
-            <div className="group cursor-pointer">
-              <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
-                <img
-                  src="https://storage.googleapis.com/vue-course-api.appspot.com/root/1767869186804.jpg"
-                  alt="Product Name"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
-                  <button className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
-                    ADD TO CART
-                  </button>
-                </div>
-              </div>
-              <div className="px-1">
-                <h3 className="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
-                  Seasonal Fresh Broccoli
-                </h3>
-                <div className="mt-1 flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-400 italic">500g</p>
-                  <p className="font-bold text-[#2C3E2D]">$80</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
