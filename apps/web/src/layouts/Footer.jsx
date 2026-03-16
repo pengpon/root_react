@@ -3,7 +3,7 @@ function Footer() {
     <>
       <footer className="bg-[#2C3E2D] py-12 text-white/90 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-12">
+          <div className="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 md:gap-12">
             <div className="col-span-2 md:col-span-1">
               <h2 className="mb-4 text-2xl font-bold tracking-tighter text-white">ROOT</h2>
               <p className="mb-6 hidden text-sm leading-relaxed text-white/60 italic md:block">
@@ -13,14 +13,14 @@ function Footer() {
               </p>
               <p className="mb-4 text-xs text-white/50 italic md:hidden">Eat Real, Live Rooted.</p>
 
-              <div className="flex gap-4 text-sm">
+              {/* <div className="flex gap-4 text-sm">
                 <a href="#" className="transition-colors hover:text-[#8C5E3C]">
                   Instagram
                 </a>
                 <a href="#" className="transition-colors hover:text-[#8C5E3C]">
                   Facebook
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div className="col-span-1">
@@ -35,24 +35,18 @@ function Footer() {
                 </li>
                 <li>
                   <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    <span className="hidden text-white/40 md:inline">Earth's </span>Greens
-                  </a>
-                </li>
-                <li className="hidden md:block">
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    Seasonal Fruits
+                    <span className="hidden md:inline">Earth's </span>Greens
                   </a>
                 </li>
                 <li>
                   <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    <span className="md:hidden">Pins</span>
-                    <span className="hidden md:inline">Little Harvests</span>
+                    <span className="hidden md:inline">Seasonal </span>Fruits
                   </a>
                 </li>
               </ul>
             </div>
 
-            <div className="col-span-1">
+            {/* <div className="col-span-1">
               <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
                 About
               </h4>
@@ -78,7 +72,7 @@ function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             <div className="col-span-2 mt-4 md:col-span-1 md:mt-0">
               <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
@@ -108,14 +102,14 @@ function Footer() {
               © 2026 ROOT Concept Store.
               <span className="hidden md:inline">All rights reserved.</span>
             </p>
-            <div className="flex gap-6 md:gap-8">
+            {/* <div className="flex gap-6 md:gap-8">
               <a href="#" className="transition-colors hover:text-white">
                 Privacy Policy
               </a>
               <a href="#" className="transition-colors hover:text-white">
                 Terms of Service
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>

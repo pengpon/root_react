@@ -1,13 +1,39 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
 function Header() {
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+    const handleMediaChange = (e) => {
+      if (e.matches) setIsMenuOpen(false);
+    };
+
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    return () => mediaQuery.removeEventListener('change', handleMediaChange);
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+
+    return () => document.body.classList.remove('no-scroll');
+  }, [isMenuOpen]);
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-white shadow-md">
         <div className="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10">
           <div className="flex flex-1 items-center">
             <div className="lg:hidden">
-              <button type="button" className="group ml-2 p-1 lg:hidden">
+              <button type="button" className="group ml-2 p-1 lg:hidden" onClick={toggleMenu}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -28,16 +54,16 @@ function Header() {
             <ul className="hidden text-sm font-bold tracking-widest text-[#2C3E2D] uppercase lg:flex lg:items-center lg:gap-8">
               <li className="group relative">
                 <Link to="/products" className="transition-colors hover:text-[#8C5E3C]">
-                  Shop
+                  shop
                 </Link>
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
-              <li className="group relative">
+              {/* <li className="group relative">
                 <a href="#" className="transition-colors hover:text-[#8C5E3C]">
                   boxes
                 </a>
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
-              </li>
+              </li> */}
               <li className="group relative">
                 <Link to="/posts" className="transition-colors hover:text-[#8C5E3C]">
                   journal
@@ -89,12 +115,15 @@ function Header() {
 
         <div className="fixed inset-0 z-60 hidden bg-[#2C3E2D]/40 backdrop-blur-sm"></div>
 
-        <div className="fixed top-0 left-0 z-70 h-screen w-75 -translate-x-full bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out">
+        <div
+          className={`fixed top-0 left-0 z-70 h-screen w-75 bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        >
           <div className="flex h-full flex-col">
             <div className="mb-12 flex items-center justify-between text-[#2C3E2D]">
               <button
                 type="button"
                 className="transition-transform duration-300 hover:rotate-90 focus:outline-none"
+                onClick={toggleMenu}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -112,24 +141,24 @@ function Header() {
             <nav className="flex-1">
               <ul className="flex flex-col gap-6 text-2xl font-bold text-[#2C3E2D]">
                 <li>
-                  <a href="#" className="transition-colors hover:text-[#8C5E3C]">
+                  <Link to="/products" className="transition-colors hover:text-[#8C5E3C]">
                     SHOP
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-[#8C5E3C]">
+                {/* <li>
+                  <Link href="#" className="transition-colors hover:text-[#8C5E3C]">
                     BOXES
-                  </a>
-                </li>
+                  </Link>
+                </li> */}
                 <li>
-                  <a href="#" className="transition-colors hover:text-[#8C5E3C]">
+                  <Link to="/articles" className="transition-colors hover:text-[#8C5E3C]">
                     JOURNAL
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition-colors hover:text-[#8C5E3C]">
+                  <Link href="/about" className="transition-colors hover:text-[#8C5E3C]">
                     ORIGIN
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

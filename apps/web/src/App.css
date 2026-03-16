@@ -1,3 +1,4 @@
 /* @import "../../../packages/ui/src/theme.css"; */
 @import 'tailwindcss';
 @import "../../../packages/ui/src/animation.css";
+@import "../../../packages/ui/src/theme.css";
