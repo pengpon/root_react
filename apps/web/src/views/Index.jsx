@@ -19,6 +19,7 @@ function Index() {
   const [copied, setCopied] = useState(false);
   const promoCode = 'ROOT10';
   const timerRef = useRef(null);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const seasonalProducts = useMemo(() => {
     if (!Array.isArray(allProducts)) {
@@ -52,6 +53,12 @@ function Index() {
     }
   };
 
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+
+    setIsSubscribed(true);
+    localStorage.setItem('is_subscribed', 'true');
+  };
   useEffect(() => {
     const init = async () => {
       try {
@@ -98,6 +105,11 @@ function Index() {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
+  }, []);
+
+  useEffect(() => {
+    const subscribed = localStorage.getItem('is_subscribed');
+    if (subscribed) setIsSubscribed(true);
   }, []);
 
   return (
@@ -548,34 +560,43 @@ function Index() {
                   Every Sunday, we share stories from the soil, seasonal planting guides, and a list
                   of what's peaking in our harvest.
                 </p>
-
-                <form className="flex flex-col gap-4">
+                <form onSubmit={handleSubscribe} className="flex flex-col gap-4">
                   <div className="group relative">
                     <input
                       type="email"
+                      required
                       placeholder="Enter your email"
                       className="w-full border-b-2 border-[#2C3E2D]/20 bg-transparent px-0 py-4 text-[#2C3E2D] transition-all duration-300 placeholder:text-gray-400 focus:border-[#2C3E2D] focus:outline-0 focus:outline-none"
                     />
                   </div>
-                  <button className="mt-4 flex items-center gap-3 self-start rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] shadow-lg shadow-[#2C3E2D]/20 transition-all hover:bg-[#3d563e] active:scale-95">
-                    SUBSCRIBE
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      className="size-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                      />
-                    </svg>
+
+                  <button
+                    type="submit"
+                    className="mt-4 flex items-center gap-3 self-start rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] shadow-lg shadow-[#2C3E2D]/20 transition-all hover:bg-[#3d563e] active:scale-95"
+                  >
+                    {isSubscribed ? (
+                      'Thank you for joining!'
+                    ) : (
+                      <>
+                        SUBSCRIBE
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          className="size-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </>
+                    )}
                   </button>
                 </form>
-
                 <p className="mt-8 flex items-center gap-2 text-[11px] text-gray-400">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
