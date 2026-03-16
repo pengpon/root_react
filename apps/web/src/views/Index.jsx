@@ -1,13 +1,16 @@
 import { fetchAllProducts } from '@/api/products';
+import { fetchArticles } from '@/api/articles';
 import { useEffect, useMemo, useState } from 'react';
 
 import { Spinner } from '@repo/ui';
 import { logger } from '@repo/utils';
 import ProductCard from '../components/ProductCard';
+import ArticleCard from '../components/ArticleCard';
 
 function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
+  const [allArticles, setAllArticles] = useState([]);
 
   const seasonalProducts = useMemo(() => {
     if (!Array.isArray(allProducts)) {
@@ -16,12 +19,24 @@ function Index() {
     return allProducts.filter((item) => item.is_featured).slice(0, 4);
   }, [allProducts]);
 
+  const latestArticles = useMemo(() => {
+    if (!Array.isArray(allArticles)) return [];
+
+    return allArticles
+      .filter((article) => article.isPublic)
+      .sort((a, b) => {
+        return new Date(b.create_at).getTime() - new Date(a.create_at).getTime();
+      })
+      .slice(0, 3);
+  }, [allArticles]);
+
   useEffect(() => {
     const init = async () => {
       try {
         setIsLoading(true);
-        const res = await fetchAllProducts();
-        setAllProducts(res.data.products);
+        const [productsRes, articlesRes] = await Promise.all([fetchAllProducts(), fetchArticles()]);
+        setAllProducts(productsRes.data.products || []);
+        setAllArticles(articlesRes.data.articles || []);
       } catch (error) {
         logger.error(error.message, error);
       } finally {
@@ -356,53 +371,9 @@ function Index() {
             </a>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="group cursor-pointer">
-              <div className="mb-4 aspect-video overflow-hidden rounded-xl">
-                <img
-                  src="../src/assets/post-02.jpg"
-                  className="h-full w-full object-cover contrast-[1.05] saturate-[0.8] sepia-[0.1] filter transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <span className="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase">
-                Recipes / Life
-              </span>
-              <h3 className="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)">
-                Finding the Pause: Fruits as a Buffer in Busy Life
-              </h3>
-              <p className="mt-2 text-sm text-gray-500 italic">4 min read</p>
-            </div>
-
-            <div className="group cursor-pointer">
-              <div className="mb-4 aspect-video overflow-hidden rounded-xl">
-                <img
-                  src="../src/assets/post-03.jpg"
-                  className="h-full w-full object-cover contrast-[1.05] saturate-[0.8] sepia-[0.1] filter transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <span className="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase">
-                Perspective
-              </span>
-              <h3 className="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)">
-                From Soil to Soul: Why We Care About Food Justice
-              </h3>
-              <p className="mt-2 text-sm text-gray-500 italic">5 min read</p>
-            </div>
-
-            <div className="group cursor-pointer">
-              <div className="mb-4 aspect-video overflow-hidden rounded-xl">
-                <img
-                  src="../src/assets/post-04.jpg"
-                  className="h-full w-full object-cover contrast-[1.05] saturate-[0.8] sepia-[0.1] filter transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <span className="text-xs font-bold tracking-widest text-[#8C5E3C] uppercase">
-                Reflection
-              </span>
-              <h3 className="mt-2 text-xl font-bold transition-colors group-hover:text-(--color-brand-primary)">
-                The Age of Overindulgence: Are We Really Eating Better?
-              </h3>
-              <p className="mt-2 text-sm text-gray-500 italic">5 min read</p>
-            </div>
+            {latestArticles.map((article) => (
+              <ArticleCard key={article.id} data={article} />
+            ))}
           </div>
         </div>
       </section>
