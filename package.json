@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^2.11.2",
     "axios": "^1.13.6",
     "prettier": "^3.8.1",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "react-hook-form": "^7.71.2",
     "react-redux": "^9.2.0",

@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchAllProducts } from '@/api/products';
 import { fetchArticles } from '@/api/articles';
+import { fetchAllProducts } from '@/api/products';
 import { Spinner } from '@repo/ui';
 import { logger } from '@repo/utils';
-import Hero from '../components/Home/Hero';
-import Features from '../components/Home/Features';
-import CountdownSection from '../components/Home/CountdownSection';
+import { useEffect, useMemo, useState } from 'react';
 import Collections from '../components/Home/Collections';
-import SeasonalProducts from '../components/Home/SeasonalProducts';
-import LatestArticles from '../components/Home/LatestArticles';
+import CountdownSection from '../components/Home/CountdownSection';
 import CouponCard from '../components/Home/CouponCard';
+import Features from '../components/Home/Features';
+import Hero from '../components/Home/Hero';
+import LatestArticles from '../components/Home/LatestArticles';
 import Newsletter from '../components/Home/Newsletter';
+import SeasonalProducts from '../components/Home/SeasonalProducts';
 
 function Index() {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,12 +60,12 @@ function Index() {
       )}
       <Hero />
       <Features />
-      <CountdownSection/>
+      <CountdownSection />
       <Collections />
-      <SeasonalProducts data={seasonalProducts}/>
+      <SeasonalProducts data={seasonalProducts} />
       <LatestArticles data={latestArticles} />
-      <CouponCard/>
-      <Newsletter/>
+      <CouponCard />
+      <Newsletter />
     </>
   );
 }
