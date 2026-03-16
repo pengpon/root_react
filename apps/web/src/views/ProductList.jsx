@@ -2,6 +2,7 @@ import { Spinner } from '@repo/ui';
 import { useCallback, useEffect, useState } from 'react';
 import { fetchAllProducts, fetchProducts } from '../api/products';
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router';
 
 function ProductList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -79,9 +80,13 @@ function ProductList() {
 
           <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-10">
             {products.map((product) => (
-              <div key={product.id} className="group cursor-pointer">
+              <Link
+                to={`/product/${product.id}`}
+                key={product.id}
+                className="group cursor-pointer"
+              >
                 <ProductCard data={product} />
-              </div>
+              </Link>
             ))}
           </div>
 
