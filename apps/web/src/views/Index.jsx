@@ -1,6 +1,6 @@
 import { fetchAllProducts } from '@/api/products';
 import { fetchArticles } from '@/api/articles';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 
 import { Spinner } from '@repo/ui';
 import { logger } from '@repo/utils';
@@ -11,6 +11,14 @@ function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
   const [allArticles, setAllArticles] = useState([]);
+  const [timeLeft, setTimeLeft] = useState({
+    hours: '00',
+    minutes: '00',
+    seconds: '00',
+  });
+  const [copied, setCopied] = useState(false);
+  const promoCode = 'ROOT10';
+  const timerRef = useRef(null);
 
   const seasonalProducts = useMemo(() => {
     if (!Array.isArray(allProducts)) {
@@ -30,6 +38,20 @@ function Index() {
       .slice(0, 3);
   }, [allArticles]);
 
+  const handleCopy = async () => {
+    try {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      await navigator.clipboard.writeText(promoCode);
+      setCopied(true);
+
+      timerRef.current = setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   useEffect(() => {
     const init = async () => {
       try {
@@ -44,6 +66,38 @@ function Index() {
       }
     };
     init();
+  }, []);
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(23, 59, 59, 999);
+
+      const diff = midnight.getTime() - now.getTime();
+
+      if (diff > 0) {
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / 1000 / 60) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        setTimeLeft({
+          hours: h.toString().padStart(2, '0'),
+          minutes: m.toString().padStart(2, '0'),
+          seconds: s.toString().padStart(2, '0'),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
   }, []);
 
   return (
@@ -203,15 +257,20 @@ function Index() {
           <div className="flex flex-col items-center gap-8 md:items-end">
             <div className="flex gap-4">
               <div className="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md">
-                <span className="block font-mono text-2xl font-bold">12</span>
+                <span className="block font-mono text-2xl font-bold">{timeLeft.hours}</span>
                 <span className="text-[9px] tracking-widest uppercase opacity-50">Hours</span>
               </div>
               <div className="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md">
-                <span className="block font-mono text-2xl font-bold">45</span>
+                <span className="block font-mono text-2xl font-bold">{timeLeft.minutes}</span>
                 <span className="text-[9px] tracking-widest uppercase opacity-50">Mins</span>
               </div>
               <div className="min-w-17.5 rounded-xl border border-white/10 bg-white/10 p-3 text-center backdrop-blur-md">
-                <span className="block font-mono text-2xl font-bold">22</span>
+                <span
+                  key={timeLeft.seconds}
+                  className="animate-pop block font-mono text-2xl font-bold"
+                >
+                  {timeLeft.seconds}
+                </span>
                 <span className="text-[9px] tracking-widest uppercase opacity-50">Secs</span>
               </div>
             </div>
@@ -422,38 +481,42 @@ function Index() {
                 ROOT10
               </div>
             </div>
-
             <button
-              onclick="
-                const btn = this;
-                navigator.clipboard.writeText('ROOT10');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span>COPIED!</span>';
-                btn.classList.replace('bg-[#2C3E2D]', 'bg-[#8C5E3C]');
-                setTimeout(() => {
-                  btn.innerHTML = originalText;
-                  btn.classList.replace('bg-[#8C5E3C]', 'bg-[#2C3E2D]');
-                }, 2000);
-              "
-              className="group relative flex items-center gap-3 rounded-full bg-[#2C3E2D] px-12 py-5 font-bold text-white transition-all hover:shadow-2xl active:scale-95"
+              onClick={handleCopy}
+              className={`group relative flex items-center gap-3 rounded-full px-12 py-5 font-bold text-white transition-all duration-300 active:scale-95 ${copied ? 'bg-[#8C5E3C] shadow-lg' : 'bg-[#2C3E2D] hover:shadow-2xl'} `}
             >
-              <span>COPY CODE</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                className="h-5 w-5 opacity-70"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"
-                />
-              </svg>
-            </button>
+              <span className="relative">{copied ? 'COPIED!' : 'COPY CODE'}</span>
 
+              <div className="relative flex items-center justify-center">
+                {copied ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="3"
+                    stroke="currentColor"
+                    className="animate-in zoom-in fade-in size-5 duration-300"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="h-5 w-5 opacity-70"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"
+                    />
+                  </svg>
+                )}
+              </div>
+            </button>
             <p className="mt-4 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
               * Valid for first order only
             </p>
