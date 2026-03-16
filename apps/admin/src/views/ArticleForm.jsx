@@ -25,6 +25,9 @@ function ArticleForm() {
     watch,
     formState: { errors },
   } = useForm({
+    defaultValues: {
+      category: '',
+    },
     mode: 'onChange',
   });
   const content = watch('content', '');
@@ -75,6 +78,7 @@ function ArticleForm() {
         ...data,
         imageUrl: mainImageUrl[0] || data.imageUrl,
         modified_at: Date.now(),
+        readingTime: readingTime,
         ...(formType === 'create' && { create_at: Date.now() }),
       };
 
@@ -185,17 +189,28 @@ function ArticleForm() {
                   </div>
                   <div>
                     <label
-                      htmlFor="description"
+                      htmlFor="category"
                       className="mb-2 block text-sm font-medium text-gray-700"
                     >
-                      Description
+                      Category
                     </label>
-                    <textarea
-                      id="description"
-                      rows="3"
+                    <select
+                      id="category"
                       className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
-                      {...register('description')}
-                    ></textarea>
+                      {...register('category', {
+                        required: 'Please select category',
+                      })}
+                    >
+                      <option value="" disabled hidden>
+                        Select category
+                      </option>
+
+                      <option value="Life">Mindful Life</option>
+                      <option value="Food">Food Culture</option>
+                    </select>
+                    <div className="text-status-error h-4 text-sm">
+                      {errors['category'] && errors['category'].message}
+                    </div>
                   </div>
                   <div>
                     <label
@@ -338,15 +353,15 @@ function ArticleForm() {
                     <div className="text-status-error h-4 text-sm">
                       {errors['author'] && errors['author'].message}
                     </div>
-                    <div>
-                      <span className="mb-2 block text-sm font-medium text-gray-700">
-                        Create Date
-                      </span>
-                      <div className="w-full cursor-not-allowed rounded-xl border border-gray-100 bg-gray-50/50 px-4 py-3 text-sm text-gray-400">
-                        {article?.create_at
-                          ? formatDateTime(article.create_at)
-                          : 'Automatically generated on create'}
-                      </div>
+                  </div>
+                  <div>
+                    <span className="mb-2 block text-sm font-medium text-gray-700">
+                      Create Date
+                    </span>
+                    <div className="w-full cursor-not-allowed rounded-xl border border-gray-100 bg-gray-50/50 px-4 py-3 text-sm text-gray-400">
+                      {article?.create_at
+                        ? formatDateTime(article.create_at)
+                        : 'Automatically generated on create'}
                     </div>
                   </div>
                 </div>
