@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import Cart from './Cart';
 
 function Header() {
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -18,18 +21,18 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    if (isMenuOpen) {
+    if (isMenuOpen || isCartOpen ) {
       document.body.classList.add('no-scroll');
     } else {
       document.body.classList.remove('no-scroll');
     }
 
     return () => document.body.classList.remove('no-scroll');
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isCartOpen]);
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white shadow-md">
+      <header className="sticky top-0 z-50 w-full bg-white shadow-md ">
         <div className="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10">
           <div className="flex flex-1 items-center">
             <div className="lg:hidden">
@@ -91,7 +94,7 @@ function Header() {
           </div>
 
           <div className="flex flex-1 items-center justify-end gap-4 text-[#2C3E2D]">
-            <a href="#" className="group relative">
+            <button type="button" className="group relative" onClick={toggleCart}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -109,7 +112,7 @@ function Header() {
               <span className="absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110">
                 3
               </span>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -164,6 +167,8 @@ function Header() {
             </nav>
           </div>
         </div>
+
+        <Cart isOpen={isCartOpen} onClose={toggleCart} />
       </header>
     </>
   );
