@@ -16,7 +16,7 @@ function CoverUpload({ value, onChange, maxMB = 3 }) {
   return (
     <div className="group relative aspect-square overflow-hidden rounded-2xl border-2 border-dashed border-gray-200 transition hover:border-emerald-400">
       {displayUrl ? (
-        <img src={displayUrl} className="h-full w-full object-cover" />
+        <img src={displayUrl} alt='display image' className="h-full w-full object-cover" />
       ) : (
         <div className="flex h-full items-center justify-center bg-gray-50 text-gray-400">
           No Image

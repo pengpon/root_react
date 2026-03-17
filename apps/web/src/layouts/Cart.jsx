@@ -130,7 +130,7 @@ function Cart({ isOpen, onClose }) {
                     {displayItems.map((item) => (
                       <div key={item.id} className="flex gap-5">
                         <div className="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
-                          <img src={item.product.imageUrl} className="h-full w-full object-cover" />
+                          <img src={item.product.imageUrl} alt={`${item.product.title}-cover`} className="h-full w-full object-cover" />
                         </div>
                         <div className="flex flex-1 flex-col justify-between py-1">
                           <div className="flex justify-between">

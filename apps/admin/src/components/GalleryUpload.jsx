@@ -27,7 +27,7 @@ function GalleryUpload({ values = [], onChange, maxMB = 3 }) {
           key={index}
           className="group relative aspect-square overflow-hidden rounded-xl border border-gray-100 bg-gray-50"
         >
-          <img src={item?.preview || item} className="h-full w-full object-cover" />
+          <img src={item?.preview || item} alt="preview" className="h-full w-full object-cover" />
           <button
             type="button"
             onClick={() => removeImage(index)}

@@ -267,7 +267,11 @@ function Checkout() {
                   {cartList.map((item) => (
                     <div key={item.id} className="flex items-center gap-4">
                       <div className="h-16 w-12 shrink-0 overflow-hidden rounded-lg bg-[#FDFCF8]">
-                        <img src={item.product.imageUrl} className="h-full w-full object-cover" />
+                        <img
+                          src={item.product.imageUrl}
+                          alt={`${item.product.title}-cover`}
+                          className="h-full w-full object-cover"
+                        />
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-bold text-[#2C3E2D]">{item.title}</p>
