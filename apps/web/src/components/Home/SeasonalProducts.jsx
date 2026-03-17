@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import ProductCard from "../ProductCard";
 
 function SeasonalProducts({data}) {
@@ -18,8 +19,8 @@ function SeasonalProducts({data}) {
                 Seasonal Favorites
               </h2>
             </div>
-            <a
-              href="#"
+            <Link
+              to="/products"
               className="group flex items-center gap-2 text-sm font-bold text-[#2C3E2D] transition-colors hover:text-[#8C5E3C]"
             >
               SHOP ALL PRODUCTS
@@ -37,14 +38,14 @@ function SeasonalProducts({data}) {
                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-10">
             {data.map((product) => (
-              <div key={product.id} className="group cursor-pointer">
+              <Link to={`/product/${product.id}`} key={product.id} className="group cursor-pointer" >
                 <ProductCard data={product} />
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,4 +1,14 @@
+import { Spinner } from '@repo/ui';
+import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCartAsync } from '../store/slices/cartSlice';
+
 function ProductCard({ data }) {
+  const dispatch = useDispatch();
+  const [isAddToCartLoading, setIsAddToCartLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const timeRef = useRef(null);
+
   const BADGE_TYPE_STYLES = {
     new: 'bg-[#8C5E3C]',
     top: 'bg-amber-500',
@@ -6,6 +16,22 @@ function ProductCard({ data }) {
     default: 'bg-gray-500',
   };
   const badgeStyle = BADGE_TYPE_STYLES[data?.badge?.toLowerCase()] || BADGE_TYPE_STYLES.default;
+
+  const onAddToCart = async (e) => {
+    setIsAddToCartLoading(true);
+
+    e.stopPropagation();
+    e.preventDefault();
+
+    await dispatch(addToCartAsync({ product_id: data.id, qty: 1 }));
+    setIsAddToCartLoading(false);
+    setIsSuccess(true);
+    if (timeRef.current) clearTimeout(timeRef.current);
+    timeRef.current = setTimeout(() => {
+      setIsSuccess(false);
+    }, 2000);
+  };
+
   return (
     <>
       <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-white shadow-sm">
@@ -37,8 +63,30 @@ function ProductCard({ data }) {
           </figure>
         </div>
         <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
-          <button className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl">
-            ADD TO CART
+          <button
+            type="button"
+            className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl cursor-pointer"
+            onClick={onAddToCart}
+          >
+            <div className="flex justify-center items-center gap-2 min-h-[24px]">
+              {isAddToCartLoading ? (
+                <div className="size-4">
+                  <Spinner />
+                </div>
+              ) : isSuccess ? (
+                <svg
+                  className="size-4 animate-success-pop"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path className="animate-draw-check" d="M5 13l4 4L19 7" />
+                </svg>
+              ) : (
+                'ADD TO BASKET'
+              )}
+            </div>
           </button>
         </div>
       </div>

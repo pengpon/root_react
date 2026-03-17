@@ -1,16 +1,24 @@
 import { Spinner } from '@repo/ui';
 import { logger } from '@repo/utils';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { addToCart, updateCartItem } from '../api/cart';
 import { fetchProduct } from '../api/products';
+import { getCartAsync } from '../store/slices/cartSlice';
 
 function ProductItem() {
+  const dispatch = useDispatch();
+  const cartList = useSelector((state) => state.cart.cartList);
   const params = useParams();
   const { id } = params;
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
   const [activeImage, setActiveImage] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [isAddToCartLoading, setIsAddToCartLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const timeRef = useRef(null);
 
   const handleImageClick = (e) => {
     setActiveImage(e.target.src);
@@ -40,6 +48,38 @@ function ProductItem() {
   };
   const handleQuantityInputBlur = () => {
     if (!quantity) setQuantity(0);
+  };
+
+  const handleAddToCart = async () => {
+    setIsAddToCartLoading(true);
+
+    const existingItemIndex = cartList.findIndex((item) => item.product_id === product.id);
+
+    try {
+      if (existingItemIndex >= 0) {
+        await updateCartItem(cartList[existingItemIndex].id, {
+          product_id: product.id,
+          qty: cartList[existingItemIndex].qty + Number(quantity),
+        });
+      } else {
+        await addToCart({
+          product_id: product.id,
+          qty: quantity,
+        });
+      }
+      setIsSuccess(true);
+
+      // 控制 check icon 顯示
+      if (timeRef.current) clearTimeout(timeRef.current);
+      timeRef.current = setTimeout(() => {
+        setIsSuccess(false);
+      }, 2000);
+      dispatch(getCartAsync());
+    } catch (error) {
+      logger.error(error.message, error);
+    } finally {
+      setIsAddToCartLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -141,9 +181,10 @@ function ProductItem() {
                 <div className="flex items-center gap-4">
                   <div className="flex items-center rounded-xl border border-[#2C3E2D]/10 bg-white p-1">
                     <button
+                      type="button"
                       data-type="minus"
                       onClick={handleQuantityChange}
-                      className="flex h-12 w-12 items-center justify-center rounded-lg text-[#2C3E2D] transition-colors hover:bg-[#F3EFDF]"
+                      className="flex h-12 w-12 items-center justify-center rounded-lg text-[#2C3E2D] transition-colors hover:bg-[#F3EFDF] cursor-pointer"
                     >
                       -
                     </button>
@@ -155,20 +196,47 @@ function ProductItem() {
                       onBlur={handleQuantityInputBlur}
                     />
                     <button
+                      type="button"
                       data-type="plus"
                       onClick={handleQuantityChange}
-                      className="flex h-12 w-12 items-center justify-center rounded-lg text-[#2C3E2D] transition-colors hover:bg-[#F3EFDF]"
+                      className="flex h-12 w-12 items-center justify-center rounded-lg text-[#2C3E2D] transition-colors hover:bg-[#F3EFDF] cursor-pointer"
                     >
                       +
                     </button>
                   </div>
 
-                  <button className="flex-1 rounded-xl bg-[#2C3E2D] py-4 text-sm font-bold tracking-widest text-white shadow-2xl transition-all hover:bg-[#1a261b] hover:shadow-[#2C3E2D]/20 active:scale-95">
-                    ADD TO BASKET
+                  <button
+                    type="button"
+                    className="flex-1 rounded-xl bg-[#2C3E2D] py-4 text-sm font-bold tracking-widest text-white shadow-2xl transition-all hover:bg-[#1a261b] hover:shadow-[#2C3E2D]/20 active:scale-95 cursor-pointer disabled:cursor-not-allowed disabled:opacity-80"
+                    onClick={handleAddToCart}
+                    disabled={isAddToCartLoading && !isSuccess}
+                  >
+                    <div className="flex h-5 items-center justify-center">
+                      {isAddToCartLoading ? (
+                        <Spinner className="size-5" />
+                      ) : isSuccess ? (
+                        <svg
+                          className="size-6 animate-success-pop"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path className="animate-draw-check" d="M5 13l4 4L19 7" />
+                        </svg>
+                      ) : (
+                        'ADD TO BASKET'
+                      )}
+                    </div>
                   </button>
                 </div>
 
-                <button className="w-full rounded-xl border-2 border-[#2C3E2D] py-4 text-sm font-bold tracking-widest text-[#2C3E2D] transition-all hover:bg-[#2C3E2D] hover:text-white">
+                <button
+                  type="button"
+                  className="w-full rounded-xl border-2 border-[#2C3E2D] py-4 text-sm font-bold tracking-widest text-[#2C3E2D] transition-all hover:bg-[#2C3E2D] hover:text-white cursor-pointer"
+                >
                   BUY IT NOW
                 </button>
               </div>
