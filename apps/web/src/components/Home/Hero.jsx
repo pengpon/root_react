@@ -1,9 +1,11 @@
+import bgImage from '../../assets/hero-bg.jpg';
+
 function Hero() {
   return (
     <>
       <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="../src/assets/hero-bg.jpg" className="h-full w-full object-cover opacity-80" />
+          <img src={bgImage} className="h-full w-full object-cover opacity-80" />
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
 

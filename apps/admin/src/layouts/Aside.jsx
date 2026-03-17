@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router';
+import logoWhite from "../assets/logo_white.png"
 
 function Aside() {
   const navItemClass = ({ isActive }) =>
@@ -14,7 +15,7 @@ function Aside() {
         <NavLink to="/">
           <div className="flex items-center gap-2 border-b border-slate-700 p-6 text-2xl font-bold">
             <div className="size-12">
-              <img src="../src/assets/logo_white.png" alt="logo" />
+              <img src={logoWhite} alt="logo" />
             </div>
             <span>Admin</span>
           </div>

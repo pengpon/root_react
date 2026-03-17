@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import coverImage from '../../assets/newsletter-cover.jpg'
 function Newsletter() {
   const [isSubscribed, setIsSubscribed] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -22,7 +22,7 @@ function Newsletter() {
           <div className="flex flex-col items-stretch overflow-hidden rounded-[2.5rem] border border-[#2C3E2D]/5 bg-[#F3EFDF] shadow-xl md:flex-row">
             <div className="relative h-87.5 w-full overflow-hidden md:h-auto md:w-1/2">
               <img
-                src="../src/assets/newsletter-cover.jpg"
+                src={coverImage}
                 alt="Morning Farm"
                 className="h-full w-full object-cover brightness-[0.95] contrast-[0.9] sepia-[0.2] filter"
               />

@@ -2,6 +2,7 @@ import { Toast } from '@repo/utils';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import logoWhite from '../assets/logo_white.png';
 import { loginAsync } from '../store/slices/authSlice';
 
 function Login() {
@@ -34,7 +35,7 @@ function Login() {
         <div className="w-full max-w-md">
           <div className="mb-10 text-center">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800 shadow-lg">
-              <img src="../src/assets/logo_white.png" alt="logo" className="h-10 w-10" />
+              <img src={logoWhite} alt="logo" className="h-10 w-10" />
             </div>
             <h1 className="text-2xl font-bold text-slate-900">Admin Console</h1>
             <p className="mt-2 text-sm font-medium text-slate-500">

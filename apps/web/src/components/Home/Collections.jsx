@@ -1,4 +1,7 @@
 import { Link } from 'react-router';
+import budleImage from '../../assets/collections-bundle.jpg';
+import fruitImage from '../../assets/collections-fruit.jpg';
+import vegetableImage from '../../assets/collections-vegetable.jpg';
 
 function Collections() {
   return (
@@ -21,7 +24,7 @@ function Collections() {
               className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
             >
               <img
-                src="../src/assets/collections-bundle.jpg"
+                src={budleImage}
                 alt="Curated Bundles"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -41,7 +44,7 @@ function Collections() {
               className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
             >
               <img
-                src="../src/assets/collections-vegetable.jpg"
+                src={vegetableImage}
                 alt="Vegetables"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -56,7 +59,7 @@ function Collections() {
               className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
             >
               <img
-                src="../src/assets/collections-fruit.jpg"
+                src={fruitImage}
                 alt="Fruits"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

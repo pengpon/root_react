@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router';
+import logo from '../assets/logo.png';
 import { setDrawerOpen } from '../store/slices/cartSlice';
 import Cart from './Cart';
 
@@ -89,11 +90,7 @@ function Header() {
           <div className="flex h-full py-4">
             <Link to="/" className="flex h-full items-center">
               <span className="sr-only">ROOT Concept Store</span>
-              <img
-                className="h-8 w-auto object-contain lg:h-12"
-                src="../src/assets/logo.png"
-                alt="ROOT logo"
-              />
+              <img className="h-8 w-auto object-contain lg:h-12" src={logo} alt="ROOT logo" />
             </Link>
           </div>
 
