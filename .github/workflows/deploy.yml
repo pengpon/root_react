@@ -44,3 +44,4 @@ jobs:
         with:
           folder: final-deploy
           branch: gh-pages
+          clean: true
