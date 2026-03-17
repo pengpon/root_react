@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 function CountdownSection() {
   const [timeLeft, setTimeLeft] = useState({
@@ -74,7 +75,7 @@ function CountdownSection() {
               </div>
             </div>
 
-            <button className="group flex items-center gap-3 rounded-full bg-[#8C5E3C] px-10 py-4 text-sm font-bold text-[#F3EFDF] transition-all hover:bg-[#a6724d] hover:shadow-xl active:scale-95">
+            <Link to="/products" className="group flex items-center gap-3 rounded-full bg-[#8C5E3C] px-10 py-4 text-sm font-bold text-[#F3EFDF] transition-all hover:bg-[#a6724d] hover:shadow-xl active:scale-95">
               SHOP THE HARVEST
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +91,7 @@ function CountdownSection() {
                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                 />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,12 +1,14 @@
 import { Spinner } from '@repo/ui';
+import { logger } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router';
 import { fetchAllProducts, fetchProducts } from '../api/products';
 import ProductCard from '../components/ProductCard';
-import { Link } from 'react-router';
 
 function ProductList() {
   const [isLoading, setIsLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState('All');
+  const location = useLocation();
+  const [activeCategory, setActiveCategory] = useState(location?.state?.activeCategory || 'All');
   const [products, setProducts] = useState([]);
 
   const CATEGORIES = [
@@ -31,11 +33,18 @@ function ProductList() {
 
       setProducts(res.data.products || []);
     } catch (error) {
-      console.error('Fetch error:', error);
+      logger.error(error.message);
     } finally {
       setIsLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    const newState = location?.state?.activeCategory || 'All';
+    if (newState) {
+      setActiveCategory(newState);
+    }
+  }, [location.pathname, location.state]);
 
   useEffect(() => {
     fetchProductsData(activeCategory);
@@ -69,7 +78,7 @@ function ProductList() {
               {CATEGORIES.map((item) => (
                 <button
                   key={item.id}
-                  className={`rounded-full  px-6 py-2 text-xs font-bold whitespace-nowrap cursor-pointer ${activeCategory === item.value ? `bg-[#2C3E2D] text-white shadow-lg` : `border border-[#2C3E2D]/10  bg-white text-[#2C3E2D] transition-all hover:border-[#2C3E2D]`}`}
+                  className={`cursor-pointer rounded-full px-6 py-2 text-xs font-bold whitespace-nowrap ${activeCategory === item.value ? `bg-[#2C3E2D] text-white shadow-lg` : `border border-[#2C3E2D]/10 bg-white text-[#2C3E2D] transition-all hover:border-[#2C3E2D]`}`}
                   data-value={item.value}
                 >
                   {item.label}
@@ -80,11 +89,7 @@ function ProductList() {
 
           <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-10">
             {products.map((product) => (
-              <Link
-                to={`/product/${product.id}`}
-                key={product.id}
-                className="group cursor-pointer"
-              >
+              <Link to={`/product/${product.id}`} key={product.id} className="group cursor-pointer">
                 <ProductCard data={product} />
               </Link>
             ))}

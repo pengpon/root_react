@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 function Footer() {
   return (
     <>
@@ -29,19 +31,30 @@ function Footer() {
               </h4>
               <ul className="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
                 <li>
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
+                  <Link
+                    to="/products"
+                    className="inline-block transition-transform hover:translate-x-1"
+                  >
                     <span className="hidden md:inline">Curated </span>Bundles
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
+                  <Link
+                    to={{ pathname: '/products' }}
+                    state={{ activeCategory: 'Vegetable' }}
+                    className="inline-block transition-transform hover:translate-x-1"
+                  >
                     <span className="hidden md:inline">Earth's </span>Greens
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
+                  <Link
+                    to={{ pathname: '/products' }}
+                    state={{ activeCategory: 'Fruit' }}
+                    className="inline-block transition-transform hover:translate-x-1"
+                  >
                     <span className="hidden md:inline">Seasonal </span>Fruits
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -74,6 +87,7 @@ function Footer() {
               </ul>
             </div> */}
 
+            {/* <form> */}
             <div className="col-span-2 mt-4 md:col-span-1 md:mt-0">
               <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
                 Stay Rooted
@@ -88,13 +102,14 @@ function Footer() {
                   className="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-[#8C5E3C] focus:outline-none"
                 />
                 <button
-                  type="button"
-                  className="rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
+                  type="submit"
+                  className="cursor-pointer rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
                 >
                   Join
                 </button>
               </div>
             </div>
+            {/* </form> */}
           </div>
 
           <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-[10px] text-white/40 md:flex-row md:text-xs">

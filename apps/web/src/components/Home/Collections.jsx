@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 function Collections() {
   return (
     <>
@@ -13,7 +15,11 @@ function Collections() {
           </div>
 
           <div className="grid h-auto grid-cols-1 gap-6 md:h-162.5 md:grid-cols-3 md:grid-rows-2">
-            <div className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2">
+            <Link
+              to={{ pathname: '/products' }}
+              state={{ activeCategory: 'All' }}
+              className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
+            >
               <img
                 src="../src/assets/collections-bundle.jpg"
                 alt="Curated Bundles"
@@ -27,9 +33,13 @@ function Collections() {
                   <h3 className="text-3xl font-bold text-white md:text-4xl">Curated Bundles</h3>
                 </div>
               </div>
-            </div>
+            </Link>
 
-            <div className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)">
+            <Link
+              to={{ pathname: '/products' }}
+              state={{ activeCategory: 'Vegetable' }}
+              className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
+            >
               <img
                 src="../src/assets/collections-vegetable.jpg"
                 alt="Vegetables"
@@ -38,9 +48,13 @@ function Collections() {
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40">
                 <h3 className="text-xl font-bold tracking-wide text-white uppercase">Greens</h3>
               </div>
-            </div>
+            </Link>
 
-            <div className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)">
+            <Link
+              to={{ pathname: '/products' }}
+              state={{ activeCategory: 'Fruit' }}
+              className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
+            >
               <img
                 src="../src/assets/collections-fruit.jpg"
                 alt="Fruits"
@@ -49,7 +63,7 @@ function Collections() {
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40">
                 <h3 className="text-xl font-bold tracking-wide text-white uppercase">Fruits</h3>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
