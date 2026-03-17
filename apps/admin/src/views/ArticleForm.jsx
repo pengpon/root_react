@@ -46,7 +46,7 @@ function ArticleForm() {
 
   const TITLE_TEXT_MAP = {
     create: 'Create New Article',
-    edit: `Edit: ${location?.state?.data?.title}`,
+    edit: `Edit: ${location?.state?.title}`,
   };
 
   const { submitText, discardText } = ACTIONS_TEXT_MAP[formType];
@@ -185,6 +185,23 @@ function ArticleForm() {
                     />
                     <div className="text-status-error h-4 text-sm">
                       {errors['title'] && errors['title'].message}
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="description"
+                      className="mb-2 block text-sm font-medium text-gray-700"
+                    >
+                      Description
+                    </label>
+                    <input
+                      id="description"
+                      type="text"
+                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
+                      {...register('description')}
+                    />
+                    <div className="text-status-error h-4 text-sm">
+                      {errors['description'] && errors['description'].message}
                     </div>
                   </div>
                   <div>

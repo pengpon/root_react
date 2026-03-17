@@ -1,6 +1,7 @@
-import ArticleCard from "../ArticleCard";
+import { Link } from 'react-router';
+import ArticleCard from '../ArticleCard';
 
-function LatestArticles({data}) {
+function LatestArticles({ data }) {
   return (
     <>
       <section className="bg-white py-20">
@@ -18,8 +19,8 @@ function LatestArticles({data}) {
               </h2>
             </div>
 
-            <a
-              href="#"
+            <Link
+              to="/posts"
               className="group flex items-center gap-2 text-sm font-bold text-[#2C3E2D] uppercase transition-colors hover:text-[#8C5E3C]"
             >
               view all articles
@@ -37,7 +38,7 @@ function LatestArticles({data}) {
                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {data.map((article) => (
