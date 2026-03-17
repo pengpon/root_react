@@ -30,6 +30,9 @@ jobs:
 
       - name: Build Web & Admin
         run: pnpm turbo run build --filter=web --filter=admin --force
+        env:
+          VITE_API_BASE: ${{ secrets.VITE_API_BASE }}
+          VITE_API_PATH: ${{ secrets.VITE_API_PATH }}
 
       - name: Prepare Deployment Folder
         run: |
