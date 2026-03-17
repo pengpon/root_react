@@ -1,8 +1,8 @@
-import { useForm } from 'react-hook-form';
 import { Toast } from '@repo/utils';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { loginAsync } from "../store/slices/authSlice";
-import { useDispatch } from "react-redux";
+import { loginAsync } from '../store/slices/authSlice';
 
 function Login() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
-import Header from './Header';
 import Aside from './Aside';
+import Header from './Header';
 
 function Layout() {
   return (
@@ -11,7 +11,7 @@ function Layout() {
         <main className="flex min-w-0 flex-1 flex-col">
           <Header />
 
-          <Outlet/>
+          <Outlet />
         </main>
       </div>
     </>

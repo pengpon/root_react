@@ -1,4 +1,4 @@
-import { useLocation, Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
 function Breadcrumbs() {
   const location = useLocation();

@@ -1,9 +1,9 @@
-import { fetchProducts } from '@/api/products';
-import { fetchCoupons } from '@/api/coupons';
 import { fetchArticles } from '@/api/articles';
-import { useEffect, useState } from 'react';
-import { logger } from '@repo/utils';
+import { fetchCoupons } from '@/api/coupons';
+import { fetchProducts } from '@/api/products';
 import { Spinner } from '@repo/ui';
+import { logger } from '@repo/utils';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
 function Index() {

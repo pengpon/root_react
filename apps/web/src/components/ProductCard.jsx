@@ -44,7 +44,7 @@ function ProductCard({ data }) {
         )}
 
         <div className="aspect-4/5 overflow-hidden">
-          <figure className="w-full h-full overflow-hidden relative">
+          <figure className="relative h-full w-full overflow-hidden">
             <img
               src={data?.imageUrl || 'https://placehold.co/600x400/89986D/FFFFFF?text=Oops'}
               alt={data?.title}
@@ -57,7 +57,7 @@ function ProductCard({ data }) {
                   data.imageUrl ||
                   'https://placehold.co/600x400/89986D/FFFFFF?text=Oops'
                 }
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110"
+                className="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
               />
             </div>
           </figure>
@@ -65,17 +65,17 @@ function ProductCard({ data }) {
         <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
           <button
             type="button"
-            className="w-full rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl cursor-pointer"
+            className="w-full cursor-pointer rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
             onClick={onAddToCart}
           >
-            <div className="flex justify-center items-center gap-2 min-h-[24px]">
+            <div className="flex min-h-6 items-center justify-center gap-2">
               {isAddToCartLoading ? (
                 <div className="size-4">
                   <Spinner />
                 </div>
               ) : isSuccess ? (
                 <svg
-                  className="size-4 animate-success-pop"
+                  className="animate-success-pop size-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"

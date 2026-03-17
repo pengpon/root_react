@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { fetchProducts, deleteProduct } from '@/api/products';
-import { Toast, logger } from '@repo/utils';
+import { deleteProduct, fetchProducts } from '@/api/products';
 import { Alert, Spinner } from '@repo/ui';
+import { Toast, logger } from '@repo/utils';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router';
 import Pagination from '../components/Pagination';
 import Table from '../components/Table';
 import PageHeader from '../layouts/PageHeader';
-import { useNavigate } from 'react-router';
 
 function Products() {
   const pageRef = useRef(null);
