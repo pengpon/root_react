@@ -11,7 +11,7 @@ const API_PATH = import.meta.env.VITE_API_PATH;
 
 export const fetchAllProducts = () => frontApi.get(`/api/${API_PATH}/products/all`);
 
-export const fetchProducts = (page = 1, category) =>
+export const fetchProducts = (page , category) =>
   frontApi.get(`/api/${API_PATH}/products`, {
     params: {
       page: page,
