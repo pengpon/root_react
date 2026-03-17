@@ -36,7 +36,7 @@ function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white shadow-md ">
+      <header className="sticky top-0 z-50 w-full bg-white shadow-md">
         <div className="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10">
           <div className="flex flex-1 items-center">
             <div className="lg:hidden">
@@ -115,7 +115,7 @@ function Header() {
               </svg>
               <span
                 key={totalQuantity}
-                className="absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110 animate-badge"
+                className="animate-badge absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110"
               >
                 {totalQuantity > 99 ? '99+' : totalQuantity}
               </span>
@@ -151,7 +151,11 @@ function Header() {
             <nav className="flex-1">
               <ul className="flex flex-col gap-6 text-2xl font-bold text-[#2C3E2D]">
                 <li>
-                  <Link to="/products" className="transition-colors hover:text-[#8C5E3C]">
+                  <Link
+                    to="/products"
+                    onClick={toggleMenu}
+                    className="transition-colors hover:text-[#8C5E3C]"
+                  >
                     SHOP
                   </Link>
                 </li>
@@ -161,12 +165,20 @@ function Header() {
                   </Link>
                 </li> */}
                 <li>
-                  <Link to="/articles" className="transition-colors hover:text-[#8C5E3C]">
+                  <Link
+                    to="/posts"
+                    onClick={toggleMenu}
+                    className="transition-colors hover:text-[#8C5E3C]"
+                  >
                     JOURNAL
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="transition-colors hover:text-[#8C5E3C]">
+                  <Link
+                    to="/origin"
+                    onClick={toggleMenu}
+                    className="transition-colors hover:text-[#8C5E3C]"
+                  >
                     ORIGIN
                   </Link>
                 </li>

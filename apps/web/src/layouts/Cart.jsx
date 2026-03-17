@@ -11,47 +11,45 @@ function Cart({ isOpen, onClose }) {
   const cartList = useSelector((state) => state.cart.cartList);
   const finalTotal = useSelector((state) => state.cart.finalTotal);
   const [isActionLoading, setIsActionLoading] = useState(false);
-  const [cartItems, setCartItems] = useState(null);
+  const [localCartItems, setLocalCartItems] = useState(null);
+  const displayItems = localCartItems || cartList;
   const timerRef = useRef(null);
 
   const handleQuantityChange = async (id, type) => {
-    setIsActionLoading(true);
-    const currentItem = cartItems.find((item) => item.id === id);
-    const diff = type === 'plus' ? 1 : -1;
-    const newQty = currentItem.qty + diff;
+    const currentItems = localCartItems || cartList;
+    const targetItem = currentItems.find((item) => item.id === id);
+    if (!targetItem) return;
 
-    const updatedItems = cartItems.map((item) =>
+    const diff = type === 'plus' ? 1 : -1;
+    const newQty = targetItem.qty + diff;
+
+    const updatedItems = currentItems.map((item) =>
       item.id === id ? { ...item, qty: newQty } : item,
     );
+    const updateItem = updatedItems.find((item) => item.id === id);
 
-    setCartItems(updatedItems);
+    setLocalCartItems(updatedItems);
+    setIsActionLoading(true);
 
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
+    if (timerRef.current) clearTimeout(timerRef.current);
 
     timerRef.current = setTimeout(async () => {
-      await updateCart(id, updatedItems);
-      setIsActionLoading(false);
+      try {
+        await updateCartItem(id, {
+          product_id: updateItem.product_id,
+          qty: updateItem.qty,
+        });
+        await dispatch(getCartAsync()).unwrap();
+      } catch (error) {
+        logger.error(error.message);
+      } finally {
+        setLocalCartItems(null);
+        setIsActionLoading(false);
+      }
     }, 500);
   };
 
-  const updateCart = async (id, data) => {
-    const updateItem = data.find((item) => item.id === id);
-
-    await updateCartItem(id, {
-      product_id: updateItem.product_id,
-      qty: updateItem.qty,
-    });
-    dispatch(getCartAsync());
-    setIsActionLoading(false);
-  };
-
   const handleRemove = async (id) => {
-    setCartItems((prev) => {
-      const updatedItems = prev.filter((item) => item.id !== id);
-      return updatedItems;
-    });
     await removeCartItem(id);
     dispatch(getCartAsync());
   };
@@ -83,10 +81,6 @@ function Cart({ isOpen, onClose }) {
     };
   }, []);
 
-  useEffect(() => {
-    setCartItems([...cartList]);
-  }, [cartList]);
-
   return (
     <>
       <div
@@ -109,7 +103,11 @@ function Cart({ isOpen, onClose }) {
           <div className="flex h-full flex-col">
             <div className="flex items-center justify-between border-b border-[#2C3E2D]/5 p-8">
               <h2 className="text-2xl font-bold tracking-tighter text-[#2C3E2D]">Your Bag.</h2>
-              <button onClick={onClose} className="group p-2 transition-transform hover:rotate-90">
+              <button
+                type="button"
+                onClick={onClose}
+                className="group p-2 transition-transform hover:rotate-90"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -125,7 +123,7 @@ function Cart({ isOpen, onClose }) {
 
             <div className="no-scrollbar flex-1 overflow-y-auto p-8">
               <div className="space-y-10">
-                {cartList.map((item) => (
+                {displayItems.map((item) => (
                   <div key={item.id} className="flex gap-5">
                     <div className="h-28 w-20 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
                       <img src={item.product.imageUrl} className="h-full w-full object-cover" />
@@ -208,14 +206,15 @@ function Cart({ isOpen, onClose }) {
               <Link
                 to="/checkout"
                 onClick={() => dispatch(setDrawerOpen(false))}
-                className="w-full text-center block  rounded-2xl bg-[#2C3E2D] py-5 text-xs font-bold tracking-[0.3em] text-white uppercase shadow-xl transition-all hover:bg-[#1a261b] active:scale-95"
+                className="block w-full rounded-2xl bg-[#2C3E2D] py-5 text-center text-xs font-bold tracking-[0.3em] text-white uppercase shadow-xl transition-all hover:bg-[#1a261b] active:scale-95"
               >
                 Check out
               </Link>
 
               <Link
                 to="/products"
-                className="block mt-6 w-full text-center text-[10px] font-bold tracking-widest text-gray-400 uppercase underline underline-offset-8 transition-colors hover:text-[#2C3E2D]"
+                onClick={() => dispatch(setDrawerOpen(false))}
+                className="mt-6 block w-full text-center text-[10px] font-bold tracking-widest text-gray-400 uppercase underline underline-offset-8 transition-colors hover:text-[#2C3E2D]"
               >
                 Or continue shopping
               </Link>
