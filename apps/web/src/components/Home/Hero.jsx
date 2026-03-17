@@ -1,6 +1,12 @@
 import bgImage from '../../assets/hero-bg.jpg';
 
 function Hero() {
+  const handleScroll = () => {
+    const element = document.getElementById('coupon-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
@@ -22,7 +28,11 @@ function Hero() {
             Nature's Purest Gift.
           </h1>
 
-          <button className="group mx-auto flex items-center gap-3 rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] transition-all hover:bg-[#1a261b] hover:shadow-2xl active:scale-95">
+          <button
+            type="button"
+            onClick={handleScroll}
+            className="group mx-auto flex items-center gap-3 rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] transition-all hover:bg-[#1a261b] hover:shadow-2xl active:scale-95"
+          >
             <span>RECEIVE THE GIFT</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
