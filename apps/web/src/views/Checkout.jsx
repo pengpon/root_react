@@ -49,8 +49,7 @@ function Checkout() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     await applyCoupon(data);
-      dispatch(getCartAsync());
-
+    dispatch(getCartAsync());
   };
 
   useEffect(() => {
