@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function NotFound() {
   return (
     <>
@@ -42,19 +44,19 @@ function NotFound() {
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-8 md:flex-row">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="rounded-xl bg-[#2C3E2D] px-10 py-4 text-xs font-bold tracking-[0.2em] text-white uppercase shadow-xl transition-all hover:bg-[#1a261b] active:scale-95"
           >
             Back to Home
-          </a>
-          <a
-            href="/shop"
+          </Link>
+          <Link
+            to="/products"
             className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#2C3E2D] uppercase"
           >
             Shop the Harvest
             <div className="h-px w-6 bg-[#2C3E2D] transition-all group-hover:w-10"></div>
-          </a>
+          </Link>
         </div>
       </main>
     </>
