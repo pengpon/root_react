@@ -3,10 +3,7 @@ function Hero() {
     <>
       <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src="../src/assets/hero-bg.jpg"
-            className="h-full w-full object-cover opacity-80"
-          />
+          <img src="../src/assets/hero-bg.jpg" className="h-full w-full object-cover opacity-80" />
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
@@ -46,8 +43,8 @@ function Hero() {
             Scroll
           </span>
 
-          <div className="relative h-9 w-5 rounded-full border-2 border-white/30 backdrop-blur-[2px]">
-            <div className="animate-scroll-dot absolute top-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white"></div>
+          <div className="relative flex h-9 w-5 justify-center rounded-full border-2 border-white/30 backdrop-blur-[2px]">
+            <div className="animate-scroll-dot mt-2 h-1.5 w-1.5 rounded-full bg-white"></div>
           </div>
         </div>
       </section>
