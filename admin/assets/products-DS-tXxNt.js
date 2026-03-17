@@ -1,0 +1,1 @@
+import{c}from"./index-CSnP5hqN.js";const o="",p=(t=1,a)=>c.get(`/api/${o}/admin/products`,{params:{page:t,category:a}}),s=t=>c.post(`/api/${o}/admin/product`,{data:t}),e=(t,a)=>c.put(`/api/${o}/admin/product/${t}`,{data:a}),r=t=>c.delete(`/api/${o}/admin/product/${t}`),i=t=>c.get(`/api/${o}/product/${t}`);export{s as c,r as d,e,p as f,i as g};

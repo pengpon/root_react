@@ -1,1 +1,0 @@
-import{i as o}from"./index-CtusnECf.js";const c=void 0,r=()=>o.get(`/api/${c}/products/all`),p=(t,s)=>o.get(`/api/${c}/products`,{params:{page:t,category:s}}),e=t=>o.get(`/api/${c}/product/${t}`);export{p as a,e as b,r as f};
