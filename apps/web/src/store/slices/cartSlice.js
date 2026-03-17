@@ -13,6 +13,7 @@ const cartSlice = createSlice({
       state.cartList = action.payload.carts;
       state.totalQuantity = action.payload.carts.reduce((total, item) => total + item.qty, 0);
       state.finalTotal = action.payload.final_total;
+      state.total = action.payload.total;
     },
     setDrawerOpen: (state, action) => {
       state.isDrawerOpen = action.payload;

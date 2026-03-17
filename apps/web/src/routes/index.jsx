@@ -1,7 +1,4 @@
 import { lazy } from 'react';
-// import Index from "../views/Index";
-// import ProductList from "../views/ProductList";
-// import { Navigate } from "react-router";
 
 // Layouts
 const Layout = lazy(() => import('../layouts/Layout'));
@@ -13,6 +10,9 @@ const ProductItem = lazy(() => import('../views/ProductItem'));
 const ArticleList = lazy(() => import('../views/ArticleList'));
 const ArticlePost = lazy(() => import('../views/ArticlePost'));
 const Checkout = lazy(() => import('../views/Checkout'));
+const Payment = lazy(() => import('../views/Payment'));
+const PaymentSuccess = lazy(() => import('../views/PaymentSuccess'));
+const Order = lazy(() => import('../views/Order'));
 const About = lazy(() => import('../views/About'));
 const NotFound = lazy(() => import('../views/NotFound'));
 
@@ -44,6 +44,18 @@ const routes = [
       {
         path: 'checkout',
         element: <Checkout />,
+      },
+      {
+        path: 'payment/:id',
+        element: <Payment />,
+      },
+      {
+        path: 'payment/thanks',
+        element: <PaymentSuccess />,
+      },
+      {
+        path: 'order/:id',
+        element: <Order />,
       },
       {
         path: 'origin',
