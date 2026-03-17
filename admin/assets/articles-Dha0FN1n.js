@@ -1,1 +1,0 @@
-import{c as e}from"./index-AsrqppkM.js";const a=void 0,s=(t=1)=>e.get(`/api/${a}/admin/articles`,{params:{page:t}}),r=t=>e.get(`/api/${a}/admin/article/${t}`),n=t=>e.post(`/api/${a}/admin/article`,{data:t}),d=(t,i)=>e.put(`/api/${a}/admin/article/${t}`,{data:i}),l=t=>e.delete(`/api/${a}/admin/article/${t}`);export{r as a,n as c,l as d,d as e,s as f};
