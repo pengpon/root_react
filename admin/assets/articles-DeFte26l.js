@@ -1,1 +1,0 @@
-import{c as a}from"./index-BIop1Jl4.js";const e="root",r=(t=1)=>a.get(`/api/${e}/admin/articles`,{params:{page:t}}),s=t=>a.get(`/api/${e}/admin/article/${t}`),l=t=>a.post(`/api/${e}/admin/article`,{data:t}),n=(t,i)=>a.put(`/api/${e}/admin/article/${t}`,{data:i}),o=t=>a.delete(`/api/${e}/admin/article/${t}`);export{s as a,l as c,o as d,n as e,r as f};
