@@ -1,26 +1,25 @@
+// apps/admin/src/components/Guard/AdminGuard.jsx
 import { Spinner } from '@repo/ui';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Outlet } from 'react-router';
-import { checkAuthAsync } from '../../store/slices/authSlice';
+import { useSelector } from 'react-redux';
+import { Navigate, Outlet, useLocation } from 'react-router';
 
 function AdminGuard() {
-  const dispatch = useDispatch();
   const { isAuth, isInitializing } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    dispatch(checkAuthAsync());
-  }, [dispatch]);
+  const location = useLocation();
 
   if (isInitializing) {
     return (
-      <div className="bg-root-bg absolute z-10 flex h-full w-full items-center justify-center">
+      <div className="bg-root-bg fixed inset-0 z-50 flex items-center justify-center">
         <Spinner />
       </div>
     );
   }
 
-  return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
+  if (!isAuth) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return <Outlet />;
 }
 
 export default AdminGuard;
