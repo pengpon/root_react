@@ -1,0 +1,1 @@
+import{c as o}from"./index-BIop1Jl4.js";const c="root",p=(t=1,a)=>o.get(`/api/${c}/admin/products`,{params:{page:t,category:a}}),r=t=>o.post(`/api/${c}/admin/product`,{data:t}),s=(t,a)=>o.put(`/api/${c}/admin/product/${t}`,{data:a}),e=t=>o.delete(`/api/${c}/admin/product/${t}`),i=t=>o.get(`/api/${c}/product/${t}`);export{r as c,e as d,s as e,p as f,i as g};

@@ -1,1 +1,0 @@
-import{c as n}from"./index-CSnP5hqN.js";const p="",s=(o=1)=>n.get(`/api/${p}/admin/coupons`,{params:{page:o}}),c=o=>n.post(`/api/${p}/admin/coupon`,{data:o}),e=(o,a)=>n.put(`/api/${p}/admin/coupon/${o}`,{data:a}),i=o=>n.delete(`/api/${p}/admin/coupon/${o}`);export{c,i as d,e,s as f};
