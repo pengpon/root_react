@@ -245,8 +245,9 @@ function ProductForm() {
                         $
                       </span>
                       <input
-                        type="number"
                         id="origin_price"
+                        type="number"
+                        min={0}
                         className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-8 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                         {...register('origin_price', {
                           required: 'Please enter origin price',
@@ -269,6 +270,7 @@ function ProductForm() {
                       <input
                         id="price"
                         type="number"
+                        min={0}
                         className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-8 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                         {...register('price', {
                           required: 'Please enter price',
