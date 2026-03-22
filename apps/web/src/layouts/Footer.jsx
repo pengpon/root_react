@@ -1,6 +1,27 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
 function Footer() {
+  const [email, setEmail] = useState('');
+  const [isJoined, setIsJoined] = useState(false);
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+
+    setIsJoined(true);
+    setEmail('');
+  };
+
+  useEffect(() => {
+    let timer;
+    if (isJoined) {
+      timer = setTimeout(() => {
+        setIsJoined(false);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isJoined]);
+
   return (
     <>
       <footer className="bg-brand py-12 text-white/90 md:py-16">
@@ -87,29 +108,57 @@ function Footer() {
               </ul>
             </div> */}
 
-            {/* <form> */}
-            <div className="col-span-2 mt-4 md:col-span-1 md:mt-0">
-              <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
-                Stay Rooted
-              </h4>
-              <p className="mb-4 hidden text-sm text-white/60 md:block">
-                Join our newsletter for seasonal harvest updates.
-              </p>
-              <div className="flex max-w-sm md:max-w-none">
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  className="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-secondary focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="cursor-pointer rounded-r-lg bg-secondary px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
-                >
-                  Join
-                </button>
+            <form onSubmit={handleSubscribe}>
+              <div className="col-span-2 mt-4 md:col-span-1 md:mt-0">
+                <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
+                  Stay Rooted
+                </h4>
+                <p className="mb-4 hidden text-sm text-white/60 md:block">
+                  Join our newsletter for seasonal harvest updates.
+                </p>
+                <div className="flex max-w-sm md:max-w-none">
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email address"
+                    required
+                    className="focus:border-secondary w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isJoined}
+                    className={`min-w-20 rounded-r-lg px-4 py-2 text-sm font-bold text-white transition-all ${
+                      isJoined
+                        ? 'bg-brand-muted animate-pop cursor-default opacity-90'
+                        : 'bg-secondary cursor-pointer hover:brightness-110 active:scale-100'
+                    } `}
+                  >
+                    {isJoined ? (
+                      <span className="flex items-center justify-center gap-1">
+                        <svg
+                          className="size-4 shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        Joined
+                      </span>
+                    ) : (
+                      'Join'
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
-            {/* </form> */}
+            </form>
           </div>
 
           <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-[10px] text-white/40 md:flex-row md:text-xs">
