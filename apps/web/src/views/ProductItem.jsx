@@ -29,14 +29,14 @@ function ProductItem() {
 
     if (type === 'plus') {
       setQuantity((prev) => {
-        const current = Number(prev) || 0;
+        const current = Number(prev) || 1;
         return current + 1;
       });
     } else {
       setQuantity((prev) => {
-        const current = Number(prev) || 0;
+        const current = Number(prev) || 1;
 
-        return Math.max(current - 1, 0);
+        return Math.max(current - 1, 1);
       });
     }
   };

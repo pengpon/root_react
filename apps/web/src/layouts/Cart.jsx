@@ -21,7 +21,7 @@ function Cart({ isOpen, onClose }) {
     if (!targetItem) return;
 
     const diff = type === 'plus' ? 1 : -1;
-    const newQty = targetItem.qty + diff;
+    const newQty = Math.max(1, targetItem.qty + diff);
 
     const updatedItems = currentItems.map((item) =>
       item.id === id ? { ...item, qty: newQty } : item,
@@ -163,8 +163,9 @@ function Cart({ isOpen, onClose }) {
                             <div className="border-brand/10 flex items-center rounded-lg border bg-white px-1 py-1">
                               <button
                                 type="button"
-                                className="text-brand rounded-l-lg p-2 text-xs font-bold hover:bg-gray-50"
+                                className="text-brand rounded-l-lg p-2 text-xs font-bold hover:bg-gray-50 disabled:text-gray-300 disabled:bg-gray-50 disabled:cursor-not-allowed"
                                 onClick={() => handleQuantityChange(item.id, 'minus')}
+                                disabled={item.qty === 1}
                               >
                                 -
                               </button>
