@@ -17,11 +17,12 @@ function Hero() {
 
         <div className="relative z-10 px-4 text-center">
           <div className="mb-8 flex items-center justify-center gap-4">
-            <div className="h-px w-8 bg-[#F3EFDF]/40"></div>
-            <span className="text-xs font-bold tracking-[0.3em] text-[#F3EFDF] uppercase">
+            <div className="h-px w-8 bg-accent/40"></div>
+
+            <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">
               Eat Real, Live Rooted
             </span>
-            <div className="h-px w-8 bg-[#F3EFDF]/40"></div>
+            <div className="h-px w-8 bg-accent/40"></div>
           </div>
 
           <h1 className="mb-10 text-6xl leading-[0.9] font-extrabold tracking-tighter text-white md:text-8xl">
@@ -31,7 +32,7 @@ function Hero() {
           <button
             type="button"
             onClick={handleScroll}
-            className="group mx-auto flex items-center gap-3 rounded-full bg-[#2C3E2D] px-10 py-4 font-bold text-[#F3EFDF] transition-all hover:bg-[#1a261b] hover:shadow-2xl active:scale-95"
+            className="group mx-auto flex items-center gap-3 rounded-full bg-brand px-10 py-4 font-bold text-accent transition-all hover:bg-brand-dark hover:shadow-2xl active:scale-95"
           >
             <span>RECEIVE THE GIFT</span>
             <svg

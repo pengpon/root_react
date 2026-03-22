@@ -22,6 +22,7 @@ function ArticleList() {
     };
     init();
   }, []);
+
   return (
     <>
       {isLoading && (
@@ -29,13 +30,13 @@ function ArticleList() {
           <Spinner />
         </div>
       )}
-      <section className="bg-[#FDFCF8] py-20">
+      <section className="bg-surface-bright py-20">
         <div className="container mx-auto px-4">
           <div className="mb-20 text-center">
-            <h3 className="mb-4 text-xs font-bold tracking-[0.4em] text-[#8C5E3C] uppercase">
+            <h3 className="mb-4 text-xs font-bold tracking-[0.4em] text-secondary uppercase">
               Our Stories
             </h3>
-            <h1 className="text-5xl font-bold tracking-tighter text-[#2C3E2D] md:text-7xl">
+            <h1 className="text-5xl font-bold tracking-tighter text-brand md:text-7xl">
               The Journal.
             </h1>
             <p className="mx-auto mt-6 max-w-lg text-gray-500 italic">

@@ -35,13 +35,13 @@ function CountdownSection() {
   }, []);
   return (
     <>
-      <section className="relative overflow-hidden bg-[#2C3E2D] py-16 text-white">
+      <section className="relative overflow-hidden bg-brand py-16 text-white">
         <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/5 blur-3xl"></div>
         <div className="relative z-10 container mx-auto flex flex-col items-center justify-between px-6 md:flex-row">
           <div className="mb-10 text-center md:mb-0 md:text-left">
             <div className="flex items-center gap-2">
-              <span className="h-px w-6 bg-[#8C5E3C]"></span>
-              <span className="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase">
+              <span className="h-px w-6 bg-secondary"></span>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-secondary uppercase">
                 Limited Harvest
               </span>
             </div>
@@ -75,7 +75,7 @@ function CountdownSection() {
               </div>
             </div>
 
-            <Link to="/products" className="group flex items-center gap-3 rounded-full bg-[#8C5E3C] px-10 py-4 text-sm font-bold text-[#F3EFDF] transition-all hover:bg-[#a6724d] hover:shadow-xl active:scale-95">
+            <Link to="/products" className="group flex items-center gap-3 rounded-full bg-secondary px-10 py-4 text-sm font-bold text-accent transition-all hover:bg-secondary-light hover:shadow-xl active:scale-95">
               SHOP THE HARVEST
               <svg
                 xmlns="http://www.w3.org/2000/svg"

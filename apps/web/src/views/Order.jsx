@@ -16,28 +16,27 @@ const orders = [
 function Order() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="mb-8 text-3xl font-bold text-[#2C3E2D]">Your Orders</h1>
+      <h1 className="mb-8 text-3xl font-bold text-brand">Your Orders</h1>
 
       <div className="space-y-6">
         {orders.map((order) => (
           <div
             key={order.id}
-            className="transition-hover overflow-hidden rounded-2xl border border-[#2C3E2D]/5 bg-white shadow-sm hover:shadow-md"
+            className="transition-hover overflow-hidden rounded-2xl border border-brand/5 bg-white shadow-sm hover:shadow-md"
           >
-            {/* 訂單標頭 */}
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#2C3E2D]/5 bg-[#FDFCF8] px-6 py-4">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-brand/5 bg-surface-bright px-6 py-4">
               <div className="flex gap-8">
                 <div>
                   <p className="text-[10px] font-bold tracking-wider text-gray-400 uppercase">
                     Order Placed
                   </p>
-                  <p className="text-sm font-medium text-[#2C3E2D]">{order.date}</p>
+                  <p className="text-sm font-medium text-brand">{order.date}</p>
                 </div>
                 <div>
                   <p className="text-[10px] font-bold tracking-wider text-gray-400 uppercase">
                     Total Amount
                   </p>
-                  <p className="text-sm font-bold text-[#2C3E2D]">
+                  <p className="text-sm font-bold text-brand">
                     $ {addThousandsSeparator(order.total)}
                   </p>
                 </div>
@@ -46,17 +45,16 @@ function Order() {
                 <p className="text-[10px] font-bold tracking-wider text-gray-400 uppercase">
                   Order ID
                 </p>
-                <p className="font-mono text-sm text-[#2C3E2D]">{order.id}</p>
+                <p className="font-mono text-sm text-brand">{order.id}</p>
               </div>
             </div>
 
-            {/* 訂單內容 */}
             <div className="p-6">
               <div className="mb-6 flex items-center justify-between">
-                <span className="rounded-full bg-[#8C5E3C]/10 px-3 py-1 text-xs font-bold text-[#8C5E3C]">
+                <span className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-bold text-secondary">
                   ● {order.status}
                 </span>
-                <button className="text-xs font-bold text-[#8C5E3C] hover:underline">
+                <button className="text-xs font-bold text-secondary hover:underline">
                   View Details
                 </button>
               </div>
@@ -68,7 +66,7 @@ function Order() {
                       <img src={item.image} alt={item.name} className="size-full object-cover" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#2C3E2D]">{item.name}</p>
+                      <p className="text-sm font-medium text-brand">{item.name}</p>
                       <p className="text-xs text-gray-400">Qty: {item.qty}</p>
                     </div>
                   </div>

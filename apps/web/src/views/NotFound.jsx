@@ -5,20 +5,20 @@ function NotFound() {
     <>
       <main className="flex min-h-screen flex-col items-center justify-center px-4 text-center">
         <div className="relative mb-12 flex items-center justify-center">
-          <div className="animate-ripple absolute h-16 w-16 rounded-full bg-[#8C5E3C]/30"></div>
+          <div className="animate-ripple absolute h-16 w-16 rounded-full bg-secondary/30"></div>
           <div
-            className="animate-ripple absolute h-16 w-16 rounded-full bg-[#8C5E3C]/15"
+            className="animate-ripple absolute h-16 w-16 rounded-full bg-secondary/15"
             style={{ animationDelay: '1.5s' }}
           ></div>
 
-          <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full border border-[#2C3E2D]/5 bg-white shadow-sm">
+          <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full border border-brand/5 bg-white shadow-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1"
               stroke="currentColor"
-              className="size-10 text-[#8C5E3C]"
+              className="size-10 text-secondary"
             >
               <path
                 strokeLinecap="round"
@@ -30,10 +30,10 @@ function NotFound() {
         </div>
 
         <div className="max-w-md">
-          <h3 className="mb-4 text-[10px] font-bold tracking-[0.5em] text-[#8C5E3C] uppercase">
+          <h3 className="mb-4 text-[10px] font-bold tracking-[0.5em] text-secondary uppercase">
             Lost in the wild
           </h3>
-          <h1 className="text-4xl font-bold tracking-tight text-[#2C3E2D] italic md:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-brand italic md:text-5xl">
             Deep in the woods, <br />
             some paths are hidden.
           </h1>
@@ -46,16 +46,16 @@ function NotFound() {
         <div className="mt-12 flex flex-col items-center gap-8 md:flex-row">
           <Link
             to="/"
-            className="rounded-xl bg-[#2C3E2D] px-10 py-4 text-xs font-bold tracking-[0.2em] text-white uppercase shadow-xl transition-all hover:bg-[#1a261b] active:scale-95"
+            className="rounded-xl bg-brand px-10 py-4 text-xs font-bold tracking-[0.2em] text-white uppercase shadow-xl transition-all hover:bg-brand-dark active:scale-95"
           >
             Back to Home
           </Link>
           <Link
             to="/products"
-            className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#2C3E2D] uppercase"
+            className="group flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-brand uppercase"
           >
             Shop the Harvest
-            <div className="h-px w-6 bg-[#2C3E2D] transition-all group-hover:w-10"></div>
+            <div className="h-px w-6 bg-brand transition-all group-hover:w-10"></div>
           </Link>
         </div>
       </main>

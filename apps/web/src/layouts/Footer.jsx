@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 function Footer() {
   return (
     <>
-      <footer className="bg-[#2C3E2D] py-12 text-white/90 md:py-16">
+      <footer className="bg-brand py-12 text-white/90 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 md:gap-12">
             <div className="col-span-2 md:col-span-1">
@@ -99,11 +99,11 @@ function Footer() {
                 <input
                   type="email"
                   placeholder="Email address"
-                  className="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-[#8C5E3C] focus:outline-none"
+                  className="w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:border-secondary focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="cursor-pointer rounded-r-lg bg-[#8C5E3C] px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
+                  className="cursor-pointer rounded-r-lg bg-secondary px-4 py-2 text-sm font-bold text-white transition-all hover:brightness-110"
                 >
                   Join
                 </button>

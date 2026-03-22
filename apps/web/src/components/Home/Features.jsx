@@ -11,7 +11,7 @@ function Features() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-12 w-12 text-(--color-brand-primary) transition-transform duration-300 group-hover:scale-110"
+                className="h-12 w-12 text-brand transition-transform duration-300 group-hover:scale-110"
               >
                 <path
                   strokeLinecap="round"
@@ -25,8 +25,8 @@ function Features() {
                 />
               </svg>
             </div>
-            <h3 className="text-secondary text-xl font-bold tracking-tight">Purely Traceable</h3>
-            <p className="leading-relaxed text-(--color-content-muted)">
+            <h3 className="text-brand text-xl font-bold tracking-tight">Purely Traceable</h3>
+            <p className="leading-relaxed text-brand-muted">
               From soil to table, every ingredient has a transparent story.
             </p>
           </div>
@@ -39,7 +39,7 @@ function Features() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-12 w-12 text-(--color-brand-primary) transition-transform duration-300 group-hover:scale-110"
+                className="h-12 w-12 text-brand transition-transform duration-300 group-hover:scale-110"
               >
                 <path
                   strokeLinecap="round"
@@ -48,9 +48,9 @@ function Features() {
                 />
               </svg>
             </div>
-            <h3 className="text-secondary text-xl font-bold tracking-tight">Rooted Purity</h3>
+            <h3 className="text-brand text-xl font-bold tracking-tight">Rooted Purity</h3>
 
-            <p className="leading-relaxed text-(--color-content-muted)">
+            <p className="leading-relaxed text-brand-muted">
               No additives, just the raw nutrients and flavors of nature.
             </p>
           </div>
@@ -63,7 +63,7 @@ function Features() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-12 w-12 text-(--color-brand-primary) transition-transform duration-300 group-hover:scale-110"
+                className="h-12 w-12 text-brand transition-transform duration-300 group-hover:scale-110"
               >
                 <path
                   strokeLinecap="round"
@@ -72,8 +72,8 @@ function Features() {
                 />
               </svg>
             </div>
-            <h3 className="text-secondary text-xl font-bold tracking-tight">Seasonal Peak</h3>
-            <p className="leading-relaxed text-(--color-content-muted)">
+            <h3 className="text-brand text-xl font-bold tracking-tight">Seasonal Peak</h3>
+            <p className="leading-relaxed text-brand-muted">
               Grown by time, harvested at the peak of perfection.
             </p>
           </div>

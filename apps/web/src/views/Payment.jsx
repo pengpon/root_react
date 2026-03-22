@@ -63,11 +63,11 @@ function Payment() {
       {isLoading && (
         <div className="absolute top-0 left-0 z-50 h-screen w-screen bg-gray-800/50"></div>
       )}
-      <section className="min-h-screen bg-[#FDFCF8]">
+      <section className="min-h-screen bg-surface-bright">
         <div className="container mx-auto px-4 py-12">
           {order.is_paid ? (
             <div className="text-center">
-              <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-[#8C5E3C]/10 text-[#8C5E3C]">
+              <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-secondary/10 text-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -83,9 +83,9 @@ function Payment() {
                   />
                 </svg>
               </div>
-              <h1 className="mb-2 text-2xl font-bold text-[#2C3E2D]">Payment Already Received</h1>
-              <p className="mb-8 text-[#2C3E2D]/60">
-                This order <span className="font-bold text-[#8C5E3C]">ID: {order.id} </span>has
+              <h1 className="mb-2 text-2xl font-bold text-brand">Payment Already Received</h1>
+              <p className="mb-8 text-brand/60">
+                This order <span className="font-bold text-secondary">ID: {order.id} </span>has
                 already been paid for. <br />
                 We are currently preparing your items for shipment.
               </p>
@@ -95,16 +95,16 @@ function Payment() {
               <div className="flex-1">
                 <form action="" onSubmit={handleSubmit(onSubmit)} noValidate>
                   <div className="mb-12">
-                    <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white">
+                    <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-brand">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-[10px] text-white">
                         3
                       </span>
                       Payment Method
                     </h2>
-                    <div className="rounded-2xl border border-[#2C3E2D]/10 bg-white p-6">
-                      <div className="mb-4 flex items-center gap-4 border-b border-[#2C3E2D]/5 pb-4">
-                        <input type="radio" checked name="payment" className="accent-[#2C3E2D]" />
-                        <span className="text-sm font-bold text-[#2C3E2D]">Credit Card</span>
+                    <div className="rounded-2xl border border-brand/10 bg-white p-6">
+                      <div className="mb-4 flex items-center gap-4 border-b border-brand/5 pb-4">
+                        <input type="radio" checked name="payment" className="accent-brand" />
+                        <span className="text-sm font-bold text-brand">Credit Card</span>
                       </div>
                       <div className="space-y-4">
                         <div className="col-span-1">
@@ -113,7 +113,7 @@ function Payment() {
                               id="credit-card"
                               type="text"
                               placeholder=" "
-                              className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                              className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                               {...register('credit-card', {
                                 required: 'Enter a card number',
                                 pattern: {
@@ -125,7 +125,7 @@ function Payment() {
 
                             <label
                               htmlFor="email"
-                              className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                              className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                             >
                               Credit Card Number
                             </label>
@@ -143,7 +143,7 @@ function Payment() {
                                 id="expiration-date"
                                 type="text"
                                 placeholder=" "
-                                className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                                className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                                 {...register('expiration-date', {
                                   required: 'Enter expiration date',
                                   pattern: {
@@ -155,7 +155,7 @@ function Payment() {
 
                               <label
                                 htmlFor="expiration-date"
-                                className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                                className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                               >
                                 Expiration Date (MM/YY)
                               </label>
@@ -172,7 +172,7 @@ function Payment() {
                                 id="cvv-code"
                                 type="text"
                                 placeholder=" "
-                                className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                                className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                                 {...register('cvv-code', {
                                   required: 'Enter the CVV or security code on your card',
                                   pattern: {
@@ -184,7 +184,7 @@ function Payment() {
 
                               <label
                                 htmlFor="cvv-code"
-                                className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                                className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                               >
                                 CVV
                               </label>
@@ -202,14 +202,14 @@ function Payment() {
 
                   <button
                     type="submit"
-                    className="w-full cursor-pointer rounded-2xl bg-[#2C3E2D] py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-[#1a261b]"
+                    className="w-full cursor-pointer rounded-2xl bg-brand py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-brand-dark"
                   >
                     CONFIRM
                   </button>
                 </form>
               </div>
               <div className="w-full lg:w-100">
-                <div className="sticky top-8 rounded-4xl border border-[#2C3E2D]/5 bg-white p-10 shadow-sm">
+                <div className="sticky top-8 rounded-4xl border border-brand/5 bg-white p-10 shadow-sm">
                   <h3 className="mb-8 text-xs font-bold tracking-widest text-gray-400 uppercase">
                     your order{' '}
                     <span className="text-xs font-bold tracking-tight uppercase">
@@ -219,7 +219,7 @@ function Payment() {
                   </h3>
                   <div className="mb-8 space-y-6"></div>
 
-                  <div className="space-y-3 border-t border-[#2C3E2D]/5 pt-6 text-sm">
+                  <div className="space-y-3 border-t border-brand/5 pt-6 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Subtotal</span>
                       <span className="font-bold">
@@ -228,11 +228,11 @@ function Payment() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Shipping</span>
-                      <span className="font-bold text-[#8C5E3C]">Free</span>
+                      <span className="font-bold text-secondary">Free</span>
                     </div>
-                    <div className="flex justify-between border-t border-[#2C3E2D]/5 pt-4">
-                      <span className="text-lg font-bold text-[#2C3E2D]">Total</span>
-                      <span className="text-2xl font-black tracking-tighter text-[#2C3E2D]">
+                    <div className="flex justify-between border-t border-brand/5 pt-4">
+                      <span className="text-lg font-bold text-brand">Total</span>
+                      <span className="text-2xl font-black tracking-tighter text-brand">
                         $ {addThousandsSeparator(Math.ceil(order.total) || 0)}
                       </span>
                     </div>

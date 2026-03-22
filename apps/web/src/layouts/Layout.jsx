@@ -5,7 +5,7 @@ import Header from './Header';
 function Layout() {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-[#F9F7F2] font-sans text-[#2C3E2D]">
+      <div className="flex flex-col min-h-screen bg-surface font-sans text-brand">
         <Header />
         <main className="flex-1">
           <Outlet />

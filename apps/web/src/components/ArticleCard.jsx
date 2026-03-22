@@ -19,7 +19,7 @@ function ArticleCard({ data }) {
             className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
           <div className="absolute top-4 left-4">
-            <span className="rounded-full bg-white/90 px-4 py-1.5 text-[10px] font-bold tracking-widest text-[#2C3E2D] uppercase shadow-sm backdrop-blur-sm">
+            <span className="rounded-full bg-white/90 px-4 py-1.5 text-[10px] font-bold tracking-widest text-brand uppercase shadow-sm backdrop-blur-sm">
               {data.category}
             </span>
           </div>
@@ -31,7 +31,7 @@ function ArticleCard({ data }) {
             <span className="h-1 w-1 rounded-full bg-gray-300"></span>
             <span>{data.readingTime} min read</span>
           </div>
-          <h2 className="text-2xl leading-tight font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
+          <h2 className="text-2xl leading-tight font-bold text-brand transition-colors group-hover:text-secondary">
             {data.title}
           </h2>
           {data.description && (
@@ -40,9 +40,9 @@ function ArticleCard({ data }) {
             </p>
           )}
 
-          <div className="mt-6 flex items-center gap-2 text-xs font-bold tracking-widest text-[#2C3E2D] uppercase">
+          <div className="mt-6 flex items-center gap-2 text-xs font-bold tracking-widest text-brand uppercase">
             <span>Read Story</span>
-            <div className="h-px w-8 bg-[#2C3E2D] transition-all group-hover:w-12"></div>
+            <div className="h-px w-8 bg-brand transition-all group-hover:w-12"></div>
           </div>
         </div>
         <Link

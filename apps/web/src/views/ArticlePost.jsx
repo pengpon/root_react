@@ -30,6 +30,7 @@ function ArticlePost() {
     };
     init();
   }, [id]);
+
   return (
     <>
       {isLoading && (
@@ -37,7 +38,7 @@ function ArticlePost() {
           <Spinner />
         </div>
       )}
-      <article className="bg-[#FDFCF8] pb-24">
+      <article className="bg-surface-bright pb-24">
         <header className="relative h-[70vh] w-full overflow-hidden">
           <img src={article.imageUrl} alt={article.title} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-black/20"></div>
@@ -54,8 +55,8 @@ function ArticlePost() {
         </header>
 
         <div className="container mx-auto px-4">
-          <div className="relative -mt-20 rounded-[3rem] bg-[#FDFCF8] p-8 shadow-sm md:p-20 lg:mx-auto lg:max-w-4xl">
-            <div className="mb-12 flex flex-col items-center justify-between border-b border-[#2C3E2D]/5 pb-12 md:flex-row">
+          <div className="relative -mt-20 rounded-[3rem] bg-surface-bright p-8 shadow-sm md:p-20 lg:mx-auto lg:max-w-4xl">
+            <div className="mb-12 flex flex-col items-center justify-between border-b border-brand/5 pb-12 md:flex-row">
               <div className="flex items-center gap-4">
                 {/* <div className="h-12 w-12 overflow-hidden rounded-full bg-[#F3EFDF]">
                   <img
@@ -64,24 +65,24 @@ function ArticlePost() {
                   />
                 </div> */}
                 <div className="text-left">
-                  <p className="text-xs font-bold tracking-wider text-[#2C3E2D] uppercase">
+                  <p className="text-xs font-bold tracking-wider text-brand uppercase">
                     Written by
                   </p>
-                  <p className="text-sm font-medium text-[#8C5E3C]">{article.author}</p>
+                  <p className="text-sm font-medium text-secondary">{article.author}</p>
                 </div>
               </div>
               <div className="mt-6 text-right md:mt-0">
                 <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase">
                   Updated on
                 </p>
-                <p className="text-sm font-medium text-[#2C3E2D]">
+                <p className="text-sm font-medium text-brand">
                   {formattedDate(article.modified_at)}
                 </p>
               </div>
             </div>
 
             <div className="prose prose-stone mx-auto max-w-none">
-              <p className="text-xl leading-relaxed text-[#2C3E2D]/80 first-letter:float-left first-letter:mr-3 first-letter:text-5xl first-letter:font-bold first-letter:text-[#8C5E3C]">
+              <p className="text-xl leading-relaxed text-brand/80 first-letter:float-left first-letter:mr-3 first-letter:text-5xl first-letter:font-bold first-letter:text-secondary">
                 {article.description}
               </p>
 

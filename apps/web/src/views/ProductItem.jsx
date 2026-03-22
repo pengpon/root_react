@@ -103,13 +103,13 @@ function ProductItem() {
           <Spinner />
         </div>
       )}
-      <section className="bg-[#FDFCF8] py-12 md:py-24">
+      <section className="bg-surface-bright py-12 md:py-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-col justify-around gap-12 lg:flex-row lg:gap-20">
             <div className="w-full lg:w-2/5">
               <div className="relative aspect-square overflow-hidden rounded-4xl bg-white shadow-sm">
                 {product?.badge && (
-                  <span className="absolute top-6 left-6 z-10 rounded-full bg-[#8C5E3C] px-4 py-1.5 text-xs font-bold tracking-widest text-white uppercase shadow-lg">
+                  <span className="absolute top-6 left-6 z-10 rounded-full bg-secondary px-4 py-1.5 text-xs font-bold tracking-widest text-white uppercase shadow-lg">
                     {product?.badge}
                   </span>
                 )}
@@ -125,7 +125,7 @@ function ProductItem() {
                 {product?.imagesUrl?.map((image, index) => (
                   <div
                     key={`${image}-${index}`}
-                    className="aspect-square cursor-pointer overflow-hidden rounded-xl border border-[#2C3E2D] ring-offset-2 transition-all"
+                    className="aspect-square cursor-pointer overflow-hidden rounded-xl border border-brand ring-offset-2 transition-all"
                     onClick={handleImageClick}
                   >
                     <img
@@ -138,7 +138,7 @@ function ProductItem() {
             </div>
 
             <div className="flex w-full flex-col lg:w-2/5">
-              <nav className="mb-4 flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase">
+              <nav className="mb-4 flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-secondary uppercase">
                 <a href="#" className="hover:underline">
                   Shop
                 </a>
@@ -146,12 +146,12 @@ function ProductItem() {
                 <span className="uppercase">{product.category}</span>
               </nav>
 
-              <h1 className="text-4xl font-bold tracking-tight text-[#2C3E2D] md:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-brand md:text-5xl">
                 {product.title}
               </h1>
 
               <div className="mt-6 flex items-baseline gap-4">
-                <span className="text-3xl font-black tracking-tighter text-[#2C3E2D]">
+                <span className="text-3xl font-black tracking-tighter text-brand">
                   ${product.price}
                 </span>
                 <span className="text-lg text-gray-400 line-through opacity-60">
@@ -159,7 +159,7 @@ function ProductItem() {
                 </span>
               </div>
 
-              <div className="my-8 h-px w-full bg-[#2C3E2D]/10"></div>
+              <div className="my-8 h-px w-full bg-brand/10"></div>
 
               <div className="space-y-4">
                 <h3 className="text-xs font-bold tracking-widest text-gray-400 uppercase">
@@ -179,19 +179,19 @@ function ProductItem() {
 
               <div className="mt-12 space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center rounded-xl border border-[#2C3E2D]/10 bg-white p-1">
+                  <div className="flex items-center rounded-xl border border-brand/10 bg-white p-1">
                     <button
                       type="button"
                       data-type="minus"
                       onClick={handleQuantityChange}
-                      className="flex h-12 w-12 items-center justify-center rounded-lg text-[#2C3E2D] transition-colors hover:bg-[#F3EFDF] cursor-pointer"
+                      className="flex h-12 w-12 items-center justify-center rounded-lg text-brand transition-colors hover:bg-accent cursor-pointer"
                     >
                       -
                     </button>
                     <input
                       type="text"
                       value={quantity}
-                      className="w-12 bg-transparent text-center font-bold text-[#2C3E2D] focus:outline-none"
+                      className="w-12 bg-transparent text-center font-bold text-brand focus:outline-none"
                       onChange={handleQuantityInputChange}
                       onBlur={handleQuantityInputBlur}
                     />
@@ -199,7 +199,7 @@ function ProductItem() {
                       type="button"
                       data-type="plus"
                       onClick={handleQuantityChange}
-                      className="flex h-12 w-12 items-center justify-center rounded-lg text-[#2C3E2D] transition-colors hover:bg-[#F3EFDF] cursor-pointer"
+                      className="flex h-12 w-12 items-center justify-center rounded-lg text-brand transition-colors hover:bg-accent cursor-pointer"
                     >
                       +
                     </button>
@@ -207,7 +207,7 @@ function ProductItem() {
 
                   <button
                     type="button"
-                    className="flex-1 rounded-xl bg-[#2C3E2D] py-4 text-sm font-bold tracking-widest text-white shadow-2xl transition-all hover:bg-[#1a261b] hover:shadow-[#2C3E2D]/20 active:scale-95 cursor-pointer disabled:cursor-not-allowed disabled:opacity-80"
+                    className="flex-1 rounded-xl bg-brand py-4 text-sm font-bold tracking-widest text-white shadow-2xl transition-all hover:bg-brand-dark hover:shadow-brand/20 active:scale-95 cursor-pointer disabled:cursor-not-allowed disabled:opacity-80"
                     onClick={handleAddToCart}
                     disabled={isAddToCartLoading && !isSuccess}
                   >
@@ -216,7 +216,7 @@ function ProductItem() {
                         <Spinner className="size-5" />
                       ) : isSuccess ? (
                         <svg
-                          className="size-6 animate-success-pop"
+                          className="size-6 animate-pop"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -235,7 +235,7 @@ function ProductItem() {
 
                 <button
                   type="button"
-                  className="w-full rounded-xl border-2 border-[#2C3E2D] py-4 text-sm font-bold tracking-widest text-[#2C3E2D] transition-all hover:bg-[#2C3E2D] hover:text-white cursor-pointer"
+                  className="w-full rounded-xl border-2 border-brand py-4 text-sm font-bold tracking-widest text-brand transition-all hover:bg-brand hover:text-white cursor-pointer"
                 >
                   BUY IT NOW
                 </button>

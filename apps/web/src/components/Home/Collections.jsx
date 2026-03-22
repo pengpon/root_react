@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import budleImage from '../../assets/collections-bundle.jpg';
+import bundleImage from '../../assets/collections-bundle.jpg';
 import fruitImage from '../../assets/collections-fruit.jpg';
 import vegetableImage from '../../assets/collections-vegetable.jpg';
 
@@ -24,11 +24,11 @@ function Collections() {
               className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
             >
               <img
-                src={budleImage}
+                src={bundleImage}
                 alt="Curated Bundles"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="from-secondary/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10">
+              <div className="from-accent/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10">
                 <div>
                   <span className="mb-2 block text-xs font-bold tracking-widest text-(--color-brand-accent) uppercase">
                     Value Pack

@@ -57,7 +57,7 @@ function ProductList() {
           <Spinner />
         </div>
       )}
-      <section className="bg-[#FDFCF8] py-20">
+      <section className="bg-surface-bright py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
@@ -68,7 +68,7 @@ function ProductList() {
                 <span>/</span>
                 <span className="text-[#8C5E3C]">Shop All</span>
               </nav> */}
-              <h1 className="text-5xl font-bold tracking-tighter text-[#2C3E2D]">The Harvest.</h1>
+              <h1 className="text-5xl font-bold tracking-tighter text-brand">The Harvest.</h1>
             </div>
 
             <div
@@ -78,7 +78,7 @@ function ProductList() {
               {CATEGORIES.map((item) => (
                 <button
                   key={item.id}
-                  className={`cursor-pointer rounded-full px-6 py-2 text-xs font-bold whitespace-nowrap ${activeCategory === item.value ? `bg-[#2C3E2D] text-white shadow-lg` : `border border-[#2C3E2D]/10 bg-white text-[#2C3E2D] transition-all hover:border-[#2C3E2D]`}`}
+                  className={`cursor-pointer rounded-full px-6 py-2 text-xs font-bold whitespace-nowrap ${activeCategory === item.value ? `bg-brand text-white shadow-lg` : `border border-brand/10 bg-white text-brand transition-all hover:border-brand`}`}
                   data-value={item.value}
                 >
                   {item.label}

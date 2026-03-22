@@ -9,19 +9,19 @@ function LatestArticles({ data }) {
           <div className="mb-10 flex items-end justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <span className="h-px w-6 bg-[#8C5E3C]"></span>
-                <span className="text-[10px] font-bold tracking-[0.3em] text-[#8C5E3C] uppercase">
+                <span className="h-px w-6 bg-secondary"></span>
+                <span className="text-[10px] font-bold tracking-[0.3em] text-secondary uppercase">
                   Thoughts & Perspectives
                 </span>
               </div>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#2C3E2D] md:text-4xl">
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-brand md:text-4xl">
                 Root Journal
               </h2>
             </div>
 
             <Link
               to="/posts"
-              className="group flex items-center gap-2 text-sm font-bold text-[#2C3E2D] uppercase transition-colors hover:text-[#8C5E3C]"
+              className="group flex items-center gap-2 text-sm font-bold text-brand uppercase transition-colors hover:text-secondary"
             >
               view all articles
               <svg

@@ -10,9 +10,9 @@ function ProductCard({ data }) {
   const timeRef = useRef(null);
 
   const BADGE_TYPE_STYLES = {
-    new: 'bg-[#8C5E3C]',
+    new: 'bg-secondary',
     top: 'bg-amber-500',
-    limited: 'bg-[#2C3E2D]',
+    limited: 'bg-brand',
     default: 'bg-gray-500',
   };
   const badgeStyle = BADGE_TYPE_STYLES[data?.badge?.toLowerCase()] || BADGE_TYPE_STYLES.default;
@@ -65,7 +65,7 @@ function ProductCard({ data }) {
         <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
           <button
             type="button"
-            className="w-full cursor-pointer rounded-xl bg-[#2C3E2D] py-3 text-xs font-bold text-white shadow-xl"
+            className="w-full cursor-pointer rounded-xl bg-brand py-3 text-xs font-bold text-white shadow-xl"
             onClick={onAddToCart}
           >
             <div className="flex min-h-6 items-center justify-center gap-2">
@@ -75,7 +75,7 @@ function ProductCard({ data }) {
                 </div>
               ) : isSuccess ? (
                 <svg
-                  className="animate-success-pop size-4"
+                  className="animate-pop size-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -91,12 +91,12 @@ function ProductCard({ data }) {
         </div>
       </div>
       <div className="px-1">
-        <h3 className="text-sm font-bold text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]">
+        <h3 className="text-sm font-bold text-brand transition-colors group-hover:text-secondary">
           {data?.title}
         </h3>
         <div className="mt-1 flex items-center justify-between">
           <p className="text-xs font-medium text-gray-400 italic">1 {data?.unit}</p>
-          <p className="font-bold text-[#2C3E2D]">${data?.price}</p>
+          <p className="font-bold text-brand">${data?.price}</p>
         </div>
       </div>
     </>

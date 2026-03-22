@@ -69,14 +69,14 @@ function Checkout() {
       {isLoading && (
         <div className="absolute top-0 left-0 z-50 h-screen w-screen bg-gray-800/50"></div>
       )}
-      <section className="min-h-screen bg-[#FDFCF8]">
+      <section className="min-h-screen bg-surface-bright">
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col gap-16 lg:flex-row">
             <div className="flex-1">
               <form action="" onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="mb-12">
-                  <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white">
+                  <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-brand">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-[10px] text-white">
                       1
                     </span>
                     Contact Information
@@ -88,7 +88,7 @@ function Checkout() {
                           id="email"
                           type="email"
                           placeholder=" "
-                          className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                          className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                           {...register('email', {
                             required: 'Please Enter Email Address',
                             pattern: {
@@ -100,7 +100,7 @@ function Checkout() {
 
                         <label
                           htmlFor="email"
-                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                         >
                           Email Address
                         </label>
@@ -115,7 +115,7 @@ function Checkout() {
                           id="tel"
                           type="tel"
                           placeholder=" "
-                          className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                          className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                           {...register('tel', {
                             required: 'Please Enter Phone Number',
                             minLength: {
@@ -131,7 +131,7 @@ function Checkout() {
 
                         <label
                           htmlFor="tel"
-                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                         >
                           Phone Number
                         </label>
@@ -144,8 +144,8 @@ function Checkout() {
                 </div>
 
                 <div className="mb-12">
-                  <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white">
+                  <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-brand">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-[10px] text-white">
                       2
                     </span>
                     Shipping Address
@@ -157,14 +157,14 @@ function Checkout() {
                           id="name"
                           type="text"
                           placeholder=" "
-                          className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                          className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                           {...register('name', {
                             required: 'Please Enter Name',
                           })}
                         />
                         <label
                           htmlFor="name"
-                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                         >
                           Name
                         </label>
@@ -180,14 +180,14 @@ function Checkout() {
                           id="address"
                           type="text"
                           placeholder=" "
-                          className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                          className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                           {...register('address', {
                             required: 'Please Enter Address',
                           })}
                         />
                         <label
                           htmlFor="address"
-                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                          className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                         >
                           Address
                         </label>
@@ -203,12 +203,12 @@ function Checkout() {
                         type="text"
                         placeholder=" "
                         rows="2"
-                        className="peer w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-[#8C5E3C]"
+                        className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
                         {...register('message')}
                       />
                       <label
                         htmlFor="message"
-                        className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-[#2C3E2D]/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-[#8C5E3C] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                        className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                       >
                         Message
                       </label>
@@ -252,21 +252,21 @@ function Checkout() {
 
                 <button
                   type="submit"
-                  className="w-full cursor-pointer rounded-2xl bg-[#2C3E2D] py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-[#1a261b]"
+                  className="w-full cursor-pointer rounded-2xl bg-brand py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-brand-dark"
                 >
                   COMPLETE ORDER
                 </button>
               </form>
             </div>
             <div className="w-full lg:w-100">
-              <div className="sticky top-8 rounded-4xl border border-[#2C3E2D]/5 bg-white p-10 shadow-sm">
+              <div className="sticky top-8 rounded-4xl border border-brand/5 bg-white p-10 shadow-sm">
                 <h3 className="mb-8 text-xs font-bold tracking-widest text-gray-400 uppercase">
                   In your basket
                 </h3>
                 <div className="mb-8 space-y-6">
                   {cartList.map((item) => (
                     <div key={item.id} className="flex items-center gap-4">
-                      <div className="h-16 w-12 shrink-0 overflow-hidden rounded-lg bg-[#FDFCF8]">
+                      <div className="h-16 w-12 shrink-0 overflow-hidden rounded-lg bg-surface-bright">
                         <img
                           src={item.product.imageUrl}
                           alt={`${item.product.title}-cover`}
@@ -274,22 +274,22 @@ function Checkout() {
                         />
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-bold text-[#2C3E2D]">{item.title}</p>
+                        <p className="text-sm font-bold text-brand">{item.title}</p>
                         <p className="text-[10px] text-gray-400">Qty: {item.qty}</p>
                       </div>
 
                       <div className="flex flex-col items-end gap-1">
                         {item.final_total !== item.total && (
                           <div className="flex items-center gap-2">
-                            <span className="rounded bg-[#8C5E3C]/10 px-1.5 py-0.5 text-[10px] font-medium text-[#8C5E3C]">
+                            <span className="rounded bg-secondary/10 px-1.5 py-0.5 text-[10px] font-medium text-secondary">
                               Coupon Applied
                             </span>
-                            <span className="text-xs text-[#2C3E2D]/30 line-through">
+                            <span className="text-xs text-brand/30 line-through">
                               $ {addThousandsSeparator(item.total || 0)}
                             </span>
                           </div>
                         )}
-                        <span className="text-base font-bold text-[#2C3E2D]">
+                        <span className="text-base font-bold text-brand">
                           $ {addThousandsSeparator(item.final_total || item.product.price)}
                         </span>
                       </div>
@@ -304,24 +304,24 @@ function Checkout() {
                       type="text"
                       placeholder="Gift Code"
                       required
-                      className="flex-1 rounded-xl border border-transparent bg-[#FDFCF8] px-4 py-2 text-sm outline-none focus:border-[#8C5E3C]/20"
+                      className="flex-1 rounded-xl border border-transparent bg-surface-bright px-4 py-2 text-sm outline-none focus:border-secondary/20"
                     />
                     <button
                       type="submit"
-                      className="cursor-pointer rounded-xl bg-[#F3EFDF] px-6 py-2 text-xs font-bold text-[#2C3E2D]"
+                      className="cursor-pointer rounded-xl bg-accent px-6 py-2 text-xs font-bold text-brand"
                     >
                       APPLY
                     </button>
                   </div>
                 </form>
 
-                <div className="space-y-3 border-t border-[#2C3E2D]/5 pt-6 text-sm">
+                <div className="space-y-3 border-t border-brand/5 pt-6 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Subtotal</span>
                     <span className="font-bold">$ {addThousandsSeparator(total || 0)}</span>
                   </div>
                   {total !== finalTotal && (
-                    <div className="flex justify-between text-[#8C5E3C]">
+                    <div className="flex justify-between text-secondary">
                       <span className="font-medium">Discount</span>
                       <span className="font-bold">
                         - $ {addThousandsSeparator(Math.ceil(finalTotal) - total || 0)}
@@ -330,11 +330,11 @@ function Checkout() {
                   )}
                   <div className="flex justify-between">
                     <span className="text-gray-400">Shipping</span>
-                    <span className="font-bold text-[#8C5E3C]">Free</span>
+                    <span className="font-bold text-secondary">Free</span>
                   </div>
-                  <div className="flex justify-between border-t border-[#2C3E2D]/5 pt-4">
-                    <span className="text-lg font-bold text-[#2C3E2D]">Total</span>
-                    <span className="text-2xl font-black tracking-tighter text-[#2C3E2D]">
+                  <div className="flex justify-between border-t border-brand/5 pt-4">
+                    <span className="text-lg font-bold text-brand">Total</span>
+                    <span className="text-2xl font-black tracking-tighter text-brand">
                       $ {addThousandsSeparator(Math.ceil(finalTotal) || 0)}
                     </span>
                   </div>

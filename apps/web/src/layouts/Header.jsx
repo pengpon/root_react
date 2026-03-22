@@ -48,7 +48,7 @@ function Header() {
                   viewBox="0 0 24 24"
                   strokeWidth="2.5"
                   stroke="currentColor"
-                  className="size-7 text-[#2C3E2D] transition-colors group-hover:text-[#8C5E3C]"
+                  className="size-7 text-brand transition-colors group-hover:text-secondary"
                 >
                   <path
                     strokeLinecap="round"
@@ -59,12 +59,12 @@ function Header() {
               </button>
             </div>
 
-            <ul className="hidden text-sm font-bold tracking-widest text-[#2C3E2D] uppercase lg:flex lg:items-center lg:gap-8">
+            <ul className="hidden text-sm font-bold tracking-widest text-brand uppercase lg:flex lg:items-center lg:gap-8">
               <li className="group relative">
-                <Link to="/products" className="transition-colors hover:text-[#8C5E3C]">
+                <Link to="/products" className="transition-colors hover:text-secondary">
                   shop
                 </Link>
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
               {/* <li className="group relative">
                 <a href="#" className="transition-colors hover:text-[#8C5E3C]">
@@ -73,16 +73,16 @@ function Header() {
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
               </li> */}
               <li className="group relative">
-                <Link to="/posts" className="transition-colors hover:text-[#8C5E3C]">
+                <Link to="/posts" className="transition-colors hover:text-secondary">
                   journal
                 </Link>
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
               <li className="group relative">
-                <Link to="/origin" className="transition-colors hover:text-[#8C5E3C]">
+                <Link to="/origin" className="transition-colors hover:text-secondary">
                   origin
                 </Link>
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
             </ul>
           </div>
@@ -94,7 +94,7 @@ function Header() {
             </Link>
           </div>
 
-          <div className="flex flex-1 items-center justify-end gap-4 text-[#2C3E2D]">
+          <div className="flex flex-1 items-center justify-end gap-4 text-brand">
             <button type="button" className="group relative cursor-pointer" onClick={toggleCart}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ function Header() {
                 viewBox="0 0 24 24"
                 strokeWidth="2"
                 stroke="currentColor"
-                className="size-6 transform transition-all duration-300 group-hover:scale-110 group-hover:text-[#8C5E3C]"
+                className="size-6 transform transition-all duration-300 group-hover:scale-110 group-hover:text-secondary"
               >
                 <path
                   strokeLinecap="round"
@@ -112,7 +112,7 @@ function Header() {
               </svg>
               <span
                 key={totalQuantity}
-                className="animate-badge absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#8C5E3C] px-1 text-[10px] font-bold text-[#F3EFDF] ring-2 ring-[#F3EFDF] transition-transform group-hover:scale-110"
+                className="animate-badge absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-accent ring-2 ring-accent transition-transform group-hover:scale-110"
               >
                 {totalQuantity > 99 ? '99+' : totalQuantity}
               </span>
@@ -120,13 +120,13 @@ function Header() {
           </div>
         </div>
 
-        <div className="fixed inset-0 z-60 hidden bg-[#2C3E2D]/40 backdrop-blur-sm"></div>
+        <div className="fixed inset-0 z-60 hidden bg-brand/40 backdrop-blur-sm"></div>
 
         <div
           className={`fixed top-0 left-0 z-70 h-screen w-75 bg-white px-8 py-10 shadow-2xl transition-transform duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
         >
           <div className="flex h-full flex-col">
-            <div className="mb-12 flex items-center justify-between text-[#2C3E2D]">
+            <div className="mb-12 flex items-center justify-between text-brand">
               <button
                 type="button"
                 className="transition-transform duration-300 hover:rotate-90 focus:outline-none"
@@ -146,12 +146,12 @@ function Header() {
             </div>
 
             <nav className="flex-1">
-              <ul className="flex flex-col gap-6 text-2xl font-bold text-[#2C3E2D]">
+              <ul className="flex flex-col gap-6 text-2xl font-bold text-brand">
                 <li>
                   <Link
                     to="/products"
                     onClick={toggleMenu}
-                    className="transition-colors hover:text-[#8C5E3C]"
+                    className="transition-colors hover:text-secondary"
                   >
                     SHOP
                   </Link>
@@ -165,7 +165,7 @@ function Header() {
                   <Link
                     to="/posts"
                     onClick={toggleMenu}
-                    className="transition-colors hover:text-[#8C5E3C]"
+                    className="transition-colors hover:text-secondary"
                   >
                     JOURNAL
                   </Link>
@@ -174,7 +174,7 @@ function Header() {
                   <Link
                     to="/origin"
                     onClick={toggleMenu}
-                    className="transition-colors hover:text-[#8C5E3C]"
+                    className="transition-colors hover:text-secondary"
                   >
                     ORIGIN
                   </Link>
