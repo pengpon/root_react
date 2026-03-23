@@ -1,76 +1,85 @@
 # Root
-電商平台
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## 連結
-[前台](https://pengpon.github.io/root_react/)
+<p align="center">
+  <img src="https://pengpon.github.io/root_react/meta/default.png" alt="Root Concept Store Preview" width="800">
+</p>
 
-[後台](https://pengpon.github.io/root_react/admin/)
 
-## 需求
-```bash
-# 版面
-- 前台
-  - 需設定 RWD，不得出現 X 軸
-  - 各頁面最小到 375px 都不能出現 x 軸、破版、跑版現象
-- 後台
-  - 畫面以 1920px 為標準，這個尺寸下不可出現 X 軸
-  - table-responsive 產生的 X 軸可以的
+## About
+Root is a e-commerce side project built with React, consisting of a Storefront and a Admin Panel.
 
-# 內容
-- 電商主題：產品數量需超過 10 個，完成加入購物車至結帳完成
-- 首頁：除了 header、footer 之外至少還需要四到五個區塊
-- 整個作品至少需要 5 頁完整頁面
-- 產品／服務文案需完整：名稱、圖片、介紹（基本資料或長文字）、價格、其他推薦或說明（可參考範例）
-- 完成至少一個主要流程
-```
+- Storefront: Integrated browsing, cart management (powered by Redux), and smooth checkout flow.
 
-## 安裝
-`node 使用 v24.12.0`
+- Admin Panel: Secured access with authentication, coupon management, article publishing and product management.
+
+- Tech Focus: Clean UI with Tailwind CSS, robust form validation via React Hook Form.
+
+
+Root 是使用 React 開發的電商 Side Project，包含購物前台與後台管理系統
+
+- 購物前台 (Storefront)：整合商品瀏覽、使用 Redux 進行購物車狀態管理，以及完整的結帳流程。
+
+- 管理後台 (Admin Panel)：包含管理員身份認證 (Auth)、優惠卷管理、撰寫文章與商品上架管理。
+
+- 技術重點 (Tech Focus)：使用 Tailwind CSS 打造簡潔 UI、透過 React Hook Form 進行表單驗證。
+
+
+
+## Link
+[Storefront](https://pengpon.github.io/root_react/)
+
+[Admin Panel](https://pengpon.github.io/root_react/admin/)
+
+
+## Install
+`node version: v24.12.0`
 ```bash
 pnpm install
 
 pnpm run
 ```
 
-## 開發
+## Development
 
-### 專案架構
+### Monorepo Structure
 ```
 ./apps
-├── admin 後台管理系統 (Vite / React)
-└── web 前台電子商務網站 (Vite / React)
+├── admin (Vite / React)
+└── web (Vite / React)
 
-./packages 共享套件
-├── eslint-config (ESLint, Tailwind Config)
-├── ui (Tailwind CSS)
-└── utils (工具函式)
+./packages
+├── eslint-config (Shared Linting & Tailwind Config)
+├── ui (Shared Tailwind Components)
+└── utils (Shared Utilities)
 ```
 
-### 指令
+### Scripts
 
-**都在根目錄操作**
+**All commands should be executed from the root directory.**
 
 ```bash
-# 啟動 apps (web + admin)
+# Start all apps (Web + Admin)
 pnpm dev
 
-# 打包所有專案
+# Build all projects
 pnpm build
 
-# 只啟動前台專案
+# Start only the Storefront (Web)
 pnpm dev --filter web
 
-# 只啟動後台專案
+# Start only the Admin Panel
 pnpm dev --filter admin
 
-# 安裝套件到指定 app
+# Install a package to a specific app
 pnpm add axios --filter web
 
-# 安裝"共用套件" 到 web
+# Install a "shared package" from the workspace to Web
 pnpm add @repo/ui --filter web --workspace
 
 ```
 
-## 打包 & 部署
+## Build & Deployment
 
-使用 GitHub Actions, main 分支有異動時會直接執行 deploy.yml 進行打包部署
+This project uses GitHub Actions. Any changes pushed to the main branch will automatically trigger deploy.yml for building and deployment.
