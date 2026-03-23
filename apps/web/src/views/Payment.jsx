@@ -1,7 +1,7 @@
 import { addThousandsSeparator, logger, Toast } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import { fetchOrder } from '../api/order';
 import { payOrder } from '../api/payment';
 
@@ -63,11 +63,11 @@ function Payment() {
       {isLoading && (
         <div className="absolute top-0 left-0 z-50 h-screen w-screen bg-gray-800/50"></div>
       )}
-      <section className="min-h-screen bg-surface-bright">
+      <section className="bg-surface-bright min-h-screen">
         <div className="container mx-auto px-4 py-12">
           {order.is_paid ? (
             <div className="text-center">
-              <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+              <div className="bg-secondary/10 text-secondary mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -83,9 +83,9 @@ function Payment() {
                   />
                 </svg>
               </div>
-              <h1 className="mb-2 text-2xl font-bold text-brand">Payment Already Received</h1>
-              <p className="mb-8 text-brand/60">
-                This order <span className="font-bold text-secondary">ID: {order.id} </span>has
+              <h1 className="text-brand mb-2 text-2xl font-bold">Payment Already Received</h1>
+              <p className="text-brand/60 mb-8">
+                This order <span className="text-secondary font-bold">ID: {order.id} </span>has
                 already been paid for. <br />
                 We are currently preparing your items for shipment.
               </p>
@@ -95,25 +95,32 @@ function Payment() {
               <div className="flex-1">
                 <form action="" onSubmit={handleSubmit(onSubmit)} noValidate>
                   <div className="mb-12">
-                    <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-brand">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-[10px] text-white">
+                    <h2 className="text-brand mb-8 flex items-center gap-3 text-xl font-bold">
+                      <span className="bg-brand flex h-6 w-6 items-center justify-center rounded-full text-[10px] text-white">
                         3
                       </span>
                       Payment Method
                     </h2>
-                    <div className="rounded-2xl border border-brand/10 bg-white p-6">
-                      <div className="mb-4 flex items-center gap-4 border-b border-brand/5 pb-4">
-                        <input type="radio" checked name="payment" className="accent-brand" />
-                        <span className="text-sm font-bold text-brand">Credit Card</span>
+                    <div className="border-brand/10 rounded-2xl border bg-white p-6">
+                      <div className="border-brand/5 mb-4 flex items-center gap-4 border-b pb-4">
+                        <input
+                          type="radio"
+                          defaultChecked
+                          name="payment"
+                          className="accent-brand"
+                        />
+                        <span className="text-brand text-sm font-bold">Credit Card</span>
                       </div>
                       <div className="space-y-4">
                         <div className="col-span-1">
                           <div className="relative">
                             <input
                               id="credit-card"
+                              autoComplete="cc-number"
+                              inputMode="numeric"
                               type="text"
                               placeholder=" "
-                              className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
+                              className="peer border-brand/10 focus:border-secondary w-full rounded-xl border bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none"
                               {...register('credit-card', {
                                 required: 'Enter a card number',
                                 pattern: {
@@ -124,8 +131,8 @@ function Payment() {
                             />
 
                             <label
-                              htmlFor="email"
-                              className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                              htmlFor="credit-card"
+                              className="text-brand/50 peer-focus:text-secondary pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                             >
                               Credit Card Number
                             </label>
@@ -143,7 +150,7 @@ function Payment() {
                                 id="expiration-date"
                                 type="text"
                                 placeholder=" "
-                                className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
+                                className="peer border-brand/10 focus:border-secondary w-full rounded-xl border bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none"
                                 {...register('expiration-date', {
                                   required: 'Enter expiration date',
                                   pattern: {
@@ -155,7 +162,7 @@ function Payment() {
 
                               <label
                                 htmlFor="expiration-date"
-                                className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                                className="text-brand/50 peer-focus:text-secondary pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                               >
                                 Expiration Date (MM/YY)
                               </label>
@@ -172,7 +179,7 @@ function Payment() {
                                 id="cvv-code"
                                 type="text"
                                 placeholder=" "
-                                className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
+                                className="peer border-brand/10 focus:border-secondary w-full rounded-xl border bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none"
                                 {...register('cvv-code', {
                                   required: 'Enter the CVV or security code on your card',
                                   pattern: {
@@ -184,7 +191,7 @@ function Payment() {
 
                               <label
                                 htmlFor="cvv-code"
-                                className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-brand/50 capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
+                                className="text-brand/50 peer-focus:text-secondary pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm capitalize transition-all peer-focus:h-7 peer-focus:items-start peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:h-7 peer-[:not(:placeholder-shown)]:items-start peer-[:not(:placeholder-shown)]:text-[10px]"
                               >
                                 CVV
                               </label>
@@ -202,24 +209,30 @@ function Payment() {
 
                   <button
                     type="submit"
-                    className="w-full cursor-pointer rounded-2xl bg-brand py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-brand-dark"
+                    className="bg-brand hover:bg-brand-dark w-full cursor-pointer rounded-2xl py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl"
                   >
                     CONFIRM
                   </button>
                 </form>
               </div>
               <div className="w-full lg:w-100">
-                <div className="sticky top-8 rounded-4xl border border-brand/5 bg-white p-10 shadow-sm">
+                <div className="border-brand/5 sticky top-8 rounded-4xl border bg-white p-10 shadow-sm">
                   <h3 className="mb-8 text-xs font-bold tracking-widest text-gray-400 uppercase">
-                    your order{' '}
+                    your order
                     <span className="text-xs font-bold tracking-tight uppercase">
-                      {' '}
-                      ({order.id})
+                      （#{order.id}）
                     </span>
                   </h3>
+                  <Link
+                    to={`/order-detail/${order.id}`}
+                    className="group text-secondary mt-3 flex items-center gap-2 text-xs font-bold"
+                  >
+                    <span>View Order Details</span>
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
                   <div className="mb-8 space-y-6"></div>
 
-                  <div className="space-y-3 border-t border-brand/5 pt-6 text-sm">
+                  <div className="border-brand/5 space-y-3 border-t pt-6 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Subtotal</span>
                       <span className="font-bold">
@@ -228,14 +241,28 @@ function Payment() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Shipping</span>
-                      <span className="font-bold text-secondary">Free</span>
+                      <span className="text-secondary font-bold">Free</span>
                     </div>
-                    <div className="flex justify-between border-t border-brand/5 pt-4">
-                      <span className="text-lg font-bold text-brand">Total</span>
-                      <span className="text-2xl font-black tracking-tighter text-brand">
+                    <div className="border-brand/5 flex justify-between border-t pt-4">
+                      <span className="text-brand text-lg font-bold">Total</span>
+                      <span className="text-brand text-2xl font-black tracking-tighter">
                         $ {addThousandsSeparator(Math.ceil(order.total) || 0)}
                       </span>
                     </div>
+                  </div>
+                  <div className="mt-8 border-t border-dashed border-gray-100 pt-6">
+                    <button
+                      type="button"
+                      onClick={() => navigate(`/order/${order.id}`)}
+                      className="w-full text-center"
+                    >
+                      <span className="mb-1 block text-[10px] tracking-wider text-gray-400 uppercase">
+                        Your order is confirmed
+                      </span>
+                      <span className="text-brand hover:text-secondary text-xs font-bold underline underline-offset-4 transition-colors">
+                        Finish Payment Later
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
