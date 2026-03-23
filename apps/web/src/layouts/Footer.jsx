@@ -124,6 +124,7 @@ function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email address"
                     required
+                    autoComplete="email"
                     className="focus:border-secondary w-full rounded-l-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors focus:outline-none"
                   />
                   <button
