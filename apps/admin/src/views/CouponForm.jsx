@@ -160,7 +160,7 @@ function CouponForm() {
                       type="text"
                       className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
                       {...register('title', {
-                        required: 'Please enter product title',
+                        required: 'Please enter coupon title',
                       })}
                     />
                     <FieldErrorMessage message={errors.title?.message} />
@@ -180,7 +180,7 @@ function CouponForm() {
                           type="number"
                           className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-12 pl-4 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                           {...register('percent', {
-                            required: 'Please percent',
+                            required: 'Please enter percent',
                             valueAsNumber: true,
                           })}
                         />
