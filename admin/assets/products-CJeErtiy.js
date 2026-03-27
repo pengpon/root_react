@@ -1,0 +1,1 @@
+import{e as o}from"./index-BUfb53Pv.js";const a="root",e=(t=1,c)=>o.get(`/api/${a}/admin/products`,{params:{page:t,category:c}}),p=t=>o.post(`/api/${a}/admin/product`,{data:t}),r=(t,c)=>o.put(`/api/${a}/admin/product/${t}`,{data:c}),s=t=>o.delete(`/api/${a}/admin/product/${t}`),i=t=>o.get(`/api/${a}/product/${t}`);export{p as c,s as d,r as e,e as f,i as g};
