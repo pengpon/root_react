@@ -1,3 +1,4 @@
+import { FieldErrorMessage } from '@repo/ui';
 import { addThousandsSeparator, logger, Toast } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -137,11 +138,7 @@ function Payment() {
                               Credit Card Number
                             </label>
                           </div>
-                          {errors['credit-card'] && (
-                            <span className="px-1 text-xs text-red-500">
-                              {errors['credit-card'].message}
-                            </span>
-                          )}
+                          <FieldErrorMessage message={errors['credit-card']?.message} />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                           <div className="col-span-1">
@@ -167,11 +164,7 @@ function Payment() {
                                 Expiration Date (MM/YY)
                               </label>
                             </div>
-                            {errors['expiration-date'] && (
-                              <span className="px-1 text-xs text-red-500">
-                                {errors['expiration-date'].message}
-                              </span>
-                            )}
+                            <FieldErrorMessage message={errors['expiration-date']?.message} />
                           </div>
                           <div className="col-span-1">
                             <div className="relative">
@@ -196,11 +189,7 @@ function Payment() {
                                 CVV
                               </label>
                             </div>
-                            {errors['cvv-code'] && (
-                              <span className="px-1 text-xs text-red-500">
-                                {errors['cvv-code'].message}
-                              </span>
-                            )}
+                            <FieldErrorMessage message={errors['cvv-code']?.message} />
                           </div>
                         </div>
                       </div>

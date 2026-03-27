@@ -1,4 +1,4 @@
-import { Spinner } from '@repo/ui';
+import { Spinner, FieldErrorMessage } from '@repo/ui';
 import { formatDateTime, Toast } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -163,9 +163,7 @@ function CouponForm() {
                         required: 'Please enter product title',
                       })}
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['title'] && errors['title'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.title?.message} />
                   </div>
 
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -189,9 +187,7 @@ function CouponForm() {
                         <span className="absolute top-1/2 right-4 -translate-y-1/2 font-semibold text-gray-400">
                           %
                         </span>
-                        <div className="text-status-error h-4 text-sm">
-                          {errors['percent'] && errors['percent'].message}
-                        </div>
+                        <FieldErrorMessage message={errors.percent?.message} />
                       </div>
                     </div>
 
@@ -210,9 +206,7 @@ function CouponForm() {
                           required: 'Please enter code',
                         })}
                       />
-                      <div className="text-status-error h-4 text-sm">
-                        {errors['code'] && errors['code'].message}
-                      </div>
+                      <FieldErrorMessage message={errors.code?.message} />
                     </div>
                   </div>
                 </div>
@@ -256,9 +250,7 @@ function CouponForm() {
                       })}
                       className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['start_date'] && errors['start_date'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.start_date?.message} />
                   </div>
                   <div>
                     <label
@@ -283,9 +275,7 @@ function CouponForm() {
                       })}
                       className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['due_date'] && errors['due_date'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.due_date?.message} />
                   </div>
                 </div>
               </div>

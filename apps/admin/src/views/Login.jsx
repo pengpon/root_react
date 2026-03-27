@@ -1,3 +1,4 @@
+import { FieldErrorMessage } from '@repo/ui';
 import { Toast } from '@repo/utils';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
@@ -82,9 +83,7 @@ function Login() {
                       },
                     })}
                   />
-                  <div className="text-status-error h-5">
-                    {errors.username ? errors.username.message : ''}
-                  </div>
+                  <FieldErrorMessage message={errors.username?.message} />
                 </div>
               </div>
 
@@ -121,9 +120,7 @@ function Login() {
                       minLength: { value: 6, message: 'Password must be at least 6 characters' },
                     })}
                   />
-                  <div className="text-status-error h-5">
-                    {errors.password ? errors.password.message : ''}
-                  </div>
+                  <FieldErrorMessage message={errors.password?.message} />
                 </div>
               </div>
 

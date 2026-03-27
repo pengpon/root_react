@@ -1,4 +1,4 @@
-import { Spinner } from '@repo/ui';
+import { FieldErrorMessage, Spinner } from '@repo/ui';
 import { formatDateTime, Toast } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -191,9 +191,7 @@ function ProductForm() {
                         required: 'Please enter product title',
                       })}
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['title'] && errors['title'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.title?.message} />
                   </div>
                   <div>
                     <label
@@ -255,9 +253,7 @@ function ProductForm() {
                         })}
                       />
                     </div>
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['origin_price'] && errors['origin_price'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.origin_price?.message} />
                   </div>
                   <div>
                     <label htmlFor="price" className="mb-2 block text-sm font-medium text-gray-700">
@@ -278,9 +274,7 @@ function ProductForm() {
                         })}
                       />
                     </div>
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['price'] && errors['price'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.price?.message} />
                   </div>
                   <div>
                     <label htmlFor="stock" className="mb-2 block text-sm font-medium text-gray-700">
@@ -295,9 +289,7 @@ function ProductForm() {
                         valueAsNumber: true,
                       })}
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['stock'] && errors['stock'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.stock?.message} />
                   </div>
                   <div>
                     <div>
@@ -316,9 +308,7 @@ function ProductForm() {
                         })}
                       />
                     </div>
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['unit'] && errors['unit'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.unit?.message} />
                   </div>
                 </div>
               </div>
@@ -469,9 +459,7 @@ function ProductForm() {
                         <option value="Accessory">Accessory</option>
                       </select>
                     </div>
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['category'] && errors['category'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.category?.message} />
                   </div>
 
                   <div>

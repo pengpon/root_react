@@ -1,3 +1,4 @@
+import { FieldErrorMessage } from '@repo/ui';
 import { addThousandsSeparator, logger, Toast } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -105,9 +106,7 @@ function Checkout() {
                           Email Address
                         </label>
                       </div>
-                      {errors.email && (
-                        <span className="px-1 text-xs text-red-500">{errors.email.message}</span>
-                      )}
+                      <FieldErrorMessage message={errors.email?.message} />
                     </div>
                     <div className="col-span-1">
                       <div className="relative">
@@ -136,9 +135,7 @@ function Checkout() {
                           Phone Number
                         </label>
                       </div>
-                      {errors.tel && (
-                        <span className="px-1 text-xs text-red-500">{errors.tel.message}</span>
-                      )}
+                      <FieldErrorMessage message={errors.tel?.message} />
                     </div>
                   </div>
                 </div>
@@ -169,9 +166,7 @@ function Checkout() {
                           Name
                         </label>
                       </div>
-                      {errors.name && (
-                        <span className="px-1 text-xs text-red-500">{errors.name.message}</span>
-                      )}
+                      <FieldErrorMessage message={errors.name?.message} />
                     </div>
 
                     <div className="col-span-2">
@@ -192,9 +187,7 @@ function Checkout() {
                           Address
                         </label>
                       </div>
-                      {errors.address && (
-                        <span className="px-1 text-xs text-red-500">{errors.address.message}</span>
-                      )}
+                      <FieldErrorMessage message={errors.address?.message} />
                     </div>
 
                     <div className="relative col-span-2">

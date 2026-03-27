@@ -1,4 +1,4 @@
-import { Spinner } from '@repo/ui';
+import { Spinner, FieldErrorMessage } from '@repo/ui';
 import { calculateContentStats, formatDateTime, Toast } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -183,9 +183,7 @@ function ArticleForm() {
                         required: 'Please enter article title',
                       })}
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['title'] && errors['title'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.title?.message} />
                   </div>
                   <div>
                     <label
@@ -198,11 +196,11 @@ function ArticleForm() {
                       id="description"
                       type="text"
                       className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 focus:border-blue-500 focus:bg-white focus:outline-none"
-                      {...register('description')}
+                      {...register('description', {
+                        required: 'Please enter article description',
+                      })}
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['description'] && errors['description'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.description?.message} />
                   </div>
                   <div>
                     <label
@@ -225,9 +223,7 @@ function ArticleForm() {
                       <option value="Life">Mindful Life</option>
                       <option value="Food">Food Culture</option>
                     </select>
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['category'] && errors['category'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.category?.message} />
                   </div>
                   <div>
                     <label
@@ -244,9 +240,7 @@ function ArticleForm() {
                         required: 'Please enter content',
                       })}
                     ></textarea>
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['content'] && errors['content'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.content?.message} />
                   </div>
                 </div>
               </div>
@@ -367,9 +361,7 @@ function ArticleForm() {
                         required: 'Please enter author name',
                       })}
                     />
-                    <div className="text-status-error h-4 text-sm">
-                      {errors['author'] && errors['author'].message}
-                    </div>
+                    <FieldErrorMessage message={errors.author?.message} />
                   </div>
                   <div>
                     <span className="mb-2 block text-sm font-medium text-gray-700">
