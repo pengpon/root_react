@@ -213,7 +213,7 @@ function Payment() {
                     </span>
                   </h3>
                   <Link
-                    to={`/order-detail/${order.id}`}
+                    to={`/order/${order.id}`}
                     className="group text-secondary mt-3 flex items-center gap-2 text-xs font-bold"
                   >
                     <span>View Order Details</span>
