@@ -19,16 +19,16 @@ function Collections() {
             <Link
               to={{ pathname: '/products' }}
               state={{ activeCategory: 'All' }}
-              className="group relative cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft) md:col-span-2 md:row-span-2"
+              className="group relative cursor-pointer overflow-hidden rounded-2xl md:col-span-2 md:row-span-2"
             >
               <img
                 src={bundleImage}
                 alt="Curated Bundles"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="from-accent/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10">
+              <div className="from-brand/60 absolute inset-0 flex items-end bg-linear-to-t via-transparent to-transparent p-10">
                 <div>
-                  <span className="mb-2 block text-xs font-bold tracking-widest text-(--color-brand-accent) uppercase">
+                  <span className="mb-2 block text-xs font-bold tracking-widest uppercase">
                     Value Pack
                   </span>
                   <h3 className="text-3xl font-bold text-white md:text-4xl">Curated Bundles</h3>
@@ -39,7 +39,7 @@ function Collections() {
             <Link
               to={{ pathname: '/products' }}
               state={{ activeCategory: 'Vegetable' }}
-              className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
+              className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl"
             >
               <img
                 src={vegetableImage}
@@ -54,7 +54,7 @@ function Collections() {
             <Link
               to={{ pathname: '/products' }}
               state={{ activeCategory: 'Fruit' }}
-              className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl shadow-(--shadow-soft)"
+              className="group relative min-h-50 cursor-pointer overflow-hidden rounded-2xl"
             >
               <img
                 src={fruitImage}
