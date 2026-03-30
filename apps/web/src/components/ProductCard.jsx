@@ -58,6 +58,7 @@ function ProductCard({ data }) {
                   'https://placehold.co/600x400/89986D/FFFFFF?text=Oops'
                 }
                 className="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
+                alt={data?.title}
               />
             </div>
           </figure>

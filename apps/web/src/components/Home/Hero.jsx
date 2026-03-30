@@ -11,7 +11,7 @@ function Hero() {
     <>
       <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={bgImage} className="h-full w-full object-cover opacity-80" />
+          <img src={bgImage} className="h-full w-full object-cover opacity-80" alt='key-view' />
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
 

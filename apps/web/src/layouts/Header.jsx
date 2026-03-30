@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo_full.png';
 import { setDrawerOpen } from '../store/slices/cartSlice';
 import Cart from './Cart';
 
@@ -125,6 +125,7 @@ function Header() {
                 type="button"
                 className="transition-transform duration-300 hover:rotate-90 focus:outline-none"
                 onClick={toggleMenu}
+                aria-label="Toggle navigation"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
