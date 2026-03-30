@@ -61,13 +61,6 @@ function ProductList() {
         <div className="container mx-auto px-4">
           <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
-              {/* <nav className="mb-4 flex items-center gap-2 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
-                <a href="#" className="hover:text-[#2C3E2D]">
-                  Home
-                </a>
-                <span>/</span>
-                <span className="text-[#8C5E3C]">Shop All</span>
-              </nav> */}
               <h1 className="text-5xl font-bold tracking-tighter text-brand">The Harvest.</h1>
             </div>
 
@@ -94,26 +87,6 @@ function ProductList() {
               </Link>
             ))}
           </div>
-
-          {/* <div className="mt-20 flex justify-center">
-            <button className="flex items-center gap-4 border-b-2 border-[#2C3E2D] pb-2 text-sm font-bold tracking-widest text-[#2C3E2D] transition-all hover:gap-6">
-              LOAD MORE HARVEST
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2.5"
-                stroke="currentColor"
-                className="size-4"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                />
-              </svg>
-            </button>
-          </div> */}
         </div>
       </section>
     </>

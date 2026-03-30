@@ -23,7 +23,6 @@ function Products() {
   const columns = [
     { header: 'Product', key: 'summary' },
     { header: 'Category', key: 'category' },
-    // { header: 'Original Price', key: 'origin_price' },
     { header: 'Price', key: 'price' },
     { header: 'Enable', key: 'is_enabled' },
     { header: 'Stock', key: 'stock' },

@@ -208,41 +208,6 @@ function Checkout() {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="mb-12">
-                  <h2 className="mb-8 flex items-center gap-3 text-xl font-bold text-[#2C3E2D]">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2C3E2D] text-[10px] text-white">
-                      3
-                    </span>
-                    Payment Method
-                  </h2>
-                  <div className="rounded-2xl border border-[#2C3E2D]/10 bg-white p-6">
-                    <div className="mb-4 flex items-center gap-4 border-b border-[#2C3E2D]/5 pb-4">
-                      <input type="radio" checked name="payment" className="accent-[#2C3E2D]" />
-                      <span className="text-sm font-bold text-[#2C3E2D]">Credit Card</span>
-                    </div>
-                    <div className="space-y-4">
-                      <input
-                        type="text"
-                        placeholder="Card Number"
-                        className="w-full rounded-lg bg-[#FDFCF8] p-3 text-sm outline-none"
-                      />
-                      <div className="grid grid-cols-2 gap-4">
-                        <input
-                          type="text"
-                          placeholder="MM / YY"
-                          className="rounded-lg bg-[#FDFCF8] p-3 text-sm outline-none"
-                        />
-                        <input
-                          type="text"
-                          placeholder="CVC"
-                          className="rounded-lg bg-[#FDFCF8] p-3 text-sm outline-none"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-
                 <button
                   type="submit"
                   className="w-full cursor-pointer rounded-2xl bg-brand py-5 text-sm font-bold tracking-[0.2em] text-white shadow-2xl hover:bg-brand-dark"

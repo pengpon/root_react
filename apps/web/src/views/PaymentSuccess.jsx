@@ -36,11 +36,6 @@ function PaymentSuccess() {
             CONTINUE SHOPPING
           </button>
         </Link>
-        {/* <Link to="/orders">
-          <button className="w-full rounded-xl border border-[#2C3E2D]/10 bg-white px-8 py-3 text-sm font-bold text-[#2C3E2D] transition-all hover:bg-gray-50 active:scale-95 sm:w-auto">
-            VIEW ORDER
-          </button>
-        </Link> */}
       </div>
     </div>
   );

@@ -167,16 +167,6 @@ function ProductItem() {
                 </h3>
                 <p className="text-base leading-relaxed text-gray-600">{product.description}</p>
               </div>
-
-              {/* <div className="mt-8 flex flex-wrap gap-2">
-                <span className="rounded-lg bg-[#F3EFDF] px-3 py-1 text-[10px] font-bold tracking-wider text-[#2C3E2D] uppercase">
-                  Organic Certified
-                </span>
-                <span className="rounded-lg bg-[#F3EFDF] px-3 py-1 text-[10px] font-bold tracking-wider text-[#2C3E2D] uppercase">
-                  Zero Pesticides
-                </span>
-              </div> */}
-
               <div className="mt-12 space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center rounded-xl border border-brand/10 bg-white p-1">

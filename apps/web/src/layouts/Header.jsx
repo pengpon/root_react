@@ -66,12 +66,6 @@ function Header() {
                 </Link>
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 ease-out group-hover:w-full"></span>
               </li>
-              {/* <li className="group relative">
-                <a href="#" className="transition-colors hover:text-[#8C5E3C]">
-                  boxes
-                </a>
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#8C5E3C] transition-all duration-300 ease-out group-hover:w-full"></span>
-              </li> */}
               <li className="group relative">
                 <Link to="/posts" className="transition-colors hover:text-secondary">
                   journal
@@ -156,11 +150,6 @@ function Header() {
                     SHOP
                   </Link>
                 </li>
-                {/* <li>
-                  <Link href="#" className="transition-colors hover:text-[#8C5E3C]">
-                    BOXES
-                  </Link>
-                </li> */}
                 <li>
                   <Link
                     to="/posts"

@@ -35,15 +35,6 @@ function Footer() {
                 Honoring the Earth’s generosity through whole, real food.
               </p>
               <p className="mb-4 text-xs text-white/50 italic md:hidden">Eat Real, Live Rooted.</p>
-
-              {/* <div className="flex gap-4 text-sm">
-                <a href="#" className="transition-colors hover:text-[#8C5E3C]">
-                  Instagram
-                </a>
-                <a href="#" className="transition-colors hover:text-[#8C5E3C]">
-                  Facebook
-                </a>
-              </div> */}
             </div>
 
             <div className="col-span-1">
@@ -79,35 +70,6 @@ function Footer() {
                 </li>
               </ul>
             </div>
-
-            {/* <div className="col-span-1">
-              <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
-                About
-              </h4>
-              <ul className="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
-                <li>
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    Story
-                  </a>
-                </li>
-                <li className="hidden md:block">
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    Traceability
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    Journal
-                  </a>
-                </li>
-                <li className="hidden md:block">
-                  <a href="#" className="inline-block transition-transform hover:translate-x-1">
-                    Sustainability
-                  </a>
-                </li>
-              </ul>
-            </div> */}
-
             <form onSubmit={handleSubscribe}>
               <div className="col-span-2 mt-4 md:col-span-1 md:mt-0">
                 <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">

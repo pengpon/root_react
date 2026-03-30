@@ -185,9 +185,6 @@ function Index() {
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm lg:col-span-2">
             <div className="flex items-center justify-between border-b border-gray-50 p-6">
               <h3 className="text-lg font-bold text-gray-800">Inventory Alerts</h3>
-              {/* <button className="text-sm font-medium text-blue-600 hover:text-blue-800">
-                Export All <i className="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
-              </button> */}
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
