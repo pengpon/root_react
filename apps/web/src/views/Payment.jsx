@@ -92,7 +92,7 @@ function Payment() {
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-16 lg:flex-row">
+            <div className="flex flex-col-reverse gap-16 lg:flex-row">
               <div className="flex-1">
                 <form action="" onSubmit={handleSubmit(onSubmit)} noValidate>
                   <div className="mb-12">
