@@ -28,7 +28,7 @@ function Footer() {
         <div className="container mx-auto px-4">
           <div className="mb-12 grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 md:gap-12">
             <div className="col-span-2 md:col-span-1">
-              <h2 className="mb-4 text-2xl font-bold tracking-tighter text-white">ROOT</h2>
+              <p className="mb-4 text-2xl font-bold tracking-tighter text-white">ROOT</p>
               <p className="mb-6 hidden text-sm leading-relaxed text-white/60 italic md:block">
                 Eat Real, Live Rooted.
                 <br />
@@ -38,9 +38,9 @@ function Footer() {
             </div>
 
             <div className="col-span-1">
-              <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
+              <p className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
                 Collections
-              </h4>
+              </p>
               <ul className="space-y-3 text-sm text-white/60 md:space-y-4 md:text-white/90">
                 <li>
                   <Link
@@ -72,9 +72,9 @@ function Footer() {
             </div>
             <form onSubmit={handleSubscribe}>
               <div className="col-span-2 mt-4 md:col-span-1 md:mt-0">
-                <h4 className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
+                <p className="mb-4 text-[10px] font-bold tracking-widest text-white uppercase md:mb-6 md:text-xs">
                   Stay Rooted
-                </h4>
+                </p>
                 <p className="mb-4 hidden text-sm text-white/60 md:block">
                   Join our newsletter for seasonal harvest updates.
                 </p>

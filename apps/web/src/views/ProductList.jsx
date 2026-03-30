@@ -62,6 +62,7 @@ function ProductList() {
           <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
               <h1 className="text-5xl font-bold tracking-tighter text-brand">The Harvest.</h1>
+              <h2 className='sr-only'>{activeCategory}</h2>
             </div>
 
             <div

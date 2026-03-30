@@ -31,9 +31,9 @@ function ArticleCard({ data }) {
             <span className="h-1 w-1 rounded-full bg-gray-300"></span>
             <span>{data.readingTime} min read</span>
           </div>
-          <h2 className="text-2xl leading-tight font-bold text-brand transition-colors group-hover:text-secondary">
+          <h3 className="text-2xl leading-tight font-bold text-brand transition-colors group-hover:text-secondary">
             {data.title}
-          </h2>
+          </h3>
           {data.description && (
             <p className="mt-4 line-clamp-2 text-sm leading-relaxed text-gray-500">
               {data.description}

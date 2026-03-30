@@ -33,15 +33,15 @@ function ArticleList() {
       <section className="bg-surface-bright py-20">
         <div className="container mx-auto px-4">
           <div className="mb-20 text-center">
-            <h3 className="mb-4 text-xs font-bold tracking-[0.4em] text-secondary uppercase">
+            <p className="mb-4 text-xs font-bold tracking-[0.4em] text-secondary uppercase">
               Our Stories
-            </h3>
+            </p>
             <h1 className="text-5xl font-bold tracking-tighter text-brand md:text-7xl">
               The Journal.
             </h1>
-            <p className="mx-auto mt-6 max-w-lg text-gray-500 italic">
+            <h2 className="mx-auto mt-6 max-w-lg text-gray-500 italic">
               Exploring the connection between soil, soul, and the rhythm of nature.
-            </p>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 lg:grid-cols-3">

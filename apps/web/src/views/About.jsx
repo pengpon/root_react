@@ -4,12 +4,12 @@ function About() {
       <section className="bg-surface-bright py-24">
         <div className="container mx-auto px-4">
           <div className="mb-10 text-center lg:mb-32">
-            <h3 className="mb-4 text-[10px] font-bold tracking-[0.5em] text-secondary uppercase">
+            <h1 className="mb-4 text-[10px] font-bold tracking-[0.5em] text-secondary uppercase">
               Our Heritage
-            </h3>
-            <h1 className="text-5xl font-bold tracking-tighter text-brand italic md:text-7xl">
-              Growing since 1988.
             </h1>
+            <p className="text-5xl font-bold tracking-tighter text-brand italic md:text-7xl">
+              Growing since 1988.
+            </p>
             <div className="mx-auto mt-8 h-px w-24 bg-brand/20"></div>
           </div>
 
@@ -22,9 +22,9 @@ function About() {
                   <span className="text-4xl font-black tracking-tighter text-secondary/10 md:text-6xl">
                     1988
                   </span>
-                  <h3 className="mt-2 text-xl font-bold tracking-tight text-brand">
+                  <h2 className="mt-2 text-xl font-bold tracking-tight text-brand">
                     The Origin of a Thought
-                  </h3>
+                  </h2>
                   <p className="mt-4 text-sm leading-relaxed font-medium tracking-wider text-gray-500 uppercase md:ml-auto md:max-w-xs">
                     A Quiet Awakening
                   </p>
@@ -44,9 +44,9 @@ function About() {
                   <span className="text-4xl font-black tracking-tighter text-secondary/10 md:text-6xl">
                     2000
                   </span>
-                  <h3 className="mt-2 text-xl font-bold tracking-tight text-brand">
+                  <h2 className="mt-2 text-xl font-bold tracking-tight text-brand">
                     Connecting with the Local
-                  </h3>
+                  </h2>
                   <p className="mt-4 text-sm leading-relaxed font-medium tracking-wider text-gray-500 uppercase md:max-w-xs">
                     Health as a Choice
                   </p>
@@ -67,9 +67,9 @@ function About() {
                   <span className="text-4xl font-black tracking-tighter text-secondary/10 md:text-6xl">
                     2010
                   </span>
-                  <h3 className="mt-2 text-xl font-bold tracking-tight text-brand">
+                  <h2 className="mt-2 text-xl font-bold tracking-tight text-brand">
                     A Return to Whole Foods
-                  </h3>
+                  </h2>
                   <p className="mt-4 text-sm leading-relaxed font-medium tracking-wider text-gray-500 uppercase md:ml-auto md:max-w-xs">
                     Simplicity Redefined
                   </p>
@@ -89,10 +89,10 @@ function About() {
                 <span className="text-[10px] font-bold tracking-[0.5em] text-accent/50 uppercase">
                   The Milestone
                 </span>
-                <h2 className="mt-2 text-5xl font-black tracking-tighter text-accent">2017</h2>
-                <h3 className="mt-4 text-xl font-bold tracking-[0.2em] text-white uppercase">
+                <p className="mt-2 text-5xl font-black tracking-tighter text-accent">2017</p>
+                <h2 className="mt-4 text-xl font-bold tracking-[0.2em] text-white uppercase">
                   root takes shape
-                </h3>
+                </h2>
                 <div className="mx-auto my-6 h-px w-12 bg-accent/20"></div>
                 <p className="mt-4 max-w-xs text-sm leading-relaxed text-accent/80">
                   Root officially emerges as a lifestyle brand focused on balanced eating and
@@ -110,7 +110,7 @@ function About() {
                   <span className="block text-5xl font-black tracking-tighter text-brand md:text-7xl">
                     2026
                   </span>
-                  <h3 className="mt-2 text-2xl font-bold text-brand">The Digital Harvest</h3>
+                  <h2 className="mt-2 text-2xl font-bold text-brand">The Digital Harvest</h2>
                   <p className="mt-4 text-sm leading-relaxed text-gray-500 md:max-w-xs">
                     The official root website launches, offering curated fruits, vegetables, and
                     lifestyle items—bringing the balance of nature into your everyday routine.
