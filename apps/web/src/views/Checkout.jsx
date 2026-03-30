@@ -282,7 +282,7 @@ function Checkout() {
                     <div className="flex justify-between text-secondary">
                       <span className="font-medium">Discount</span>
                       <span className="font-bold">
-                        - $ {addThousandsSeparator(Math.ceil(finalTotal) - total || 0)}
+                        - $ {addThousandsSeparator(total - Math.ceil(finalTotal) || 0)}
                       </span>
                     </div>
                   )}
