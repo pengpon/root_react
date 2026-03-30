@@ -9,12 +9,10 @@ function Collections() {
       <section className="bg-white py-20">
         <div className="container mx-auto px-4">
           <div className="mb-10 flex items-end justify-between">
-            <h2 className="text-secondary text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="text-brand text-3xl font-bold tracking-tight md:text-4xl">
               Shop the Collection
             </h2>
-            <p className="hidden text-(--color-content-muted) italic md:block">
-              Handpicked from the earth, just for you.
-            </p>
+            <p className="md:block hidden italic">Handpicked from the earth, just for you.</p>
           </div>
 
           <div className="grid h-auto grid-cols-1 gap-6 md:h-162.5 md:grid-cols-3 md:grid-rows-2">
