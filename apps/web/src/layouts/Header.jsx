@@ -41,7 +41,7 @@ function Header() {
         <div className="flex h-16 items-center justify-between px-4 transition-all duration-300 lg:h-20 lg:px-10">
           <div className="flex flex-1 items-center">
             <div className="lg:hidden">
-              <button type="button" className="group ml-2 p-1 lg:hidden" onClick={toggleMenu}>
+              <button type="button" className="group ml-2 p-1 lg:hidden" onClick={toggleMenu} aria-label="Toggle navigation">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
