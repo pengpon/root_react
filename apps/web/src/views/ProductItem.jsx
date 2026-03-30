@@ -2,7 +2,7 @@ import { Spinner } from '@repo/ui';
 import { logger } from '@repo/utils';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { addToCart, updateCartItem } from '../api/cart';
 import { fetchProduct } from '../api/products';
 import { getCartAsync } from '../store/slices/cartSlice';
@@ -223,12 +223,12 @@ function ProductItem() {
                   </button>
                 </div>
 
-                <button
-                  type="button"
+                <Link
+                  to="/checkout"
                   className="w-full rounded-xl border-2 border-brand py-4 text-sm font-bold tracking-widest text-brand transition-all hover:bg-brand hover:text-white cursor-pointer"
                 >
                   BUY IT NOW
-                </button>
+                </Link>
               </div>
             </div>
           </div>
