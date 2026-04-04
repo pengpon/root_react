@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import coverImage from '../../assets/newsletter-cover.jpg'
+import coverImage from '../../assets/newsletter-cover.avif'
 function Newsletter() {
   const [isSubscribed, setIsSubscribed] = useState(() => {
     if (typeof window !== 'undefined') {

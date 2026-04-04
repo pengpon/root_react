@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
-import bundleImage from '../../assets/collections-bundle.jpg';
-import fruitImage from '../../assets/collections-fruit.jpg';
-import vegetableImage from '../../assets/collections-vegetable.jpg';
+import bundleImage from '../../assets/collections-bundle.avif';
+import fruitImage from '../../assets/collections-fruit.avif';
+import vegetableImage from '../../assets/collections-vegetable.avif';
 
 function Collections() {
   return (
