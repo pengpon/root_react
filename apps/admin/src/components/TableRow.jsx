@@ -225,7 +225,40 @@ function TableRow({ columns, data, onActionClick }) {
               </td>
             );
           }
-
+          // order
+          if (col.key === 'user') {
+            return (
+              <td key={col.key} className="px-6 py-4 text-sm text-gray-500">
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-gray-800">{data.user.name}</span>
+                  <span className="text-xs text-gray-400">{data.user.email}</span>
+                </div>
+              </td>
+            );
+          }
+          if (col.key === 'is_paid') {
+            return (
+              <td key={col.key} className="px-6 py-4">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset ${
+                    data.is_paid
+                      ? 'bg-emerald-50 text-emerald-700 ring-emerald-600/20'
+                      : 'bg-amber-50 text-amber-700 ring-amber-600/20'
+                  }`}
+                >
+                  {data.is_paid ? (
+                    <>
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Paid
+                    </>
+                  ) : (
+                    <>
+                      <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span> Unpaid
+                    </>
+                  )}
+                </span>
+              </td>
+            );
+          }
           return (
             <td key={col.key} className="px-6 py-4 text-sm text-gray-600">
               {' '}

@@ -1,6 +1,6 @@
 import TableRow from './TableRow';
 
-function ProductTable({ columns, data, onActionClick }) {
+function Table({ columns, data, onActionClick }) {
   return (
     <>
       <table className="w-full text-left">
@@ -23,4 +23,4 @@ function ProductTable({ columns, data, onActionClick }) {
   );
 }
 
-export default ProductTable;
+export default Table;

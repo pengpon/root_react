@@ -12,6 +12,8 @@ const CouponForm = lazy(() => import('../views/CouponForm'));
 const ArticleForm = lazy(() => import('../views/ArticleForm'));
 const Coupons = lazy(() => import('../views/Coupons'));
 const Articles = lazy(() => import('../views/Articles'));
+const Orders = lazy(() => import('../views/Orders'));
+const OrderForm = lazy(() => import('../views/OrderForm'));
 const Login = lazy(() => import('../views/Login'));
 
 const routes = [
@@ -62,6 +64,14 @@ const routes = [
           {
             path: '/articles/edit/:id',
             element: <ArticleForm />,
+          },
+          {
+            path: '/orders',
+            element: <Orders />,
+          },
+          {
+            path: '/orders/edit/:id',
+            element: <OrderForm />,
           },
         ],
       },

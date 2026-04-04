@@ -10,6 +10,7 @@ function Breadcrumbs() {
     '/coupons/create': 'Create New Coupon',
     '/articles': 'Article List',
     '/articles/create': 'Create New Article',
+    '/orders': 'Order List',
   };
 
   return (
