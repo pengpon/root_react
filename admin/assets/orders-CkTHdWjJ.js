@@ -1,0 +1,1 @@
+import{e as r}from"./index-BCC41dmV.js";const d="root",s=(e=1)=>r.get(`/api/${d}/admin/orders`,{params:{page:e}}),o=(e,a)=>r.put(`/api/${d}/admin/order/${e}`,{data:a}),i=e=>r.delete(`/api/${d}/admin/order/${e}`),n=()=>r.delete(`/api/${d}/admin/orders/all`);export{n as a,i as d,o as e,s as f};

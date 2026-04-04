@@ -1,0 +1,1 @@
+import{e as n}from"./index-BCC41dmV.js";const p="root",e=(o=1)=>n.get(`/api/${p}/admin/coupons`,{params:{page:o}}),s=o=>n.post(`/api/${p}/admin/coupon`,{data:o}),c=(o,a)=>n.put(`/api/${p}/admin/coupon/${o}`,{data:a}),i=o=>n.delete(`/api/${p}/admin/coupon/${o}`);export{s as c,i as d,c as e,e as f};
