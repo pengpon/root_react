@@ -161,6 +161,7 @@ function Coupons() {
         <Pagination pagination={pagination} onChange={handlePageChange} />
         {isAlertOpen && (
           <Alert
+            title="Coupon"
             data={selectedCoupon}
             onConfirm={handleDelete}
             onCancel={() => setIsAlertOpen(false)}

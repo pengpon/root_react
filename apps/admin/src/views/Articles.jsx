@@ -160,6 +160,7 @@ function Articles() {
         <Pagination pagination={pagination} onChange={handlePageChange} />
         {isAlertOpen && (
           <Alert
+            title="Article"
             data={selectedArticle}
             onConfirm={handleDelete}
             onCancel={() => setIsAlertOpen(false)}

@@ -1,4 +1,4 @@
-export function Alert({ data, onConfirm, onCancel }) {
+export function Alert({ title, data, onConfirm, onCancel }) {
   return (
     <>
       <div
@@ -23,25 +23,25 @@ export function Alert({ data, onConfirm, onCancel }) {
           </div>
 
           <div className="text-center">
-            <h3 className="mb-2 text-xl font-bold text-gray-900">Delete Product?</h3>
+            <h3 className="mb-2 text-xl font-bold text-gray-900">Delete {title} ? </h3>
             <p className="text-sm leading-relaxed text-gray-500">
               Are you sure you want to delete
               <span className="font-semibold text-gray-900">"{data.title}"</span>? This
-              action cannot be undone and will remove the product from your store.
+              action cannot be undone !
             </p>
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-3">
             <button
               type="button"
-              className="rounded-xl border border-gray-200 bg-white py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+              className="rounded-xl border border-gray-200 bg-white py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 cursor-pointer"
               onClick={onCancel}
             >
               Cancel
             </button>
             <button
               type="button"
-              className="rounded-xl bg-red-600 py-3 text-sm font-semibold text-white shadow-lg shadow-red-200 transition hover:bg-red-700"
+              className="rounded-xl bg-red-600 py-3 text-sm font-semibold text-white shadow-lg shadow-red-200 transition hover:bg-red-700 cursor-pointer"
               onClick={onConfirm}
             >
               Yes, Delete

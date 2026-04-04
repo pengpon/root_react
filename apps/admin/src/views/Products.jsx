@@ -161,6 +161,7 @@ function Products() {
 
         {isAlertOpen && (
           <Alert
+            title="Product"
             data={selectedProduct}
             onConfirm={handleDelete}
             onCancel={() => setIsAlertOpen(false)}
