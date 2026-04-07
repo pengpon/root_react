@@ -1,4 +1,4 @@
-import { Spinner, FieldErrorMessage } from '@repo/ui';
+import { FieldErrorMessage, Spinner } from '@repo/ui';
 import { formatDateTime, Toast } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -182,6 +182,16 @@ function CouponForm() {
                           {...register('percent', {
                             required: 'Please enter percent',
                             valueAsNumber: true,
+                            min: {
+                              value: 1,
+                              message: 'Must be greater than 0',
+                            },
+                            max: {
+                              value: 99,
+                              message: 'Must be smaller than 100',
+                            },
+                            validate: (value) =>
+                              Number.isInteger(value) || 'Must be a whole number',
                           })}
                         />
                         <span className="absolute top-1/2 right-4 -translate-y-1/2 font-semibold text-gray-400">
