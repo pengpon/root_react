@@ -193,7 +193,6 @@ function Checkout() {
                     <div className="relative col-span-2">
                       <textarea
                         id="message"
-                        type="text"
                         placeholder=" "
                         rows="2"
                         className="peer w-full rounded-xl border border-brand/10 bg-white px-4 pt-6 pb-2 text-sm placeholder-transparent outline-none focus:border-secondary"
