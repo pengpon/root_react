@@ -88,9 +88,6 @@ importers:
 
   apps/web:
     dependencies:
-      '@heroicons/react':
-        specifier: ^2.2.0
-        version: 2.2.0(react@19.2.4)
       '@repo/utils':
         specifier: workspace:^
         version: link:../../packages/utils
@@ -170,6 +167,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@heroicons/react':
+        specifier: ^2.2.0
+        version: 2.2.0(react@19.2.4)
       react:
         specifier: ^19.2.0
         version: 19.2.4

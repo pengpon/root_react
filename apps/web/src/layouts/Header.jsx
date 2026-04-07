@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import logo from '../assets/logo_full.png';
 import { setDrawerOpen } from '../store/slices/cartSlice';
 import Cart from './Cart';
+import { Bars3CenterLeftIcon, ShoppingBagIcon, XMarkIcon } from '@repo/ui';
 
 function Header() {
   const dispatch = useDispatch();
@@ -42,20 +43,7 @@ function Header() {
           <div className="flex flex-1 items-center">
             <div className="lg:hidden">
               <button type="button" className="group ml-2 p-1 lg:hidden" onClick={toggleMenu} aria-label="Toggle navigation">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                  stroke="currentColor"
-                  className="size-7 text-brand transition-colors group-hover:text-secondary"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
-                  />
-                </svg>
+                <Bars3CenterLeftIcon className="size-7 stroke-[2.5] text-brand transition-colors group-hover:text-secondary" />
               </button>
             </div>
 
@@ -90,20 +78,7 @@ function Header() {
 
           <div className="flex flex-1 items-center justify-end gap-4 text-brand">
             <button type="button" className="group relative cursor-pointer" onClick={toggleCart}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                className="size-6 transform transition-all duration-300 group-hover:scale-110 group-hover:text-secondary"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                />
-              </svg>
+              <ShoppingBagIcon className="size-6 stroke-2 transform transition-all duration-300 group-hover:scale-110 group-hover:text-secondary" />
               <span
                 key={totalQuantity}
                 className="animate-badge absolute -top-2 -right-2 flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-accent ring-2 ring-accent transition-transform group-hover:scale-110"
@@ -127,16 +102,7 @@ function Header() {
                 onClick={toggleMenu}
                 aria-label="Toggle navigation"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
+                <XMarkIcon className="size-6 stroke-2" />
               </button>
             </div>
 

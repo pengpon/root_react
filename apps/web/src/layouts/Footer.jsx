@@ -1,3 +1,4 @@
+import { CheckIcon } from '@repo/ui';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
@@ -100,19 +101,7 @@ function Footer() {
                   >
                     {isJoined ? (
                       <span className="flex items-center justify-center gap-1">
-                        <svg
-                          className="size-4 shrink-0"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={3}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                        <CheckIcon className="size-4 shrink-0 stroke-3" />
                         Joined
                       </span>
                     ) : (
@@ -129,14 +118,6 @@ function Footer() {
               © 2026 ROOT Concept Store.
               <span className="hidden md:inline">All rights reserved.</span>
             </p>
-            {/* <div className="flex gap-6 md:gap-8">
-              <a href="#" className="transition-colors hover:text-white">
-                Privacy Policy
-              </a>
-              <a href="#" className="transition-colors hover:text-white">
-                Terms of Service
-              </a>
-            </div> */}
           </div>
         </div>
       </footer>

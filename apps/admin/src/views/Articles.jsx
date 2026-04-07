@@ -1,5 +1,5 @@
 import { deleteArticle, fetchArticles } from '@/api/articles';
-import { Alert, Spinner } from '@repo/ui';
+import { Alert, PlusIcon, Spinner } from '@repo/ui';
 import { Toast, logger } from '@repo/utils';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
@@ -139,16 +139,7 @@ function Articles() {
               className="mr-4 flex items-center rounded-lg bg-blue-100 p-2 text-blue-600 transition hover:bg-blue-600 hover:text-white"
               onClick={() => onActionClick('create', '')}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                className="mr-2 h-4 w-4"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
+              <PlusIcon className="mr-2 h-4 w-4 stroke-2" />
               <span className="font-medium"> Create Article </span>
             </button>
           </div>

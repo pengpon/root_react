@@ -1,4 +1,4 @@
-import { Spinner } from '@repo/ui';
+import { CheckIcon, Spinner } from '@repo/ui';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCartAsync } from '../store/slices/cartSlice';
@@ -75,15 +75,7 @@ function ProductCard({ data }) {
                   <Spinner />
                 </div>
               ) : isSuccess ? (
-                <svg
-                  className="animate-pop size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                >
-                  <path className="animate-draw-check" d="M5 13l4 4L19 7" />
-                </svg>
+                <CheckIcon  className="animate-pop size-4 stroke-3" />
               ) : (
                 'ADD TO BASKET'
               )}

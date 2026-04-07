@@ -1,4 +1,4 @@
-import { Spinner } from '@repo/ui';
+import { Spinner, XMarkIcon } from '@repo/ui';
 import { addThousandsSeparator, logger, Toast } from '@repo/utils';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -110,16 +110,7 @@ function Cart({ isOpen, onClose }) {
                 onClick={onClose}
                 className="group p-2 transition-transform hover:rotate-90"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="group-hover:text-brand size-6 text-gray-400"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
+                <XMarkIcon className="group-hover:text-brand size-6 stroke-2 text-gray-400" />
               </button>
             </div>
 
@@ -149,14 +140,7 @@ function Cart({ isOpen, onClose }) {
                               className="text-gray-800 transition-colors hover:text-red-700"
                               onClick={() => handleRemove(item.id)}
                             >
-                              <svg
-                                className="size-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path d="M6 18L18 6M6 6l12 12" />
-                              </svg>
+                              <XMarkIcon className="size-4 stroke-[1.5]" />
                             </button>
                           </div>
                           <div className="flex items-end justify-between border-t border-gray-50 pt-3">

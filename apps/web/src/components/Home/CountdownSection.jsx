@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@repo/ui';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
@@ -77,20 +78,7 @@ function CountdownSection() {
 
             <Link to="/products" className="group flex items-center gap-3 rounded-full bg-secondary px-10 py-4 text-sm font-bold text-accent transition-all hover:bg-secondary-light hover:shadow-xl active:scale-95">
               SHOP THE HARVEST
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2.5"
-                stroke="currentColor"
-                className="size-4 transition-transform group-hover:translate-x-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1 stroke-3" />
             </Link>
           </div>
         </div>

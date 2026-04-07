@@ -1,4 +1,4 @@
-import { Spinner, FieldErrorMessage } from '@repo/ui';
+import { EyeIcon, FieldErrorMessage, NewspaperIcon, PhotoIcon, Spinner, UserIcon } from '@repo/ui';
 import { calculateContentStats, formatDateTime, Toast } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -159,14 +159,7 @@ function ArticleForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-blue-600">
-                    <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <NewspaperIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Content</h3>
                 </div>
@@ -248,20 +241,7 @@ function ArticleForm() {
                 <div className="mb-6 flex items-center justify-between">
                   <div className="mb-6 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="size-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                        />
-                      </svg>
+                      <PhotoIcon className="size-6" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-800">Article Media</h3>
                   </div>
@@ -287,20 +267,7 @@ function ArticleForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                    <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <EyeIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Visibility</h3>
                 </div>
@@ -334,14 +301,7 @@ function ArticleForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                    <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <UserIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Metadata</h3>
                 </div>

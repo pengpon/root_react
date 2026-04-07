@@ -1,4 +1,13 @@
-import { FieldErrorMessage, Spinner } from '@repo/ui';
+import {
+  AdjustmentsVerticalIcon,
+  ClockIcon,
+  CubeIcon,
+  DocumentTextIcon,
+  FieldErrorMessage,
+  PhotoIcon,
+  RectangleStackIcon,
+  Spinner,
+} from '@repo/ui';
 import { formatDateTime, Toast } from '@repo/utils';
 import { useCallback, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -161,20 +170,7 @@ function ProductForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="size-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-                      />
-                    </svg>
+                    <DocumentTextIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">General Information</h3>
                 </div>
@@ -213,20 +209,7 @@ function ProductForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="size-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-                      />
-                    </svg>
+                    <CubeIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Pricing & Inventory</h3>
                 </div>
@@ -316,20 +299,7 @@ function ProductForm() {
                 <div className="mb-6 flex items-center justify-between">
                   <div className="mb-6 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="size-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                        />
-                      </svg>
+                      <PhotoIcon className="size-6" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-800">Product Media</h3>
                   </div>
@@ -370,20 +340,7 @@ function ProductForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="size-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
-                      />
-                    </svg>
+                    <AdjustmentsVerticalIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Status</h3>
                 </div>
@@ -417,22 +374,9 @@ function ProductForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="size-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m-15 0a2.25 2.25 0 0 0-1.5 2.122v5.25a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25v-5.25a2.25 2.25 0 0 0-1.5-2.122m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128"
-                      />
-                    </svg>
+                    <RectangleStackIcon className="size-6" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-800">Organization</h3>
+                  <h3 className="text-lg font-bold text-gray-800">Catalog</h3>
                 </div>
                 <div className="space-y-4">
                   <div>
@@ -464,7 +408,7 @@ function ProductForm() {
 
                   <div>
                     <label htmlFor="badge" className="mb-2 block text-sm font-medium text-gray-700">
-                      Promotion Badge
+                      Badge
                     </label>
                     <select
                       id="badge"
@@ -508,20 +452,7 @@ function ProductForm() {
                 <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                   <div className="mb-6 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-gray-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="size-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                        />
-                      </svg>
+                      <ClockIcon className="size-6" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-800">History</h3>
                   </div>

@@ -1,3 +1,12 @@
+import {
+  ArrowTrendingUpIcon,
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+  ClipboardDocumentListIcon,
+  CubeIcon,
+  PencilSquareIcon,
+  TicketIcon,
+} from '@repo/ui';
 import { useState } from 'react';
 import { NavLink } from 'react-router';
 import logoWhite from '../assets/logo_white.png';
@@ -34,35 +43,9 @@ function Aside() {
               className="rounded-lg p-2 transition-colors hover:bg-slate-700"
             >
               {isCollapsed ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
-                  />
-                </svg>
+                <ChevronDoubleRightIcon className="size-6 shrink-0 stroke-[1.5]" />
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
-                  />
-                </svg>
+                <ChevronDoubleLeftIcon className="size-6 shrink-0 stroke-[1.5]" />
               )}
             </button>
           </div>
@@ -71,41 +54,17 @@ function Aside() {
         <nav className="flex-1 space-y-2 overflow-y-auto p-4">
           <p className="px-4 pb-2 text-xs font-semibold text-slate-500 uppercase">Main Menu</p>
           <NavLink to="/" className={navItemClass}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="mr-3 size-6 shrink-0"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
-              />
-            </svg>
+            <ArrowTrendingUpIcon className="mr-3 size-6 shrink-0 stroke-[1.5]" />
+
             <span
-              className={`ml-3 transition-opacity duration-300 ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'}`}
+              className={`ml-3 whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'}`}
             >
               Dashboard
             </span>
           </NavLink>
           <NavLink to="/products" className={navItemClass}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="mr-3 size-6 shrink-0"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-              />
-            </svg>
+            <CubeIcon className="mr-3 size-6 shrink-0 stroke-[1.5]" />
+
             <span
               className={`ml-3 transition-opacity duration-300 ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'}`}
             >
@@ -113,20 +72,8 @@ function Aside() {
             </span>
           </NavLink>
           <NavLink to="/coupons" className={navItemClass}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="mr-3 size-6 shrink-0"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"
-              />
-            </svg>
+            <TicketIcon className="mr-3 size-6 shrink-0 stroke-[1.5]" />
+
             <span
               className={`ml-3 transition-opacity duration-300 ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'}`}
             >
@@ -134,20 +81,8 @@ function Aside() {
             </span>
           </NavLink>
           <NavLink to="/articles" className={navItemClass}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="mr-3 size-6 shrink-0"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-              />
-            </svg>
+            <PencilSquareIcon className="mr-3 size-6 shrink-0 stroke-[1.5]" />
+
             <span
               className={`ml-3 transition-opacity duration-300 ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'}`}
             >
@@ -155,20 +90,8 @@ function Aside() {
             </span>
           </NavLink>
           <NavLink to="/orders" className={navItemClass}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="mr-3 size-6 shrink-0"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .415.162.798.425 1.082.263.285.62.463 1.014.463.394 0 .751-.178 1.014-.463.263-.284.425-.667.425-1.082 0-.23-.035-.454-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25c1.039 0 1.909.702 2.15 1.656m-5.8 0a48.202 48.202 0 0 0-4.338.362A2.25 2.25 0 0 0 2.25 6.407v10.122c0 1.134.845 2.097 1.976 2.192.73.06 1.464.103 2.201.13"
-              />
-            </svg>
+            <ClipboardDocumentListIcon className="mr-3 size-6 shrink-0 stroke-[1.5]" />
+
             <span
               className={`ml-3 transition-opacity duration-300 ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'}`}
             >

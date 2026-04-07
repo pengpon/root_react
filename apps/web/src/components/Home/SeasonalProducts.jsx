@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import ProductCard from '../ProductCard';
+import { ArrowRightIcon } from '@repo/ui';
 
 function SeasonalProducts({ data }) {
   return (
@@ -24,20 +25,7 @@ function SeasonalProducts({ data }) {
               className="group flex items-center gap-2 text-sm font-bold text-brand transition-colors hover:text-secondary"
             >
               SHOP ALL PRODUCTS
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2.5"
-                stroke="currentColor"
-                className="size-4 transition-transform group-hover:translate-x-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <ArrowRightIcon className="size-4 stroke-3 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 

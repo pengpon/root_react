@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import coverImage from '../../assets/newsletter-cover.avif'
+import { ArrowRightIcon, CheckCircleIcon } from '@repo/ui';
 function Newsletter() {
   const [isSubscribed, setIsSubscribed] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -61,39 +62,13 @@ function Newsletter() {
                     ) : (
                       <>
                         SUBSCRIBE
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          stroke="currentColor"
-                          className="size-4"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                          />
-                        </svg>
+                        <ArrowRightIcon className="size-4 stroke-2" />
                       </>
                     )}
                   </button>
                 </form>
                 <p className="mt-8 flex items-center gap-2 text-[11px] text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-3"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                    />
-                  </svg>
+                  <CheckCircleIcon className="size-3" />
                   Respecting your privacy as we respect the land.
                 </p>
               </div>

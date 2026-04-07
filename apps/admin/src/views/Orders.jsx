@@ -1,5 +1,5 @@
 import { deleteAllOrders, deleteOrder, fetchOrders } from '@/api/orders';
-import { Alert, Spinner } from '@repo/ui';
+import { Alert, ArchiveBoxXMarkIcon, Spinner } from '@repo/ui';
 import { Toast, logger } from '@repo/utils';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
@@ -81,7 +81,7 @@ function Orders() {
   };
 
   const handleDeleteAll = async () => {
-    console.log('here')
+    console.log('here');
     setIsLoading(true);
     try {
       const res = await deleteAllOrders();
@@ -154,20 +154,13 @@ function Orders() {
           <div className="flex items-center justify-end border-b border-gray-50 bg-gray-50/30 p-6">
             <button
               type="button"
-              className="flex items-center text-sm rounded-lg px-3 py-2 font-semibold text-red-500 bg-red-50 transition hover:text-white hover:bg-red-500 cursor-pointer"
+              className="flex cursor-pointer items-center rounded-lg bg-red-50 px-3 py-2 text-sm font-semibold text-red-500 transition hover:bg-red-500 hover:text-white"
               onClick={() => {
-                setSelectedOrder({title: "All Orders"});
+                setSelectedOrder({ title: 'All Orders' });
                 setIsAlertOpen(true);
               }}
             >
-              <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                />
-              </svg>
+              <ArchiveBoxXMarkIcon className="mr-2 h-4 w-4 stroke-2" />
               Delete All
             </button>
           </div>
@@ -181,7 +174,7 @@ function Orders() {
           <Alert
             title="Order"
             data={selectedOrder}
-            onConfirm={selectedOrder?.id ? handleDelete: handleDeleteAll}
+            onConfirm={selectedOrder?.id ? handleDelete : handleDeleteAll}
             onCancel={() => setIsAlertOpen(false)}
           />
         )}

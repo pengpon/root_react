@@ -1,4 +1,10 @@
-import { FieldErrorMessage, Spinner } from '@repo/ui';
+import {
+  ChatBubbleBottomCenterTextIcon,
+  CheckCircleIcon,
+  FieldErrorMessage,
+  Spinner,
+  TruckIcon,
+} from '@repo/ui';
 import { formatDateTime, Toast } from '@repo/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -107,14 +113,7 @@ function OrderForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-blue-600">
-                    <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.129-1.125V11.25c0-.442-.255-.837-.633-1.03l-2.67-1.377a1.125 1.125 0 0 0-1.102 0l-2.323 1.201c-.378.193-.633.588-.633 1.03v7.5m-9-13.5h3.375a1.125 1.125 0 0 1 1.125 1.125v1.5m-1.5 0h4.5m4.5 0h.375c.621 0 1.125.504 1.125 1.125V6.75"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <TruckIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Delivery Information</h3>
                 </div>
@@ -174,14 +173,7 @@ function OrderForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                    <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M7.5 8.25h9m-9 3h9m-9 3h3m-6.75 5.25a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-10.5a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3v10.5Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <ChatBubbleBottomCenterTextIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Customer Message</h3>
                 </div>
@@ -198,14 +190,7 @@ function OrderForm() {
               <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                    <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <CheckCircleIcon className="size-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-800">Payment Status</h3>
                 </div>

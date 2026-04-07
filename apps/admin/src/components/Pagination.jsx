@@ -1,3 +1,5 @@
+import { ChevronLeftIcon, ChevronRightIcon, EllipsisHorizontalIcon } from '@repo/ui';
+
 function Pagination({ pagination, onChange, range = 3 }) {
   const { current, total } = pagination;
   let pagesArr = [];
@@ -43,16 +45,7 @@ function Pagination({ pagination, onChange, range = 3 }) {
             data-page={1}
             className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-gray-100 text-gray-800 hover:bg-gray-500 hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-gray-400"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
+            <ChevronLeftIcon className="size-5" />
           </button>
           {pagesArr.map((page, index) => (
             <button
@@ -61,24 +54,7 @@ function Pagination({ pagination, onChange, range = 3 }) {
               className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-gray-100 text-gray-800 hover:bg-gray-500 hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-gray-400 ${page === current ? `bg-gray-600 text-white hover:bg-gray-600` : ''} ${page === 'more' ? `cursor-text bg-transparent hover:bg-transparent` : ''}`}
               data-page={page}
             >
-              {page === 'more' ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-                  />
-                </svg>
-              ) : (
-                page
-              )}
+              {page === 'more' ? <EllipsisHorizontalIcon className="size-6" /> : page}
             </button>
           ))}
 
@@ -88,16 +64,7 @@ function Pagination({ pagination, onChange, range = 3 }) {
             disabled={current === total}
             data-page={total}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
+            <ChevronRightIcon className="size-5" />
           </button>
         </div>
       </div>

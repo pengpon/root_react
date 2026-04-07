@@ -1,4 +1,4 @@
-import { Spinner } from '@repo/ui';
+import { CheckIcon, Spinner } from '@repo/ui';
 import { logger } from '@repo/utils';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -205,17 +205,7 @@ function ProductItem() {
                       {isAddToCartLoading ? (
                         <Spinner className="size-5" />
                       ) : isSuccess ? (
-                        <svg
-                          className="size-6 animate-pop"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path className="animate-draw-check" d="M5 13l4 4L19 7" />
-                        </svg>
+                        <CheckIcon  className="size-6 stroke-3 animate-pop" />
                       ) : (
                         'ADD TO BASKET'
                       )}
