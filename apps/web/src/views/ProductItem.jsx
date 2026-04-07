@@ -225,7 +225,7 @@ function ProductItem() {
 
                 <Link
                   to="/checkout"
-                  className="w-full rounded-xl border-2 border-brand py-4 text-sm font-bold tracking-widest text-brand transition-all hover:bg-brand hover:text-white cursor-pointer"
+                  className="block rounded-xl border-2 border-brand py-4 text-sm text-center font-bold tracking-widest text-brand transition-all hover:bg-brand hover:text-white cursor-pointer"
                 >
                   BUY IT NOW
                 </Link>
