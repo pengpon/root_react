@@ -1,6 +1,6 @@
 import { fetchArticles } from '@/api/articles';
 import { fetchCoupons } from '@/api/coupons';
-import { fetchProducts } from '@/api/products';
+import { fetchAllProducts } from '@/api/products';
 import {
   InboxStackIconSolid,
   InformationCircleIcon,
@@ -36,17 +36,18 @@ function Index() {
       try {
         setIsLoading(true);
         const [productsRes, couponsRes, articlesRes] = await Promise.all([
-          fetchProducts(),
+          fetchAllProducts(),
           fetchCoupons(),
           fetchArticles(),
         ]);
 
         setStats({
-          products: productsRes.data?.products?.length || 0,
+          products: Object.keys(productsRes.data?.products).length || 0,
           coupons: couponsRes.data?.coupons?.length || 0,
           articles: articlesRes.data?.articles?.length || 0,
         });
-        const lowStock = productsRes.data.products.filter((p) => p.stock < 5);
+        const products = Object.values(productsRes.data.products)
+        const lowStock = products.filter((p) => p.stock < 5);
         setLowStockProducts(lowStock);
 
         setActiveCouponsCount(getActiveCouponsCount(couponsRes.data.coupons));
