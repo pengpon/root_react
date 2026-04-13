@@ -315,7 +315,7 @@ function ProductForm() {
                     <Controller
                       name="imageUrl"
                       control={control}
-                      render={({ field }) => <CoverUpload {...field} maxMB={1} />}
+                      render={({ field }) => <CoverUpload {...field} maxMB={3} />}
                     />
                   </div>
 
@@ -328,7 +328,7 @@ function ProductForm() {
                       name="imagesUrl"
                       control={control}
                       render={({ field }) => (
-                        <GalleryUpload values={field.value} onChange={field.onChange} maxMB={1} />
+                        <GalleryUpload values={field.value} onChange={field.onChange} maxMB={3} />
                       )}
                     />
                   </div>
