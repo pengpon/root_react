@@ -25,6 +25,12 @@ const ActionButtons = ({ onActionClick }) => {
 };
 
 function TableRow({ columns, data, onActionClick }) {
+  const getStockBadgeStyles = (stock) => {
+    if (stock === undefined || stock === null) return 'bg-slate-100 text-slate-500';
+    if (stock > 20) return 'bg-emerald-50 text-emerald-600';
+    return 'bg-red-50 text-red-600';
+  };
+
   return (
     <>
       <tr className="transition hover:bg-gray-50">
@@ -92,10 +98,10 @@ function TableRow({ columns, data, onActionClick }) {
           if (col.key === 'stock') {
             return (
               <td key={col.key} className="px-6 py-4">
-                <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold text-red-600">
-                  {data.stock !== undefined && data.stock !== null
-                    ? `${data.stock} units`
-                    : 'No stock info'}
+                <span
+                  className={`rounded-full px-3 py-1 text-xs font-bold ${getStockBadgeStyles(data.stock)}`}
+                >
+                  {data.stock != null ? `${data.stock} units` : 'No stock info'}
                 </span>
               </td>
             );
