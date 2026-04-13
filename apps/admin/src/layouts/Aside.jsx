@@ -52,7 +52,6 @@ function Aside() {
         </div>
 
         <nav className="flex-1 space-y-2 overflow-y-auto p-4">
-          <p className="px-4 pb-2 text-xs font-semibold text-slate-500 uppercase">Main Menu</p>
           <NavLink to="/" className={navItemClass}>
             <ArrowTrendingUpIcon className="mr-3 size-6 shrink-0 stroke-[1.5]" />
 
