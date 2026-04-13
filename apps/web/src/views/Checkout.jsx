@@ -49,6 +49,20 @@ function Checkout() {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
+
+    const isAllApplied = cartList.every(item => item.total !== item.final_total);
+    const isSameCode = cartList[0].coupon.code === data.code;
+    if (isAllApplied && isSameCode) {
+      Toast.fire({
+        position: 'top',
+        icon: 'warning',
+        title: `Already Applied: ${data.code.toUpperCase()}`,
+        color: '#1f2937',
+        iconColor: '#f59e0b',
+        background: '#ffffff',
+      });
+    }
+
     await applyCoupon(data);
     dispatch(getCartAsync());
   };
@@ -261,7 +275,7 @@ function Checkout() {
                       type="text"
                       placeholder="Gift Code"
                       required
-                      className="flex-1 rounded-xl border border-transparent bg-surface-bright px-4 py-2 text-sm outline-none focus:border-secondary/20"
+                      className="flex-1 rounded-xl border border-secondary/10 bg-surface-bright px-4 py-2 text-sm outline-none focus:border-secondary/30"
                     />
                     <button
                       type="submit"
